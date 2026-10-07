@@ -1211,7 +1211,7 @@ details.mo .month{border:0;background:none}
 
 /* done: a hand-drawn strike in red pencil, never a thin line */
 ol.tl li.done .trow b,.item input:checked~.what,ul.ingl button[aria-pressed="true"] .nm,ul.fl .ln[aria-pressed="true"] span,.bi[aria-pressed="true"] b,ol.pr li.done .w,.skip span{
-  text-decoration:none;background-image:var(--strike);background-repeat:repeat-x;background-size:72px .9em;background-position:0 .42em;
+  text-decoration:none;background-image:var(--strike);background-repeat:repeat-x;background-size:72px .9em;background-position:0 .16em;
   -webkit-box-decoration-break:clone;box-decoration-break:clone}
 ol.pr li.done .w,ul.fl .ln[aria-pressed="true"] span{background-repeat:repeat;background-size:72px 1lh;background-position:0 -.05lh}
 ul.fl .ln[aria-pressed="true"] span{display:block}
@@ -1308,7 +1308,7 @@ ul.fl{border-top-color:var(--rule-soft)}ul.fl li{border-bottom-color:var(--rule-
 .previewing .focus{background:var(--surface-1)}
 
 /* the list: a ruled sheet; the current row is marked with the day's ink */
-ol.tl li.cur{background:color-mix(in oklab,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
+ol.tl li.cur{background:color-mix(in oklch,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
 @media (hover:hover){ol.tl li:not(.cur):not(.shut):hover{background:var(--surface-2)}}
 ol.tl li.shut{background:var(--surface-1)}
 ol.tl li.shut::before,ol.tl li.shut::after{border-top:1.5px dashed var(--rule-soft)}
@@ -1332,7 +1332,7 @@ ol.tl li.done .rico{opacity:.5;filter:grayscale(.6)}
 .rota .pf.pot{width:40px;height:40px;margin:-2px 0}
 .rota{background:transparent;border:1.5px solid var(--rule);border-radius:var(--wr);padding:2px}
 .rota button{border-radius:var(--wr-sm);color:var(--ink-soft)}
-.rota button.now{background:color-mix(in oklab,var(--accent) 10%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent);color:var(--ink-strong)}
+.rota button.now{background:color-mix(in oklch,var(--accent) 10%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent);color:var(--ink-strong)}
 .rota button:hover .pf{transform:rotate(-6deg)}
 .dsw{background:transparent;border:1.5px solid var(--rule);border-radius:var(--wr)}
 .dsw button{border-radius:var(--wr-sm)}
@@ -1458,16 +1458,25 @@ ul.rl.noic .rlb{padding:var(--s4)}
 .tmb.on{background:var(--surface-1);box-shadow:inset 0 0 0 2.5px var(--accent)}
 .set{border:1.5px solid var(--rule);border-radius:var(--wr);background:var(--rule-soft)}
 .warn{background:var(--surface-1);border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:inset 5px 0 0 var(--danger)}
-ol.allst button.c,ol.pr li.next{background:color-mix(in oklab,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
+ol.allst button.c,ol.pr li.next{background:color-mix(in oklch,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
 .hn,ol.allst button::before,ol.pr .t{font-family:var(--font-mono);font-size:12px;border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule)}
 ol.hsteps li:last-child .hn,ol.allst button.c::before,ol.pr li.next .t{box-shadow:none}
 
 /* chips: printed tags; a plant you ate gets the accent ink */
 .chip{border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule-soft);background:var(--surface-1)}
 .chip:hover{box-shadow:inset 0 0 0 1.5px var(--rule)}
-.chip[aria-pressed="true"]{background:color-mix(in oklab,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
-.legend i.on{border-radius:2px;background:color-mix(in oklab,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
+.chip[aria-pressed="true"]{background:color-mix(in oklch,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
+.legend i.on{border-radius:2px;background:color-mix(in oklch,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
 kbd{border-color:var(--rule);background:var(--surface-1)}
+
+/* ---------- second pass ---------- */
+.stk .ko *{fill:none!important;stroke:var(--k)!important;stroke-width:.9!important;stroke-opacity:.9}
+.stk .ko{filter:url(#pf-wob-s)}
+.stk .cut *{stroke-width:3.6}
+.reveal.open{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.fixnote.rescued{border-left:1.5px solid var(--rule)}
+.tabs button.alert .ic::after{box-shadow:0 0 0 2px var(--surface-0),0 0 0 3.5px var(--k)}
+@media (min-width:960px){.tabs{border-top:0}}
 /* ===== END POT FAMILY LAYER ===== */
 /* empty water glasses read as "tap to fill", not as disabled */
 .cups.glass button[aria-pressed="false"] .w{fill:color-mix(in oklab,var(--water) 14%,var(--steel-2))}
@@ -2468,7 +2477,8 @@ const STK_SHAPE={
   round:c=>`<circle cx="12" cy="13.2" r="7" fill="${c}"/><path d="M12 6.4c.8-2 2.7-2.9 4.8-2.5-.9 1.9-2.7 2.9-4.8 2.5z" fill="#3f9a45"/><circle cx="9.4" cy="10.8" r="1.6" fill="#fff" opacity=".45"/>`,
   leaf:c=>`<path d="M5 19C5.6 10.5 11.4 5 19.5 4.6 19.4 13 13.6 18.8 5 19z" fill="${c}"/><path d="M5.6 18.4 17.6 6.6M10 14.2l-.3-3.4M13.4 10.8l-.2-3.2M10 14.2l3.4.3M13.4 10.8l3.2.3" stroke="rgba(0,0,0,.28)" stroke-width=".9" fill="none" stroke-linecap="round"/>`,
   seeds:c=>`<ellipse cx="8.4" cy="14" rx="3.6" ry="2.7" transform="rotate(-25 8.4 14)" fill="${c}"/><ellipse cx="15.2" cy="16.2" rx="3.6" ry="2.7" transform="rotate(20 15.2 16.2)" fill="${c}"/><ellipse cx="13" cy="8.6" rx="3.6" ry="2.7" transform="rotate(-5 13 8.6)" fill="${c}"/><path d="M7 13.2l2.6-1M14 15.6l2.4 1.1M11.8 8.3h2.4" stroke="rgba(0,0,0,.22)" stroke-width=".9" stroke-linecap="round"/>`,
-  egg:()=>`<ellipse cx="12" cy="12.8" rx="6.2" ry="7.6" fill="#fbf8f1" stroke="#d9d2c3" stroke-width=".8"/><ellipse cx="9.8" cy="9.6" rx="1.6" ry="2.4" fill="#fff"/>`,
+  egg:()=>`<ellipse cx="8.4" cy="13.8" rx="5.3" ry="6.7" fill="#fbf8f1"/><ellipse cx="15.8" cy="12.2" rx="5.3" ry="6.7" fill="#fbf8f1"/>`,
+  garlic:c=>`<path d="M12 3.4c.8 2.6 6.6 4.4 6.6 9.4 0 3.6-2.8 5.8-6.6 5.8s-6.6-2.2-6.6-5.8C5.4 7.8 11.2 6 12 3.4z" fill="${c}"/><path d="M12 6.4c-1.6 2.4-2 5.6-1.2 11M12 6.4c1.6 2.4 2 5.6 1.2 11" stroke="rgba(0,0,0,.14)" stroke-width=".8" fill="none"/>`,
   drop:c=>`<path d="M12 3.6c3.2 4.6 6.2 7.6 6.2 11.2a6.2 6.2 0 0 1-12.4 0c0-3.6 3-6.6 6.2-11.2z" fill="${c}"/><path d="M9.4 14.6a2.8 2.8 0 0 0 2 2.8" stroke="#fff" stroke-width="1.3" fill="none" stroke-linecap="round" opacity=".6"/>`,
   mound:c=>`<path d="M3.6 18.6c1.8-6.4 5-9.8 8.4-9.8s6.6 3.4 8.4 9.8z" fill="${c}"/><circle cx="9" cy="15" r=".9" fill="#fff" opacity=".45"/><circle cx="13.4" cy="12.4" r=".7" fill="#fff" opacity=".45"/>`,
   bulb:c=>`<path d="M12 3.4c.9 3.4 6.4 5 6.4 10.4a6.4 6.4 0 0 1-12.8 0C5.6 8.4 11.1 6.8 12 3.4z" fill="${c}"/><path d="M12 6.4c-1.8 2.6-2.4 6-1.6 11.6M12 6.4c1.8 2.6 2.4 6 1.6 11.6" stroke="rgba(255,255,255,.4)" stroke-width="1" fill="none"/>`,
@@ -2484,7 +2494,7 @@ const STK_SHAPE={
 const STK={eggs:['egg'],curd:['cup','#fbf8f1'],fish:['fish','#9fb3c4'],tins:['jar','#9fb3c4'],chicken:['meat','#e8a37a'],liver:['meat','#8e3b2e'],
   greens1:['leaf','#3f9a45'],greens2:['leaf','#2f7f3a'],herbs:['leaf','#4caf50'],fenugreek:['leaf','#5a9e3a'],mustard:['leaf','#6aa84f'],lambs:['leaf','#7cb36a'],spinach:['leaf','#2f7f3a'],amaranth:['leaf','#a3324a'],malabar:['leaf','#3e8a3a'],purslane:['leaf','#8bbf5a'],moringa:['leaf','#6aa84f'],dill:['leaf','#86b864'],mint:['leaf','#4caf50'],coriander:['leaf','#3f9a45'],
   cabbage:['round','#b9d98f'],cauliflower:['round','#efe6cf'],broccoli:['round','#4f8a3a'],kohlrabi:['round','#b7d58f'],radish:['bulb','#f4f0ea'],turnip:['bulb','#e2d2ec'],
-  cucumber:['pod','#4f8f3a'],tomato:['round','#d9412f'],onion:['bulb','#b0446b'],garlic:['bulb','#efe7da'],root:['root','#e8742a'],carrot:['root','#e8742a'],bcarrot:['root','#4a1f3e'],beetroot:['bulb','#8e1f45'],sweetpotato:['bulb','#b4533a'],
+  cucumber:['pod','#4f8f3a'],tomato:['round','#d9412f'],onion:['bulb','#b0446b'],garlic:['garlic','#efe7da'],root:['root','#e8742a'],carrot:['root','#e8742a'],bcarrot:['root','#4a1f3e'],beetroot:['bulb','#8e1f45'],sweetpotato:['bulb','#b4533a'],
   bottlegourd:['pod','#a8c97a'],ridgegourd:['pod','#5f8f3a'],pumpkin:['round','#e8892a'],roundgourd:['round','#9cc26e'],okra:['pod','#5f9a3a'],bittergourd:['pod','#3f7f2a'],capsicum:['round','#3f9a45'],flatbeans:['pod','#7fb04a'],other:['round','#a3a9b0'],
   guava:['round','#a7c957'],gooseberry:['round','#c5d86d'],fruit:['round','#f39a1e'],lemon:['round','#f4dd4a'],apple:['round','#d9412f'],orange:['round','#f39a1e'],papaya:['round','#f08a3c'],pomegranate:['round','#c22a3a'],pear:['round','#c9d65a'],banana:['pod','#f4d53a'],mango:['round','#f5b324'],javaplum:['round','#5b2a6e'],jujube:['round','#b8452a'],melon:['round','#9fcf73'],grapes:['seeds','#6d8f3a'],lychee:['round','#d9576a'],
   ginger:['mound','#d6a85a'],chilli:['chilli','#3f9a45'],turmeric:['mound','#e3a21a'],fturmeric:['root','#e08a1a'],
@@ -2493,7 +2503,12 @@ const STK={eggs:['egg'],curd:['cup','#fbf8f1'],fish:['fish','#9fb3c4'],tins:['ja
   walnut:['bulb','#b08053'],walnuts:['bulb','#b08053'],flax:['seeds','#7a4a2a'],mustardoil:['drop','#d9a21a'],evoo:['drop','#9aa63a'],olive:['drop','#9aa63a'],
   cumin:['seeds','#8a6a3a'],mustardseed:['seeds','#3a2a20'],fenuseed:['seeds','#c9a03a'],pepper:['seeds','#2b2624'],asafoetida:['mound','#e9dcc0'],salt:['mound','#f1e6ea'],garam:['mound','#8a4a2a'],
   tea:['cup','#5a3a24'],coffee:['cup','#5a3a24'],creatine:['jar','#e6e9ee']};
-const sticker=id=>{const [k,c]=STK[id]||['round','#a3a9b0'],g=STK_SHAPE[k](c);return `<svg class="stk" viewBox="0 0 24 24" aria-hidden="true"><g class="cut">${g}</g>${g}</svg>`};
+/* stickers join the family in the same formula: dot eyes, a deadpan line, one detail (the garlic's beard) */
+const STK_FACE={
+  egg:'<g fill="#25211c"><circle cx="6.9" cy="13.4" r=".85"/><circle cx="9.9" cy="13.4" r=".85"/><circle cx="14.3" cy="11.8" r=".85"/><circle cx="17.3" cy="11.8" r=".85"/></g><path d="M7.4 16.4h2M14.8 14.8h2" stroke="#25211c" stroke-width=".8" stroke-linecap="round"/>',
+  garlic:'<g fill="#25211c"><circle cx="10" cy="12.2" r=".85"/><circle cx="14" cy="12.2" r=".85"/></g><path d="M11.1 15h1.8" stroke="#25211c" stroke-width=".8" stroke-linecap="round"/><path d="M8.6 18l-.9 2.6M10.3 18.5l-.3 3M12 18.7v3.2M13.7 18.5l.3 3M15.4 18l.9 2.6" stroke="var(--k)" stroke-width=".9" stroke-linecap="round"/>'
+};
+const sticker=id=>{const [k,c]=STK[id]||['round','#a3a9b0'],g=STK_SHAPE[k](c);return `<svg class="stk" viewBox="0 0 24 24" aria-hidden="true"><g class="cut">${g}</g><g class="col" transform="translate(.5 .45)">${g}</g><g class="ko">${g}</g>${STK_FACE[k]||''}</svg>`};
 /* water: a steel tumbler from above; fish: a steel plate with a fish on it */
 const glassArt=on=>`<svg class="gl" viewBox="0 0 40 40" aria-hidden="true"><circle class="r" cx="20" cy="20" r="17"/>${SHINE}<circle class="w" cx="20" cy="20" r="14.2"/>${on?'<circle cx="20" cy="20" r="14.2" fill="var(--water)"/><circle cx="20" cy="20" r="9.5" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1"/><circle cx="20" cy="20" r="5" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/><ellipse cx="14.5" cy="13.5" rx="3.4" ry="1.5" transform="rotate(-40 14.5 13.5)" fill="rgba(255,255,255,.6)"/>':''}</svg>`;
 const plateArt=on=>`<svg class="gl" viewBox="0 0 48 48" aria-hidden="true"><circle class="r" cx="24" cy="24" r="22.5"/><path class="sh" d="M6.5 17A19 19 0 0 1 17 6.5"/><circle class="w" cx="24" cy="24" r="15.5"/>${on?
