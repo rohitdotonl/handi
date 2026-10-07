@@ -1,0 +1,1 @@
+{"intro": 1, "start": 540, "day": {"d": "2026-10-7", "done": {"coffee": 1, "breakfast": 1, "cook": 1, "lunch": 1, "snack": 1, "dinner": 1, "soak": 1}, "sub": {}, "water": 4, "bed": {"pot": 1, "eggs": 1}}, "hist": {"2026-10-5": 1, "2026-10-6": 1}, "thali": {"2026-10-5": "yellow", "2026-10-6": "yellow"}, "rescued": {"2026-10-6": "swap"}, "stk": ["moringa", "guava", "mung"]}

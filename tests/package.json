@@ -1,0 +1,12 @@
+{
+  "name": "handi-tests",
+  "private": true,
+  "description": "Browser tests for the Handi app in ../public",
+  "scripts": {
+    "test": "playwright test",
+    "serve": "node serve.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
