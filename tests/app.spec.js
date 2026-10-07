@@ -61,6 +61,16 @@ test.describe('every tab', () => {
     }
   });
 
+  test('loads its own fonts, never a silent fallback', async ({page}) => {
+    await open(page, {state: fixture('wednesday')});
+    const loaded = await page.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all(['700 20px "Bricolage Grotesque"', '400 16px "IBM Plex Sans"', '400 14px "JetBrains Mono"'].map(f => document.fonts.load(f)));
+      return [...new Set([...document.fonts].filter(f => f.status === 'loaded').map(f => f.family.replace(/"/g, '')))].sort();
+    });
+    expect(loaded).toEqual(['Bricolage Grotesque', 'IBM Plex Sans', 'JetBrains Mono']);
+  });
+
   test('the logo goes back to Today', async ({page}) => {
     await open(page, {state: fixture('wednesday'), tab: 'shop'});
     await page.click('.brand');

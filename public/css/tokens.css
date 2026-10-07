@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Handi — one pot a day. The day's pot colour is the soul of the page:
+   on Today it fills the hero band and colours every action. Steel plates for
+   surfaces, block-print for dividers, coriander for action everywhere else.
+   Components use roles only. Themes supply raw Omarchy slots (colors.toml);
+   one brand layer adds steel, leaf and food hues; one adapter maps → roles.
+   Storage key stays graytee.v2 so nothing saved is lost.
+   ========================================================================== */
+
+/* ---------- theme slots: Light, "riso on newsprint" ----------
+   Four inks on off-white paper: a soft key black, riso blue, bright red and
+   yellow. Green only ever happens where yellow overprints blue.
+   (Stored as "lupine" so saved choices keep working.) */
+:root{
+  color-scheme:light;
+  --t-bg:#f1ece0; --t-fg:#25211c; --t-fg-bright:#15120e; --t-fg-light:#3d3730;
+  --t-step1:#f7f3ea; --t-step2:#e8e1d2; --t-step3:#d9d1bf; --t-border:#cdc4b0;
+  --t-selection:#ffe27a; --t-accent:#2b54b6;
+  --t-red:#c4352a; --t-green:#2f6a45; --t-yellow:#8a5a00; --t-blue:#2b54b6;
+  --t-magenta:#a23a6e; --t-cyan:#1f6e7a; --t-bright-magenta:#c4352a;
+  --t-darkest:#15120e; --t-lightest:#fbf8f1;
+  --b-leaf:#2b54b6; --b-leaf-art:#3d7448; --b-seed:#4a3626; --b-water:#5f8de0; --b-pot-red:var(--x-red);
+  --b-steel-1:#e6e0d3; --b-steel-2:#d6cfbf; --b-steel-edge:#25211c; --b-shine:rgba(255,255,255,0);
+  --x-red:#e2463a; --x-green:#3d7448; --x-yellow:#ffc928; --x-amber:#8a5a00; --x-blue:#2f58bd; --x-black:#25211c; --x-white:#fdfaf2;
+  /* the inks, named */
+  --k:#25211c; --ink-r:#e2463a; --ink-r-t:#c4352a; --ink-b:#2f58bd; --ink-y:#ffc928; --ink-g:#3d7448;
+  --pf-shade:#25211c; --pf-face:#25211c; --pf-face-black:#f1ece0; --pf-steel:#e6e0d3; --pf-dot:rgba(37,33,28,.55);
+  --strike:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 20' preserveAspectRatio='none'%3E%3Cpath d='M-1 11.2C9 9.4 17 12.4 27 10.6S45 9 55 11.4 67 9.8 73 10.4' stroke='%23c4352a' stroke-width='2.1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+/* ---------- theme slots: Dark, "fluoro on midnight stock" ----------
+   Not an inversion: the same four plates re-inked for dark paper. White ink
+   carries the text, fluoro yellow and red glow, the blue goes sky.
+   (Stored as "catppuccin" so saved choices keep working.) */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="lupine"]){
+    color-scheme:dark;
+    --t-bg:#17161e; --t-fg:#ece5d5; --t-fg-bright:#fffaf0; --t-fg-light:#d3cbba;
+    --t-step1:#1e1d27; --t-step2:#282632; --t-step3:#34313f; --t-border:#3b3847;
+    --t-selection:#4a3f12; --t-accent:#8eaeff;
+    --t-red:#ff8577; --t-green:#8fd694; --t-yellow:#ffd84d; --t-blue:#8eaeff;
+    --t-magenta:#f39ac7; --t-cyan:#7fd4dd; --t-bright-magenta:#ff8577;
+    --t-darkest:#08070b; --t-lightest:#ece5d5;
+    --b-leaf:#8eaeff; --b-leaf-art:#8fd694; --b-seed:#d9c7a2; --b-water:#7fa6ff; --b-pot-red:#ff6a5c;
+    --b-steel-1:#2c2a36; --b-steel-2:#24222d; --b-steel-edge:#ece5d5; --b-shine:rgba(255,255,255,0);
+    --x-red:#ff6a5c; --x-green:#8fd694; --x-yellow:#ffd84d; --x-amber:#ffd84d; --x-blue:#7fa2ff; --x-black:#383545; --x-white:#f4eee2;
+    --k:#ece5d5; --ink-r:#ff6a5c; --ink-r-t:#ff8577; --ink-b:#7fa2ff; --ink-y:#ffd84d; --ink-g:#8fd694;
+    --pf-shade:#17161e; --pf-face:#17161e; --pf-face-black:#ece5d5; --pf-steel:#2c2a36; --pf-dot:rgba(236,229,213,.42);
+    --strike:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 20' preserveAspectRatio='none'%3E%3Cpath d='M-1 11.2C9 9.4 17 12.4 27 10.6S45 9 55 11.4 67 9.8 73 10.4' stroke='%23ff8577' stroke-width='2.1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+}
+:root[data-theme="catppuccin"]{
+    color-scheme:dark;
+    --t-bg:#17161e; --t-fg:#ece5d5; --t-fg-bright:#fffaf0; --t-fg-light:#d3cbba;
+    --t-step1:#1e1d27; --t-step2:#282632; --t-step3:#34313f; --t-border:#3b3847;
+    --t-selection:#4a3f12; --t-accent:#8eaeff;
+    --t-red:#ff8577; --t-green:#8fd694; --t-yellow:#ffd84d; --t-blue:#8eaeff;
+    --t-magenta:#f39ac7; --t-cyan:#7fd4dd; --t-bright-magenta:#ff8577;
+    --t-darkest:#08070b; --t-lightest:#ece5d5;
+    --b-leaf:#8eaeff; --b-leaf-art:#8fd694; --b-seed:#d9c7a2; --b-water:#7fa6ff; --b-pot-red:#ff6a5c;
+    --b-steel-1:#2c2a36; --b-steel-2:#24222d; --b-steel-edge:#ece5d5; --b-shine:rgba(255,255,255,0);
+    --x-red:#ff6a5c; --x-green:#8fd694; --x-yellow:#ffd84d; --x-amber:#ffd84d; --x-blue:#7fa2ff; --x-black:#383545; --x-white:#f4eee2;
+    --k:#ece5d5; --ink-r:#ff6a5c; --ink-r-t:#ff8577; --ink-b:#7fa2ff; --ink-y:#ffd84d; --ink-g:#8fd694;
+    --pf-shade:#17161e; --pf-face:#17161e; --pf-face-black:#ece5d5; --pf-steel:#2c2a36; --pf-dot:rgba(236,229,213,.42);
+    --strike:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 20' preserveAspectRatio='none'%3E%3Cpath d='M-1 11.2C9 9.4 17 12.4 27 10.6S45 9 55 11.4 67 9.8 73 10.4' stroke='%23ff8577' stroke-width='2.1' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* ---------- adapter: slots → roles (shared by every theme) ---------- */
+:root{
+  --surface-0:var(--t-bg);
+  --surface-1:var(--t-step1);
+  --surface-2:var(--t-step2);
+  --surface-3:var(--t-step3);
+  --selection:var(--t-selection);
+  --cursorline:color-mix(in oklab,var(--b-leaf) 9%,var(--t-step1));
+  --ink:var(--t-fg);
+  --ink-strong:var(--t-fg-bright);
+  --ink-soft:var(--t-fg-light);
+  --ink-muted:color-mix(in oklab,var(--t-fg) 66%,var(--t-bg));
+  --ink-faint:color-mix(in oklab,var(--t-fg) 50%,var(--t-bg));
+  --accent:var(--b-leaf);
+  --accent-hover:color-mix(in oklab,var(--b-leaf) 84%,var(--t-fg));
+  --accent-wash:color-mix(in oklab,var(--b-leaf) 8%,var(--t-step1));
+  --accent-line:color-mix(in oklab,var(--b-leaf) 38%,var(--t-border));
+  --on-accent:var(--t-bg);
+  --border:var(--t-border);
+  --border-strong:color-mix(in oklab,var(--t-fg) 22%,var(--t-bg));
+  --danger:var(--x-red);
+  --success:var(--b-leaf);
+  --warning:var(--x-amber);
+  --info:var(--t-accent);
+  --series-1:var(--t-blue); --series-2:var(--t-magenta); --series-3:var(--t-green);
+  --series-4:var(--t-red);  --series-5:var(--t-cyan);    --series-6:var(--t-yellow);
+  --highlight:var(--t-bright-magenta);
+  /* the five pots are named after real food colours; the theme's hue slots stand in */
+  --pot-yellow:var(--x-yellow); --pot-red:var(--b-pot-red); --pot-blue:var(--x-blue);
+  --pot-black:var(--x-black); --pot-white:var(--x-white);
+  --steel-1:var(--b-steel-1); --steel-2:var(--b-steel-2); --steel-edge:var(--b-steel-edge); --shine:var(--b-shine); --water:var(--b-water);
+}
+
+/* ---------- type, space ---------- */
+:root{
+  --font-text:"IBM Plex Sans","JetBrains Mono",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-display:"Bricolage Grotesque","IBM Plex Sans",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono","JetBrainsMono Nerd Font",ui-monospace,Menlo,Consolas,monospace;
+  /* one scale, five levels: each step changes size, weight and ink together */
+  --fs-h1:34px; --fs-h2:23px; --fs-h3:17px; --fs-title:17px;
+  --fs-body:16px; --fs-meta:14px; --fs-cap:12px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --r-sm:6px; --r:10px;
+  --hdr:56px; --navh:62px; --side:176px; --stat:0px;
+}
+

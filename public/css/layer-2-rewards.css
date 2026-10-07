@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Rewards layer: the bowl that fills, the weekly thali, notes from earlier
+   you, rescues and the lidded surprise. Food keeps its own colours; steel and
+   ink follow the theme.
+   ========================================================================== */
+/* dark: the pot bands drop a stop so they glow instead of glare */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="lupine"])[data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
+  :root:not([data-theme="lupine"])[data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
+  :root:not([data-theme="lupine"])[data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
+  :root:not([data-theme="lupine"])[data-pot="black"]{--band-a:#33373b;--band-b:#151719}
+  :root:not([data-theme="lupine"])[data-pot="white"]{--band-a:#dfe2e2;--band-b:#adb3b6}
+}
+:root[data-theme="catppuccin"][data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
+:root[data-theme="catppuccin"][data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
+:root[data-theme="catppuccin"][data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
+:root[data-theme="catppuccin"][data-pot="black"]{--band-a:#33373b;--band-b:#151719}
+:root[data-theme="catppuccin"][data-pot="white"]{--band-a:#dfe2e2;--band-b:#adb3b6}
+:root{--rs-band:#c8431a;--note-bg:#fff8dc;--note-ink:#3b2f12;--note-tape:color-mix(in oklab,var(--b-leaf) 30%,#fff)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--note-bg:#2e2c22;--note-ink:#f3ebcf;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#24282c)}}
+:root[data-theme="catppuccin"]{--note-bg:#2e2c22;--note-ink:#f3ebcf;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#24282c)}
+
+/* the bowl: empty steel at first, then each finished task adds a layer */
+.dayhead{grid-template-columns:auto minmax(0,1fr)}
+.bowl{width:156px;height:156px}
+.bowl .ly{opacity:0;transform:translateY(-22px) scale(.7) rotate(-14deg);transform-box:fill-box;transform-origin:center;
+  transition:opacity .3s ease,transform .7s cubic-bezier(.3,1.55,.5,1)}
+.bowl .ly[data-l="1"]{transform:scale(.2)}
+.bowl .ly.on{opacity:1;transform:none}
+.bowl.intro .ly:nth-of-type(2){transition-delay:.05s}.bowl.intro .ly:nth-of-type(3){transition-delay:.17s}.bowl.intro .ly:nth-of-type(4){transition-delay:.29s}
+.bowl.intro .ly:nth-of-type(5){transition-delay:.41s}.bowl.intro .ly:nth-of-type(6){transition-delay:.53s}.bowl.intro .ly:nth-of-type(7){transition-delay:.65s}
+.bowl .ghost{opacity:0;transition:opacity .4s}
+.bowl[data-n="0"] .ghost{opacity:.7}
+.bowl .ripple{opacity:0;transform-box:fill-box;transform-origin:center}
+.bowl.splash .ripple{animation:ripple .8s ease-out .25s}
+@keyframes ripple{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.5)}}
+.bowl.splash{animation:wobble .6s cubic-bezier(.3,1.6,.5,1) .2s}
+@keyframes wobble{30%{transform:scale(1.05) rotate(-3deg)}60%{transform:scale(.98) rotate(2deg)}}
+.bowl .glint{opacity:0}
+.dayhead.alldone .bowl .glint path{animation:twinkle 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.dayhead.alldone .bowl .glint{opacity:1}
+.dayhead.alldone .bowl .glint path:nth-child(2){animation-delay:.8s}.dayhead.alldone .bowl .glint path:nth-child(3){animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}40%{opacity:1;transform:scale(1) rotate(45deg)}70%{opacity:0;transform:scale(.4) rotate(90deg)}}
+.steam{display:none}
+.dayhead.alldone .steam{display:block}
+.bnext{display:block;margin-top:var(--s2);font-size:var(--fs-meta);line-height:1.4;color:color-mix(in srgb,var(--band-ink) 92%,transparent)}
+.bnext b{color:var(--band-ink)}
+@media (max-width:380px){.bowl{width:116px;height:116px}}
+
+/* a row picture: the task, drawn */
+.trow .tline{align-items:center}
+.rico{flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;margin:-4px 0 -4px auto}
+.rico .ki{width:32px;height:32px;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){.trow:hover .rico .ki{transform:rotate(-10deg) scale(1.08)}}
+ol.tl li.done .rico{opacity:.45;filter:saturate(.4)}
+ol.tl li.cur .rico .ki{transform:scale(1.06)}
+
+/* prepped: earlier effort, paying off now */
+.pbadge,.pnote .ck,.yl .ck{--pc:var(--b-leaf)}
+.pbadge{display:inline-flex;align-items:center;gap:3px;vertical-align:2px;margin-left:var(--s2);padding:2px 8px 2px 5px;border-radius:999px;
+  font:700 12px/1.3 var(--font-text);color:var(--pc);background:color-mix(in oklab,var(--pc) 13%,var(--surface-1));box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--pc) 35%,transparent);white-space:nowrap}
+.ck{width:13px;height:13px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pnote{display:flex;gap:var(--s2);align-items:flex-start;margin:calc(-1 * var(--s1)) 0 var(--s3)!important;padding:var(--s2) var(--s3);border-radius:var(--r-sm);
+  background:color-mix(in oklab,var(--b-leaf) 10%,var(--surface-1));color:var(--ink)!important;font-size:var(--fs-meta);line-height:1.45}
+.pnote .ck{margin-top:3px;color:var(--b-leaf)}
+.pnote b{color:var(--b-leaf)}
+
+/* a note from earlier you: a paper slip, taped on */
+.ynote{position:relative;margin:var(--s2) 4px var(--s4);padding:var(--s5) var(--s4) var(--s3);border-radius:4px 4px 10px 4px;background:var(--note-bg);color:var(--note-ink);
+  transform:rotate(-.8deg);box-shadow:0 1px 0 rgba(0,0,0,.06),0 10px 18px -14px rgba(0,0,0,.5);animation:slipin .55s cubic-bezier(.3,1.4,.5,1)}
+.ynote::before{content:"";position:absolute;top:-9px;left:50%;width:78px;height:20px;margin-left:-39px;background:var(--note-tape);opacity:.85;transform:rotate(2deg);
+  -webkit-mask:linear-gradient(90deg,transparent 0 2px,#000 2px calc(100% - 2px),transparent 0);mask:linear-gradient(90deg,transparent 0 2px,#000 2px calc(100% - 2px),transparent 0)}
+.ynote p{margin:0}
+.yh{font:800 12px/1.2 var(--font-display);letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:var(--s2)!important}
+.yl{display:flex;gap:var(--s2);align-items:flex-start;font:600 17px/1.4 var(--font-display)}
+.yl+.yl{margin-top:var(--s1)!important}
+.yl .ck{width:18px;height:18px;margin-top:3px;color:var(--b-leaf)}
+.ysub{margin-top:var(--s2)!important;font-size:var(--fs-meta);opacity:.8}
+.ysub b{font-weight:700}
+.yx{margin-top:var(--s1);min-height:44px;padding:0 var(--s3);margin-left:calc(-1 * var(--s3));font-weight:700;font-size:var(--fs-meta);color:var(--note-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.ynote.bye{transition:transform .26s ease-in,opacity .26s ease-in;transform:translateY(-10px) rotate(-4deg);opacity:0}
+@keyframes slipin{from{transform:translateY(-14px) rotate(-5deg);opacity:0}}
+
+/* rescues: framed as a win */
+.fixnote.rescued{align-items:center;border-left:0;flex-wrap:nowrap;
+  background:linear-gradient(100deg,color-mix(in oklab,var(--rs-band) 12%,var(--surface-1)),var(--surface-1) 70%);border-color:color-mix(in oklab,var(--rs-band) 35%,var(--border))}
+.fixnote.rescued>span:nth-child(2){flex:1 1 auto;min-width:0}
+.fixnote.rescued b{display:block;font:800 17px/1.3 var(--font-display);color:var(--ink-strong)}
+.rsi{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;color:var(--surface-1);filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
+.rsi svg{width:40px;height:40px;color:#fbf7ef;animation:spinin .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes spinin{from{transform:rotate(-200deg) scale(.4)}}
+.fixnote.rescued{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:var(--s2) var(--s3)}
+@media (max-width:480px){.fixnote.rescued{grid-template-columns:40px minmax(0,1fr)}.fixnote.rescued .btn{grid-column:2;justify-self:start}}
+.focus.rescue-ask .lab{background:var(--rs-band);color:#fff}
+.focus.rescue-ask{border-color:color-mix(in oklab,var(--rs-band) 40%,var(--border));background:linear-gradient(180deg,color-mix(in oklab,var(--rs-band) 9%,var(--surface-1)),var(--surface-1) 60%)}
+
+/* the weekly thali */
+.thali{margin-top:var(--s6);padding:var(--s4);border-radius:var(--r-lg);background:var(--surface-1);border:1px solid color-mix(in oklab,var(--steel-edge) 32%,var(--border));
+  background-image:linear-gradient(180deg,color-mix(in oklab,var(--steel-1) 30%,transparent),transparent 80px);box-shadow:inset 0 1px 0 var(--shine),var(--plate)}
+.tcol.a .thali{margin:var(--s3) 0 0}
+.thhead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3)}
+.thhead h2{margin:0;font-size:22px}
+.thn{font:600 15px/1 var(--font-display);color:var(--ink-muted)}
+.thn b{font-size:26px;font-weight:800;color:var(--ink-strong)}
+.thbody{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:var(--s4);align-items:center;margin-top:var(--s3)}
+.thside p{margin:0;font-size:var(--fs-meta);line-height:1.5;color:var(--ink-soft)}
+.thside p+p{margin-top:var(--s3)}
+.thres{display:flex;gap:var(--s2);align-items:center;font-weight:700;color:var(--ink-strong)!important}
+.thres .rsi,.thres .rsi svg{width:26px;height:26px}
+@media (max-width:440px){.thbody{grid-template-columns:minmax(0,1fr)}.thali-art{max-width:240px;margin:0 auto}}
+.thali-art{display:block;width:100%;height:auto;max-width:100%;filter:drop-shadow(0 8px 10px color-mix(in oklab,var(--t-darkest) 22%,transparent))}
+.th-rim{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.2}
+.th-well{fill:color-mix(in oklab,var(--steel-2) 70%,var(--steel-1));stroke:color-mix(in oklab,var(--steel-edge) 50%,transparent);stroke-width:1}
+.tk-rim{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.1}
+.tk-well{fill:var(--steel-2)}
+.tk .tki{filter:drop-shadow(0 2px 2px rgba(0,0,0,.22))}
+.tk-lab circle{fill:var(--surface-1);stroke:var(--steel-edge);stroke-width:.8}
+.tk-lab text,.tsp text{font:800 9px var(--font-display);text-anchor:middle;fill:var(--ink-strong)}
+.tk-star circle{fill:var(--rs-band)}
+.tk-star path{fill:#fff}
+.tsp circle{fill:color-mix(in oklab,var(--steel-2) 55%,transparent);stroke:var(--steel-edge);stroke-width:1.2;stroke-dasharray:2.5 3.5}
+.tsp text{font-size:12px;fill:var(--ink-faint)}
+.tsp.now circle{stroke:var(--accent);stroke-width:2;stroke-dasharray:none;fill:color-mix(in oklab,var(--accent) 12%,transparent);animation:breathe 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.tsp.now text{fill:var(--accent)}
+.tsp.fut circle{stroke-dasharray:none;stroke-opacity:.4}
+@keyframes breathe{50%{transform:scale(1.07)}}
+.tk.land .tki{animation:land .8s cubic-bezier(.3,1.5,.5,1) .15s both}
+@keyframes land{0%{transform:translateY(-60px) scale(1.4);opacity:0}60%{opacity:1}100%{transform:none}}
+.thali.sunday{border-color:color-mix(in oklab,var(--accent) 40%,var(--border));background:linear-gradient(180deg,color-mix(in oklab,var(--accent) 10%,var(--surface-1)),var(--surface-1) 70%)}
+.tin{margin-top:var(--s4);padding-top:var(--s3);border-top:1px dashed var(--border-strong)}
+.tinh{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 var(--s2);font-size:var(--fs-meta);color:var(--ink-muted)}
+.tinh b{color:var(--ink-strong)}
+.tinrow{display:flex;flex-wrap:wrap;gap:6px}
+.tinrow .stk{width:30px;height:30px;margin:0}
+.tinrow span:nth-child(odd) .stk{transform:rotate(-8deg)}.tinrow span:nth-child(even) .stk{transform:rotate(6deg)}
+
+/* the surprise: a lidded steel dabba */
+.reveal{display:flex;align-items:center;gap:var(--s4);width:100%;margin:0 0 var(--s4);padding:var(--s3) var(--s4);border-radius:var(--r);text-align:left;
+  background:var(--surface-1);box-shadow:inset 0 0 0 1.5px color-mix(in oklab,var(--accent) 45%,var(--border))}
+.reveal.shut{cursor:pointer;animation:nudge 3.2s ease-in-out 1s infinite}
+.reveal.shut:hover{box-shadow:inset 0 0 0 2px var(--accent)}
+.reveal b{display:block;font:800 18px/1.25 var(--font-display);color:var(--ink-strong)}
+.reveal small{display:block;font-size:var(--fs-meta);color:var(--ink-muted);margin-top:2px}
+.dabba{width:72px;height:66px;flex:0 0 auto;overflow:visible}
+.db-body{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.2}
+.db-knob{fill:var(--steel-2);stroke:var(--steel-edge);stroke-width:1.2}
+.db-lid{transform-box:fill-box;transform-origin:20% 100%;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.reveal.shut .db-lid{animation:rattle 3.2s ease-in-out 1s infinite}
+.reveal.opening{animation:none}
+.reveal.opening .db-lid{animation:none;transform:translate(14px,-26px) rotate(28deg);opacity:0}
+@keyframes rattle{0%,82%,100%{transform:none}86%{transform:rotate(-5deg) translateY(-2px)}90%{transform:rotate(4deg) translateY(-1px)}94%{transform:rotate(-2deg)}}
+@keyframes nudge{0%,82%,100%{transform:none}88%{transform:translateY(-2px)}}
+.reveal.open{align-items:flex-start;box-shadow:inset 0 0 0 1.5px color-mix(in oklab,var(--accent) 35%,var(--border))}
+.rv-art{flex:0 0 auto;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:color-mix(in oklab,var(--accent) 12%,var(--surface-2))}
+.rv-art .stk{width:46px;height:46px;margin:0;transform:rotate(-8deg)}
+.rv-art .ki{width:52px;height:52px}
+.rv-t{min-width:0}
+.rv-t small{display:block;margin:0 0 2px;font:800 12px/1.3 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.rv-t>span{display:block;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.reveal.fresh .rv-art{animation:popout .7s cubic-bezier(.3,1.7,.5,1) both}
+.reveal.fresh .rv-t{animation:risein .5s ease-out .15s both}
+@keyframes popout{0%{transform:scale(.2) rotate(-40deg);opacity:0}100%{transform:none;opacity:1}}
+@keyframes risein{from{transform:translateY(8px);opacity:0}}
+

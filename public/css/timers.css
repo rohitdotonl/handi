@@ -1,0 +1,15 @@
+/* ---------- timers ---------- */
+.dock{position:fixed;left:12px;right:12px;bottom:calc(var(--navh) + env(safe-area-inset-bottom,0px) + var(--stat) + var(--s2));z-index:70;display:grid;gap:var(--s2);max-width:616px;margin:0 auto;pointer-events:none}
+body.sheet-open .dock{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+@media (hover:hover) and (pointer:fine){body.sheet-open .dock{bottom:calc(108px + env(safe-area-inset-bottom,0px))}}
+.dock>div{pointer-events:auto;display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;align-items:center;gap:var(--s2);
+  background:var(--surface-1);border:1.5px solid var(--border-strong);border-radius:var(--r);padding:6px 6px 6px var(--s4);
+  box-shadow:0 6px 18px -10px color-mix(in oklab,var(--t-darkest) 45%,transparent)}
+.dock .nm{font-size:var(--fs-meta);font-weight:700;color:var(--ink-strong);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dock .left{font-size:20px;font-weight:700;color:var(--accent)}
+.dock button{min-height:38px;padding:0 var(--s3);font-size:14px;font-weight:700;color:var(--ink-strong);box-shadow:inset 0 0 0 1.5px var(--border-strong)}
+.dock button:hover{background:var(--surface-2)}
+.dock>div.rang{grid-template-columns:minmax(0,1fr) auto auto;border-color:var(--warning);background:color-mix(in oklab,var(--warning) 10%,var(--surface-1))}
+.dock>div.rang .left{color:var(--warning)}
+.dock>div.rang button{background:var(--accent);color:var(--on-accent);box-shadow:none}
+

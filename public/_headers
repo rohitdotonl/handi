@@ -1,0 +1,8 @@
+# Cloudflare reads this file; it is not served.
+# Fonts never change in place (a new font gets a new file name), so phones may keep them for a year.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+# Icons change rarely; a week is plenty.
+/icons/*
+  Cache-Control: public, max-age=604800
+# Everything else (the page, css/, js/) is checked on every visit, so a deploy shows up at once.

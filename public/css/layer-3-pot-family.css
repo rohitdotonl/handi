@@ -1,0 +1,477 @@
+/* ===== POT FAMILY LAYER ===== */
+/* ==========================================================================
+   POT FAMILY LAYER: the whole app, printed on a risograph.
+   Four inks (key, blue, red, yellow) on paper. Panels are printed boxes with
+   ink rules, never shadows. Colour plates sit a hair off the key plate.
+   Halftone and grain live only in pictures, never behind words.
+   ========================================================================== */
+:root{
+  --wr:3px 7px 4px 8px / 8px 3px 7px 4px;          /* a hand-cut corner */
+  --wr-sm:2px 5px 3px 6px / 5px 2px 6px 3px;
+  --r:4px; --r-sm:3px; --r-lg:6px;
+  --fs-h1:52px; --fs-h2:27px;
+  --rule:var(--k);
+  --rule-soft:color-mix(in oklab,var(--k) 22%,var(--t-bg));
+  --plate:none;
+  --mis:var(--ink-b);                               /* the colour plate under headings */
+  --tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.2 12.6c1.6 1.4 3.2 3.2 4.6 5.6 2.6-5.4 6.4-9.8 11.2-13.4' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5.4C12 3.6 22 6.6 34 5S54 3.4 66 5.6 88 6.4 100 4.6 114 5.2 120 5' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.5 1'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+  --da-yellow:#9c5600; --da-red:#c4352a; --da-blue:#2b54b6; --da-black:#25211c; --da-white:#2f6a45;
+  --rs-band:var(--ink-r);
+  --note-bg:#fff3b8; --note-ink:#2c2412; --note-tape:color-mix(in oklab,var(--ink-b) 30%,transparent);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--da-yellow:#ffd84d;--da-red:#ff8577;--da-blue:#8eaeff;--da-black:#ece5d5;--da-white:#8fd694;--note-bg:#2d2a1a;--note-ink:#f6eccb;--note-tape:color-mix(in oklab,var(--ink-b) 40%,transparent)}}
+:root[data-theme="catppuccin"]{--da-yellow:#ffd84d;--da-red:#ff8577;--da-blue:#8eaeff;--da-black:#ece5d5;--da-white:#8fd694;--note-bg:#2d2a1a;--note-ink:#f6eccb;--note-tape:color-mix(in oklab,var(--ink-b) 40%,transparent)}
+/* each pot: an accent you can read, and the ink that misregisters under its name */
+[data-pot="yellow"]{--band-ink:var(--ink-strong);--mis-pot:var(--ink-y)}
+[data-pot="red"]{--band-ink:var(--ink-strong);--mis-pot:var(--ink-r)}
+[data-pot="blue"]{--band-ink:var(--ink-strong);--mis-pot:var(--ink-b)}
+[data-pot="black"]{--band-ink:var(--ink-strong);--mis-pot:var(--ink-y)}
+[data-pot="white"]{--band-ink:var(--ink-strong);--mis-pot:var(--ink-g)}
+#today{--mis:var(--mis-pot,var(--ink-b))}
+
+/* ---------- type: a condensed poster grotesk, a typewriter for labels ---------- */
+h1,h2,.brand,details.fold>summary,.sh-h{font-family:var(--font-display);font-stretch:80%}
+.page>h1{font-size:var(--fs-h1);font-weight:800;line-height:.9;letter-spacing:-.01em;margin:var(--s4) 0 var(--s5);text-shadow:3px 2.5px 0 color-mix(in oklab,var(--mis) 80%,transparent)}
+h2{font-weight:750;letter-spacing:-.005em}
+.focus .lab,.yh,.rv-t small,.thn,.tinh span,.sh-n,.bhead span,.gwrap h3.grp small,.dprog i,.tg,.tag,.item .what i,.pbadge,.set small,.prephd .count,.sum .count{font-family:var(--font-mono)}
+.focus .lab,.yh,.rv-t small{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.tg,.tag,.item .what i{font-size:11px;letter-spacing:.04em;border-radius:var(--wr-sm)}
+.sum .count,.prephd .count{font-size:15px;font-weight:700;letter-spacing:0}
+
+/* ---------- printed panels: an ink rule, a hand-cut corner, no shadow ---------- */
+.paper,.sum,.items,ol.tl,.track,.meter,ol.pr,.month,details.mo,ul.ingl,ol.allst,.bed,.plancard,.fixnote,ul.htabs,ol.hsteps,ul.rl,details.win,.focus,.mrow,.sh-body details:not(.words),.thali{
+  background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:none}
+ol.tl li+li,ul.rl li+li,.item+.item,ol.pr li+li,ul.ingl li+li,ol.allst li+li,ol.hsteps li+li,ul.htabs li+li,.bed li+li,.stp+.stp,ul.plain li,td,th{border-top-color:var(--rule-soft)}
+ul.plain li:first-child{border-top:0}
+details.mo .month{border:0;background:none}
+.bed,.bed.ok,.bed.urgent,.fixnote{border-left-width:1.5px;border-left-color:var(--rule)}
+.bed{box-shadow:inset 5px 0 0 var(--info)}.bed.ok{box-shadow:inset 5px 0 0 var(--success)}.bed.urgent{box-shadow:inset 5px 0 0 var(--danger)}
+.fixnote{box-shadow:inset 5px 0 0 var(--warning)}
+.note,.strip,.notes,.dsw-note{background:var(--surface-2);border-radius:var(--wr-sm)}
+.meter{backdrop-filter:none;-webkit-backdrop-filter:none}
+.month.now{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--accent)}
+
+/* section dividers: one hand-drawn ink line */
+.page>h2::before,.sub>h2:not(:first-child)::before,.later::before,details.fold::before{height:10px;margin:0 0 var(--s4);background:var(--k);opacity:.8;
+  -webkit-mask:var(--wave) 0 50%/240px 10px repeat-x;mask:var(--wave) 0 50%/240px 10px repeat-x}
+
+/* ---------- controls: flat ink, pressed into the paper ---------- */
+.btn{border-radius:var(--wr-sm);box-shadow:none;background:var(--accent);color:var(--on-accent);font-weight:700;letter-spacing:.005em}
+.btn:hover{background:var(--accent-hover)}
+.btn:active{transform:translate(1px,1px)}
+.btn.ghost,.focus .btn.ghost{background:transparent;color:var(--ink-strong);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.btn.ghost:hover,.focus .btn.ghost:hover{background:var(--surface-2)}
+.btn.armed,.btn.ghost.armed{box-shadow:inset 0 0 0 2px var(--danger)}
+.tm,.chip,.lvl button,.ctl button,.dock button,.opt,kbd{border-radius:var(--wr-sm)}
+.tm,.lvl button,.ctl button{box-shadow:inset 0 0 0 1.5px var(--rule-soft)}
+.tm:hover,.lvl button:hover,.ctl button:hover{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.tm.on,.lvl button[aria-pressed="true"]{background:var(--surface-1);box-shadow:inset 0 0 0 2px var(--accent);color:var(--accent)}
+.opt{border:1.5px solid var(--rule-soft);background:var(--surface-1)}
+.opt:hover{border-color:var(--rule)}
+.opt:first-child{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt:first-child b::after{border-radius:var(--wr-sm);font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}
+.find input{border:1.5px solid var(--rule);border-radius:var(--wr-sm);background:var(--surface-1)}
+.pick select{border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule-soft)}
+
+/* checkboxes: a drawn square, and a tick made with one stroke of the pen */
+.box,.tick i,ul.fl .ln i{width:22px;height:22px;border-radius:3px 6px 4px 7px/6px 3px 7px 4px;box-shadow:inset 0 0 0 2px var(--k);background:var(--surface-1)}
+.box::after,.tick i::after,ul.fl .ln i::after{width:20px;height:20px;margin:-6px -6px 0 0;border:0;transform:none;background:var(--accent);
+  -webkit-mask:var(--tick) center/contain no-repeat;mask:var(--tick) center/contain no-repeat}
+.item input:checked+.box,ul.ingl button[aria-pressed="true"] .box,.bi[aria-pressed="true"] .box,.tick[aria-pressed="true"] i,ul.fl .ln[aria-pressed="true"] i{background:var(--surface-1);box-shadow:inset 0 0 0 2px var(--k)}
+@media (hover:hover){.tick:hover i,.item label:hover .box,ul.ingl button:hover .box,.bi:hover .box,ul.fl .ln:hover i{box-shadow:inset 0 0 0 2px var(--k),inset 0 0 0 4px color-mix(in oklab,var(--accent) 30%,transparent)}}
+
+/* done: a hand-drawn strike in red pencil, never a thin line */
+ol.tl li.done .trow b,.item input:checked~.what,ul.ingl button[aria-pressed="true"] .nm,ul.fl .ln[aria-pressed="true"] span,.bi[aria-pressed="true"] b,ol.pr li.done .w,.skip span{
+  text-decoration:none;background-image:var(--strike);background-repeat:repeat-x;background-size:72px .9em;background-position:0 .16em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+ol.pr li.done .w,ul.fl .ln[aria-pressed="true"] span{background-repeat:repeat;background-size:72px 1lh;background-position:0 -.05lh}
+ul.fl .ln[aria-pressed="true"] span{display:block}
+ol.tl li.done .trow b{font-weight:600}
+.skip span{background-color:var(--surface-2)}
+
+/* progress: an ink bar in a ruled box */
+.bar{height:8px;border-radius:2px;background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule)}
+.bar i{border-radius:0;background:var(--accent)}
+.sh-prog i{border-radius:1px;height:7px;background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule-soft)}
+.sh-prog i.d{background:var(--pc,var(--accent));box-shadow:inset 0 0 0 1.5px var(--rule)}
+.sh-prog i.c{background:transparent;box-shadow:inset 0 0 0 2px var(--rule)}
+.ring .tr{stroke:var(--surface-3)}.ring .pr{stroke:var(--accent);stroke-linecap:butt}
+
+/* sub tabs */
+.seg{border-bottom:1.5px solid var(--rule)}
+.seg button[aria-selected="true"]::after{height:4px;border-radius:0;background:var(--accent)}
+
+/* ---------- frame: masthead and tab bar ---------- */
+.top{background:var(--surface-0)}
+.scrolled .top{box-shadow:0 1.5px 0 var(--rule)}
+.brand{font-size:24px;font-weight:800;font-stretch:78%;letter-spacing:0}
+.logo{width:34px;height:34px;margin:-4px 0 -2px}
+.cursor{background:var(--accent)}
+.tabs{background:var(--surface-0);backdrop-filter:none;-webkit-backdrop-filter:none;border-top:1.5px solid var(--rule)}
+.tabs button{color:var(--ink-muted)}
+.tabs svg{padding:3px 15px;border-radius:var(--wr-sm)}
+.tabs button[aria-current="page"]{color:var(--ink-strong)}
+.tabs button[aria-current="page"] svg{background:var(--accent);stroke:var(--on-accent);box-shadow:none}
+.tabs button.alert .ic::after{background:var(--ink-r);box-shadow:0 0 0 2px var(--surface-0)}
+@media (min-width:960px){
+  .top{background:var(--surface-0);border-right:1.5px solid var(--rule)}
+  .brand{font-size:28px}.logo{width:40px;height:40px}
+  .tabs{background:none}
+  .tabs svg{padding:0}
+  .tabs button{border-radius:var(--wr-sm)}
+  .tabs button[aria-current="page"]{background:var(--accent);color:var(--on-accent);box-shadow:none}
+  .tabs button[aria-current="page"] svg{background:none;stroke:var(--on-accent)}
+  .tabs button[aria-current="page"]::after{border-color:color-mix(in oklab,var(--on-accent) 50%,transparent);color:var(--on-accent)}
+  .tabs button::after,.menubtn::after{border-radius:2px;border-color:var(--rule-soft)}
+  .tabs button:not([aria-current="page"]):hover{background:var(--surface-2)}
+}
+
+/* ---------- today: the hero is a printed poster with today's pot in it ---------- */
+.dayhead{grid-template-columns:auto minmax(0,1fr);gap:var(--s3) var(--s4);padding:var(--s4) var(--s4) var(--s4) var(--s2);
+  color:var(--ink);background:var(--surface-1);border:2px solid var(--rule);border-radius:var(--wr);box-shadow:none;overflow:hidden}
+.dayhead::before,.dayhead::after{content:"";position:absolute;z-index:-1;left:-6px;top:6px;width:186px;height:186px;border-radius:50%;
+  -webkit-mask:radial-gradient(circle closest-side,#000 0 58%,rgba(0,0,0,.45) 78%,transparent 99%);mask:radial-gradient(circle closest-side,#000 0 58%,rgba(0,0,0,.45) 78%,transparent 99%)}
+.dayhead::before{background:radial-gradient(circle,color-mix(in oklab,var(--mis-pot) 80%,transparent) 1.8px,transparent 2.2px) 0 0/7px 7px;opacity:.9}
+.dayhead::after{inset:auto;background:var(--grain);opacity:.22;mix-blend-mode:multiply}
+.dayhead h1{font-size:54px;line-height:.86;font-weight:800;font-stretch:76%;color:var(--ink-strong);letter-spacing:-.01em;text-shadow:3px 2.5px 0 var(--mis-pot)}
+.dayhead p{color:var(--ink-soft)}
+.dayhead .dishname{color:var(--ink-strong);font-family:var(--font-display);font-stretch:85%;font-size:20px;font-weight:700;line-height:1.15;margin:var(--s2) 0 var(--s1)}
+.dprog{color:var(--ink-muted)}
+.dprog b{font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--ink-strong)}
+.dprog i{font-size:15px;color:var(--ink-muted)}
+.dprog.all::after{border-color:var(--accent)}
+.bnext{color:var(--ink-soft)}.bnext b{color:var(--ink-strong)}
+.bnext q{display:block;margin-top:var(--s1);font-family:var(--font-display);font-stretch:85%;font-size:17px;font-weight:700;line-height:1.25;color:var(--ink-strong);quotes:none}
+.bnext q::before{content:"— "}
+[data-pot="black"] .dayhead,.previewing .dayhead{box-shadow:none}
+.previewing .dayhead{border-style:dashed;opacity:1}
+.hero-art{position:relative;display:block;width:164px;height:210px;flex:0 0 auto}
+.hero-art .pf{position:absolute;left:0;top:0;width:164px;height:164px}
+.hero-art .bowl{position:absolute;left:7px;top:130px;width:150px;height:80px;filter:none}
+.hero-art .pf-brow{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.hero-art[data-n="1"] .pf-brow{transform:translateY(-.6px)}.hero-art[data-n="2"] .pf-brow{transform:translateY(-1.1px)}
+.hero-art[data-n="3"] .pf-brow{transform:translateY(-1.6px)}.hero-art[data-n="4"] .pf-brow{transform:translateY(-2.1px)}
+.hero-art[data-n="5"] .pf-brow{transform:translateY(-2.6px)}.hero-art[data-n="6"] .pf-brow{transform:translateY(-3.2px)}
+.hero-art .pf-smile{display:none}
+.hero-art[data-n="6"] .pf-smile{display:inline}.hero-art[data-n="6"] .pf-mouth{display:none}
+.steam{top:auto;bottom:64px;left:auto;right:-14px;margin-left:0}
+.steam b{border-left-color:color-mix(in oklab,var(--k) 55%,transparent);filter:none}
+@media (max-width:380px){.hero-art{width:128px;height:164px}.hero-art .pf{width:128px;height:128px}.hero-art .bowl{width:118px;height:63px;left:5px;top:101px}.dayhead h1{font-size:44px}}
+
+/* the bowl, front on: steel, an ink rim, the day's food inside */
+.bowl .b-steel{fill:var(--pf-steel)}
+.bowl .b-dots{fill:url(#pf-hts)}
+.bowl .b-k{fill:none;stroke:var(--k);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bowl .ly{transform:translateY(-14px) scale(.9)}
+.bowl .ly[data-l="1"]{transform:scaleY(.2)}
+.bowl .ly.on{transform:none}
+
+/* the now card: a ruled panel, a stamped label */
+.focus{border-width:2px;border-color:var(--rule);background:var(--surface-1)}
+.focus .lab{display:inline-block;padding:3px 8px 2px;border-radius:var(--wr-sm);background:var(--accent);color:var(--on-accent)}
+.focus.soak .lab{background:var(--info)}.focus.urgent .lab{background:var(--danger)}.focus.fin .lab{background:var(--success)}
+.focus.ask,.focus.urgent,.focus.fin{background:var(--surface-1);border-color:var(--rule)}
+.focus.ask .lab{background:var(--k);color:var(--t-bg)}
+.focus h2{font-size:30px;line-height:1.05;margin:var(--s3) 0}
+ul.fl{border-top-color:var(--rule-soft)}ul.fl li{border-bottom-color:var(--rule-soft)}
+.focus.rescue-ask{background:var(--surface-1);border-color:var(--rule)}
+.focus.rescue-ask .lab{background:var(--ink-r);color:#fff}
+.previewing .focus{background:var(--surface-1)}
+
+/* the list: a ruled sheet; the current row is marked with the day's ink */
+ol.tl li.cur{background:color-mix(in oklch,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
+@media (hover:hover){ol.tl li:not(.cur):not(.shut):hover{background:var(--surface-2)}}
+ol.tl li.shut{background:var(--surface-1)}
+ol.tl li.shut::before,ol.tl li.shut::after{border-top:1.5px dashed var(--rule-soft)}
+.rico .ki{width:32px;height:32px}
+ol.tl li.done .rico{opacity:.5;filter:grayscale(.6)}
+
+/* katoris and stickers: ink outlines, paper edge, no drop shadows */
+.pot .r,.ki .r,.gl .r{fill:var(--surface-1);stroke:var(--k);stroke-width:1.6}
+.pot .w,.ki .w,.gl .w{fill:var(--pf-steel)}
+.pot .sh,.ki .sh,.gl .sh{display:none}
+.ki,.gl{filter:url(#pf-wob-s)}
+.stk{filter:none}
+.stk .cut *{fill:var(--surface-1)!important;stroke:var(--surface-1)!important}
+.stk .face{fill:var(--k)}
+.cups.glass button[aria-pressed="false"] .w{fill:var(--pf-steel)}
+.cups button:hover{background:var(--surface-2)}
+
+/* the pot family, in small */
+.pf{display:block;flex:0 0 auto;overflow:visible}
+.pf.pot{width:30px;height:30px}
+.rota .pf.pot{width:40px;height:40px;margin:-2px 0}
+.rota{background:transparent;border:1.5px solid var(--rule);border-radius:var(--wr);padding:2px}
+.rota button{border-radius:var(--wr-sm);color:var(--ink-soft)}
+.rota button.now{background:color-mix(in oklch,var(--accent) 10%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent);color:var(--ink-strong)}
+.rota button:hover .pf{transform:rotate(-6deg)}
+.dsw{background:transparent;border:1.5px solid var(--rule);border-radius:var(--wr)}
+.dsw button{border-radius:var(--wr-sm)}
+.dsw button.on{background:var(--surface-1);box-shadow:inset 0 0 0 2px var(--accent)}
+.dsw button small::before{border-radius:50%;box-shadow:0 0 0 1.2px var(--k)}
+#sh-ic .pf{width:42px;height:42px;margin:-4px 0}
+
+/* cook: the cast sheet. Five busts in a grid, the Sunday one gets the wide card */
+#pots{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);background:none;border:0;overflow:visible}
+#pots li{border:0!important}
+#pots .rlb{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:0;height:100%;padding:0 0 var(--s3);
+  background:var(--surface-1);border:1.5px solid var(--rule);border-radius:var(--wr);overflow:hidden}
+#pots .ptile{position:relative;display:block;padding:var(--s3) 0 0;margin:0 0 var(--s2);border-bottom:1.5px solid var(--rule);isolation:isolate}
+#pots .ptile::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(circle,color-mix(in oklab,var(--t) 55%,transparent) 1.5px,transparent 1.9px) 0 0/6px 6px;
+  -webkit-mask:radial-gradient(ellipse 70% 80% at 50% 40%,#000 30%,transparent 75%);mask:radial-gradient(ellipse 70% 80% at 50% 40%,#000 30%,transparent 75%)}
+#pots .ptile .pf.pot{width:118px;height:118px;margin:0 auto -6px}
+#pots .rlb>span:nth-child(2){padding:0 var(--s3)}
+#pots .rname{font-family:var(--font-display);font-stretch:80%;font-size:23px;font-weight:800;line-height:1.05}
+#pots .rname .tg{display:table;margin:var(--s1) 0 0}
+#pots .rdish{font-size:14.5px;line-height:1.35;margin-top:var(--s1);color:var(--ink-strong);font-weight:600}
+#pots .rline{font-size:13px;line-height:1.45}
+#pots .rt{position:absolute;top:var(--s2);right:var(--s2);padding:1px 6px;border-radius:var(--wr-sm);background:var(--surface-1);box-shadow:inset 0 0 0 1.2px var(--rule);font-size:12px;color:var(--ink-soft)}
+#pots .rt::after{display:none}
+#pots li:last-child{grid-column:1/-1}
+#pots li:last-child .rlb{flex-direction:row;align-items:center;padding:0}
+#pots li:last-child .ptile{margin:0;padding:var(--s3) var(--s2) 0;border-bottom:0;border-right:1.5px solid var(--rule);align-self:stretch;display:flex;align-items:flex-end}
+#pots li:last-child .rlb>span:nth-child(2){padding:var(--s3) var(--s4) var(--s3) var(--s4)}
+@media (hover:hover){#pots .rlb:hover{background:var(--surface-1);box-shadow:inset 0 0 0 1.5px var(--rule)}#pots .rlb:hover .pf{transform:rotate(-3deg)}}
+#pots .pf{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (min-width:600px){#pots{grid-template-columns:repeat(3,1fr)}#pots li:last-child{grid-column:auto}#pots li:nth-child(4){grid-column:auto}
+  #pots li:last-child .rlb{flex-direction:column;align-items:stretch;padding:0 0 var(--s3)}#pots li:last-child .ptile{margin:0 0 var(--s2);padding:var(--s3) 0 0;border-right:0;border-bottom:1.5px solid var(--rule);display:block}
+  #pots li:last-child .rlb>span:nth-child(2){padding:0 var(--s3)}}
+ul.rl.noic .rlb{padding:var(--s4)}
+@media (hover:hover){.rlb:hover{background:var(--surface-2)}}
+
+/* the morning note: a slip of paper, taped on */
+.ynote{border-radius:2px;box-shadow:none;border:1.5px solid var(--rule);transform:rotate(-.8deg)}
+.ynote::before{opacity:1;background:var(--note-tape)}
+.yl{font-family:var(--font-display);font-stretch:88%}
+.pnote{background:var(--surface-2);border-radius:var(--wr-sm)}
+.pnote .ck,.pnote b,.yl .ck{color:var(--accent)}
+.pbadge{border-radius:var(--wr-sm);background:transparent;--pc:var(--accent);box-shadow:inset 0 0 0 1.2px var(--accent);font-size:11px}
+
+/* rescue: the pot, wearing a lifebuoy */
+.fixnote.rescued{grid-template-columns:64px minmax(0,1fr) auto;background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--ink-r);padding-top:var(--s4)}
+.fixnote.rescued b{font-family:var(--font-display);font-stretch:85%;font-size:19px}
+.rsi{filter:none;width:64px;height:auto}
+.rsi .pf{width:72px;height:72px;margin:-10px -4px -12px}
+.rsi svg:not(.pf){color:var(--surface-1)}
+@media (max-width:480px){.fixnote.rescued{grid-template-columns:64px minmax(0,1fr)}}
+.thres .rsi{width:26px}.thres .rsi svg{width:26px;height:26px;color:var(--surface-1)}
+
+/* the thali: printed plate, finished days stamped with that pot's face */
+.thali{border-width:1.5px}
+.thali.sunday{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--accent)}
+.thhead h2{font-size:26px}
+.thn b{font-family:var(--font-display);font-size:30px}
+.thali-art{filter:none}
+.th-rim{fill:var(--pf-steel);stroke:var(--k);stroke-width:1.6}
+.th-well{fill:var(--surface-1);stroke:var(--k);stroke-width:1;stroke-opacity:.5}
+.th-dots{fill:url(#pf-hts)}
+.tk-rim{fill:var(--surface-1);stroke:var(--k);stroke-width:1.4}
+.tk .tki{filter:none}
+.tk-ring{fill:none;stroke:var(--k);stroke-width:1.4}
+.tk-lab circle{fill:var(--surface-1);stroke:var(--k);stroke-width:1.1}
+.tk-lab text,.tsp text{font-family:var(--font-mono);font-weight:700}
+.tk-star circle{fill:var(--ink-r)}
+.tsp circle{fill:transparent;stroke:var(--k);stroke-opacity:.55;stroke-width:1.3;stroke-dasharray:2.6 3.2}
+.tsp text{fill:var(--ink-muted)}
+.tsp.now circle{stroke:var(--accent);stroke-opacity:1;stroke-width:2.2;fill:color-mix(in oklab,var(--accent) 10%,transparent)}
+.tin{border-top:1.5px dashed var(--rule-soft)}
+
+/* the surprise: today's pot, its lid rattling */
+.reveal{border-radius:var(--wr);background:var(--surface-1);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.reveal.shut:hover{box-shadow:inset 0 0 0 2px var(--accent)}
+.reveal .pf.dabba{width:76px;height:76px;margin:-6px 0 -12px}
+.reveal .pf-lid{transform-box:view-box;transform-origin:90px 35px;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.reveal.shut .pf-lid{animation:lidrattle 3.2s ease-in-out 1s infinite}
+.reveal.opening .pf-lid{animation:none;transform:translate(10px,-14px) rotate(24deg);opacity:0}
+@keyframes lidrattle{0%,80%,100%{transform:none}84%{transform:translateY(-4px) rotate(-5deg)}88%{transform:translateY(-1px) rotate(4deg)}92%{transform:translateY(-3px) rotate(-2deg)}96%{transform:none}}
+.reveal b{font-family:var(--font-display);font-stretch:85%;font-size:20px}
+.rv-art{border-radius:0;background:none;width:72px;height:72px}
+.rv-art .pf{width:76px;height:76px}
+.rv-art .ki{width:56px;height:56px}
+.rv-art .stk{width:56px;height:56px}
+
+/* empty states: someone from the family, unimpressed */
+.empty{display:flex;flex-direction:column;align-items:center;gap:var(--s2)}
+.pf.pf-empty{width:92px;height:92px}
+
+/* settings: a printed card; Black Pot keeps an eye on the reset buttons */
+.modal{background:color-mix(in oklab,var(--t-darkest) 55%,transparent)}
+.mpanel{background:var(--surface-0);border:2px solid var(--rule);border-bottom:0;border-radius:var(--wr) var(--wr) 0 0}
+@media (min-width:700px){.mpanel{border-bottom:2px solid var(--rule);border-radius:var(--wr)}}
+.mpanel>h2:first-child{font-size:44px;font-weight:800;text-shadow:3px 2.5px 0 var(--ink-b)}
+.mrow{border:1.5px solid var(--rule-soft)}
+.mrow:hover{border-color:var(--rule)}
+.mrow.help{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 5px 0 0 var(--accent)}
+.mrow.armed{border-color:var(--danger);box-shadow:inset 0 0 0 1px var(--danger)}
+.mh-watch{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3)}
+.mh-watch .pf{width:58px;height:58px;margin:-14px 0 -6px}
+
+/* timers: a torn ticket, typewriter numbers */
+.dock>div{background:var(--surface-0);border:1.5px solid var(--rule);border-radius:var(--wr-sm);box-shadow:none;
+  box-shadow:inset 6px 0 0 var(--accent)}
+.dock .left{font-family:var(--font-mono);font-size:22px;color:var(--ink-strong)}
+.dock button{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.dock>div.rang{background:var(--surface-0);border-color:var(--warning);border-left-color:var(--warning)}
+.dock>div.rang .left{color:var(--danger)}
+
+/* toast: a slip with a rule above */
+.toast{background:var(--surface-0);border-top:1.5px solid var(--rule)}
+.toast>span::before{border-radius:1px;background:var(--accent);transform:rotate(45deg)}
+
+/* cook sheet */
+.sh-top{border-bottom:1.5px solid var(--rule)}
+.sh-title b{font-family:var(--font-display);font-stretch:82%;font-size:21px;font-weight:800}
+.sh-h{font-weight:800;text-shadow:3px 2.5px 0 color-mix(in oklab,var(--pc,var(--mis)) 80%,transparent)}
+.sh-foot{border-top:1.5px solid var(--rule)}
+.tmb{border-radius:var(--wr);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.tmb .tt{font-family:var(--font-mono)}
+.tmb.on{background:var(--surface-1);box-shadow:inset 0 0 0 2.5px var(--accent)}
+.set{border:1.5px solid var(--rule);border-radius:var(--wr);background:var(--rule-soft)}
+.warn{background:var(--surface-1);border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:inset 5px 0 0 var(--danger)}
+ol.allst button.c,ol.pr li.next{background:color-mix(in oklch,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
+.hn,ol.allst button::before,ol.pr .t{font-family:var(--font-mono);font-size:12px;border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule)}
+ol.hsteps li:last-child .hn,ol.allst button.c::before,ol.pr li.next .t{box-shadow:none}
+
+/* chips: printed tags; a plant you ate gets the accent ink */
+.chip{border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule-soft);background:var(--surface-1)}
+.chip:hover{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.chip[aria-pressed="true"]{background:color-mix(in oklch,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
+.legend i.on{border-radius:2px;background:color-mix(in oklch,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
+kbd{border-color:var(--rule);background:var(--surface-1)}
+
+/* ---------- second pass ---------- */
+.stk .ko *{fill:none!important;stroke:var(--k)!important;stroke-width:.9!important;stroke-opacity:.9}
+.stk .ko{filter:url(#pf-wob-s)}
+.stk .cut *{stroke-width:3.6}
+.reveal.open{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.fixnote.rescued{border-left:1.5px solid var(--rule)}
+.tabs button.alert .ic::after{box-shadow:0 0 0 2px var(--surface-0),0 0 0 3.5px var(--k)}
+@media (min-width:960px){.tabs{border-top:0}}
+
+/* the family portrait, in the guide */
+.family{margin:var(--s5) 0 0;padding:var(--s4) var(--s2) var(--s3);border-top:2px solid var(--rule);border-bottom:2px solid var(--rule)}
+.family ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s1)}
+.family li{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.family .pf{width:100%;max-width:96px;height:auto;aspect-ratio:1}
+.family b{font-family:var(--font-display);font-stretch:80%;font-size:16px;font-weight:800;line-height:1.1;margin-top:var(--s1)}
+.family small{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted)}
+.family+h2::before{display:none}
+.family figcaption{margin-top:var(--s3);font-size:var(--fs-meta);color:var(--ink-soft);text-align:center}
+/* ---------- the family at home: master pot, living faces, tab icons, the Pots page ---------- */
+:root{--pot-master:color-mix(in oklab,var(--ink-r) 52%,var(--ink-y))}
+/* the logo is a button home */
+.brand{pointer-events:auto;cursor:pointer;border-radius:var(--wr-sm,6px);padding:2px 4px 2px 0}
+.brand .logo{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){.brand:hover .logo{transform:rotate(-8deg) scale(1.06)}}
+.brand:active .logo{transform:scale(.92)}
+
+/* living faces: blink, sleep, yawn, cross */
+.pf .pf-eyes{transform-box:fill-box;transform-origin:center}
+.pf.poke{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pf .pf-shut,.pf .pf-cross,.pf .pf-yawn{display:none}
+.hero-art .pf .pf-eyes,.castpic .pf .pf-eyes,.logo .pf-eyes{animation:blink 7s infinite}
+.castc:nth-child(2n) .pf .pf-eyes{animation-delay:-2.3s}.castc:nth-child(3n) .pf .pf-eyes{animation-delay:-4.1s}
+@keyframes blink{0%,95%,100%{transform:none}97%{transform:scaleY(.12)}}
+.pf.sleep .pf-eyes{display:none}.pf.sleep .pf-shut{display:inline}
+.pf.sleep .pf-brow{transform:translateY(1.6px)!important}
+.pf.yawn .pf-mouth,.pf.yawn .pf-smile{display:none!important}.pf.yawn .pf-yawn{display:inline;transform-box:fill-box;transform-origin:center top;animation:yawn 2.4s ease-in-out}
+.pf.yawn .pf-eyes{animation:none;transform:scaleY(.35)}
+@keyframes yawn{0%{transform:scaleY(.2)}25%,70%{transform:scaleY(1)}100%{transform:scaleY(.2)}}
+.pf.cross .pf-brow{display:none}.pf.cross .pf-cross{display:inline}
+.pf.nudge{animation:nudge .32s cubic-bezier(.3,1.6,.5,1)}
+@keyframes nudge{30%{transform:rotate(-5deg) translateY(-2px)}65%{transform:rotate(3deg)}}
+.pokeq{position:absolute;z-index:3;top:4%;left:58%;padding:4px 9px 3px;border:1.6px solid var(--k);border-radius:12px 12px 12px 2px;background:var(--surface-0);
+  font:700 13px/1.25 var(--font-display);color:var(--ink-strong);white-space:nowrap;animation:popq .3s cubic-bezier(.3,1.6,.5,1)}
+@keyframes popq{from{transform:scale(.4) translateY(6px);opacity:0}}
+.hero-art,.castpic,.askpic,.bedsay,.wsays{position:relative}
+.pf-zzz{display:none;position:absolute;left:62%;top:-4%;pointer-events:none;font:800 18px/1 var(--font-display);color:var(--k)}
+.hero-art.sleeping .pf-zzz{display:block}
+.pf-zzz b{position:absolute;opacity:0;animation:zzz 3.6s ease-in infinite}
+.pf-zzz b:nth-child(2){animation-delay:1.2s;font-size:14px}.pf-zzz b:nth-child(3){animation-delay:2.4s;font-size:11px}
+@keyframes zzz{0%{transform:translate(0,10px);opacity:0}20%{opacity:1}100%{transform:translate(22px,-26px) rotate(14deg);opacity:0}}
+
+/* tomorrow's pot asks */
+.askpot{display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--s2) var(--s3);align-items:start;margin:var(--s3) 0 0;padding:var(--s3) var(--s4);
+  background:var(--surface-1);border:1.6px solid var(--k);border-radius:var(--wr,10px)}
+.askpic .pf{width:64px;height:64px;display:block}
+.askpot p,.bedsay p{margin:0;min-width:0}
+.askpot b,.bedsay b{display:block;font:700 13px/1.3 var(--font-mono,monospace);letter-spacing:.02em;color:var(--ink-muted)}
+.askpot q,.bedsay q,.wsays q{display:block;quotes:none;font:700 18px/1.3 var(--font-display);color:var(--ink-strong);margin-top:2px}
+.askpot small{display:block;margin-top:var(--s1);font-size:var(--fs-meta);line-height:1.45;color:var(--ink-muted)}
+.askpot .btn{grid-column:2;justify-self:start}
+.bedsay{display:grid;grid-template-columns:52px minmax(0,1fr);gap:var(--s3);align-items:center;margin:var(--s2) 0 var(--s2)}
+.bedsay .pf{width:52px;height:52px;display:block}
+.bedsay q{font-size:16px}
+.wsays{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s2)}
+.wsays .pf{width:40px;height:40px;flex:0 0 auto}
+.wsays q{font-size:15px;margin:0}
+.cups.glass svg.pour .w+circle,.cups.glass svg.pour circle[fill="var(--water)"]{transform-box:fill-box;transform-origin:center;animation:pour .55s cubic-bezier(.3,1.4,.5,1)}
+@keyframes pour{from{transform:scale(.1)}}
+.cups.glass svg.pour{animation:slosh .5s ease-out .1s}
+@keyframes slosh{30%{transform:rotate(-6deg)}65%{transform:rotate(4deg)}}
+
+/* tab icons: two inks, one hand */
+.tabs svg.ti{fill:none;stroke-width:1.7}
+.tabs svg.ti .ti-c{opacity:.4;transition:opacity .2s}
+.tabs button[aria-current="page"] svg.ti{background:color-mix(in oklab,var(--accent) 14%,var(--surface-0));stroke:var(--k);box-shadow:inset 0 0 0 1.5px var(--k)}
+.tabs button[aria-current="page"] svg.ti .ti-c{opacity:1}
+@media (hover:hover){.tabs button:hover svg.ti .ti-c{opacity:.75}}
+ul.htabs svg.ti{width:26px;height:26px;stroke:var(--k);stroke-width:1.6}
+ul.htabs svg.ti .ti-c{opacity:1}
+.ti *{transform-box:fill-box}
+.ti-today .ti-eyes{transform-origin:center;animation:blink 6s infinite}
+.ti.go.ti-today .ti-eyes{animation:blink-now .5s}
+@keyframes blink-now{40%{transform:scaleY(.1)}}
+.ti-steam path{opacity:0}
+.ti.go .ti-steam path{animation:puffi .9s ease-out}.ti.go .ti-steam path+path{animation-delay:.15s}
+@keyframes puffi{0%{opacity:0;transform:translateY(3px)}30%{opacity:1}100%{opacity:0;transform:translateY(-3px)}}
+.ti-swing{transform-origin:50% 0}
+.ti.go .ti-swing{animation:swing .7s ease-in-out}
+@keyframes swing{25%{transform:rotate(9deg)}55%{transform:rotate(-6deg)}80%{transform:rotate(3deg)}}
+.ti.go .ti-lid{animation:lidup .6s cubic-bezier(.3,1.5,.5,1)}
+@keyframes lidup{40%{transform:translateY(-3.4px) rotate(-8deg)}}
+.ti-page{transform-origin:0 50%}
+.ti.go .ti-page{animation:flip .55s ease-in-out}
+@keyframes flip{45%{transform:scaleX(-.2)}}
+.ti.go .ti-bob1{animation:bob .5s ease-out}.ti.go .ti-bob2{animation:bob .5s ease-out .12s}
+@keyframes bob{40%{transform:translateY(-2.2px)}}
+/* the alert dot is a small chilli */
+.tabs button.alert .ic::after{width:13px;height:13px;border-radius:0;box-shadow:none!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19.6c6-.4 11-4.8 12.6-11.6.3-1.4 2.4-1.1 2.3.3-.7 8-7 13.6-14.6 13.6-1.4 0-1.6-2.2-.3-2.3z' fill='%23e2463a' stroke='%2325211c' stroke-width='1.6'/%3E%3Cpath d='M19 8.2c-.2-1.8.4-3.1 1.8-4' stroke='%233d7448' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  top:5px;left:calc(50% + 8px);animation:chilli 2.8s ease-in-out infinite}
+@keyframes chilli{0%,85%,100%{transform:none}90%{transform:rotate(-14deg)}95%{transform:rotate(10deg)}}
+@media (min-width:960px){.tabs button.alert .ic::after{top:12px;left:22px}}
+@media (max-width:380px){.tabs button{font-size:11px}.tabs svg{padding:3px 10px!important}}
+
+/* the Pots page */
+.castc{display:grid;grid-template-columns:132px minmax(0,1fr);gap:var(--s3) var(--s5);align-items:start;margin:var(--s5) 0 0;padding:var(--s4) var(--s4) var(--s5);
+  border:1.6px solid var(--k);border-radius:var(--wr,10px);background:var(--surface-1)}
+.castc.boss{background:color-mix(in oklab,var(--pot-master) 12%,var(--surface-1))}
+.castpic .pf{display:block;width:132px;height:132px}
+.castk{margin:0;font:700 12px/1.3 var(--font-mono,monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted)}
+.castt h2{margin:2px 0 var(--s1);font-size:30px;line-height:1.05}
+.castr{margin:0 0 var(--s3);color:var(--ink-soft);font-size:15px}
+.castd{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px var(--s3);margin:0;font-size:var(--fs-meta)}
+.castd dt{color:var(--ink-muted);font-weight:700}
+.castd dd{margin:0;color:var(--ink)}
+.castb{grid-column:1/-1;border-top:1.4px dashed var(--rule-soft,var(--border));padding-top:var(--s2)}
+.castb h3{margin:var(--s3) 0 2px;font-size:var(--fs-meta);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted)}
+.castb p{margin:0;max-width:62ch;line-height:1.55}
+.castb ul{margin:var(--s1) 0 0;padding-left:20px}
+.castb li{margin:2px 0}
+@media (max-width:440px){.castc{grid-template-columns:96px minmax(0,1fr)}.castpic .pf{width:96px;height:96px}.castt h2{font-size:25px}}
+.crewh{margin-top:var(--s7)}
+ol.crew{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--s4) var(--s2)}
+ol.crew li{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.crew-a{display:grid;place-items:center;width:72px;height:72px}
+.crew-a .stk{width:64px;height:64px;margin:0}
+ol.crew li:nth-child(3n+1) .stk{transform:rotate(-6deg)}ol.crew li:nth-child(3n+2) .stk{transform:rotate(4deg)}
+ol.crew b{font-size:13.5px;line-height:1.25;color:var(--ink-strong);margin-top:var(--s1)}
+ol.crew small{font:12px/1.3 var(--font-mono,monospace);color:var(--ink-muted);margin-top:2px}
+ol.crew li.unseen .stk .col,ol.crew li.unseen .stk .face,ol.crew li.unseen .stk .ko{display:none}
+ol.crew li.unseen .stk .cut *{fill:none!important;stroke:var(--ink-faint)!important;stroke-width:.9!important;stroke-dasharray:1.6 1.6}
+ol.crew li.unseen b{color:var(--ink-muted);font-weight:600}
+@media (prefers-reduced-motion:reduce){.pf .pf-eyes,.ti *,.pf-zzz b,.tabs button.alert .ic::after{animation:none!important}.pf-zzz b{opacity:1;position:static}}
+/* ===== END POT FAMILY LAYER ===== */

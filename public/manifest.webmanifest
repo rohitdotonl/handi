@@ -1,0 +1,22 @@
+{
+  "name": "Handi: one pot a day",
+  "short_name": "Handi",
+  "display": "standalone",
+  "background_color": "#f1ece0",
+  "theme_color": "#f1ece0",
+  "icons": [
+    {
+      "src": "icons/handi-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/handi-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./",
+  "scope": "./"
+}

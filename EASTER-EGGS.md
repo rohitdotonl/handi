@@ -1,9 +1,10 @@
 # Handi: easter eggs and hidden touches
 
-Everything playful that is built into `public/index.html`, where to find it and how to make it
-happen. This file lives outside `public/`, so it is never published with the site.
+Everything playful that is built into the app, where to find it and how to make it happen.
+This file lives outside `public/`, so it is never published with the site.
 
-Code names in brackets are the functions or constants to look for in `public/index.html`.
+Code names in brackets are the functions or constants to look for in `public/js/` (search the
+folder; most of the cast is in `cast.js` and `family.js`, rewards in `rewards.js`).
 
 ## The cast
 
@@ -17,7 +18,7 @@ Code names in brackets are the functions or constants to look for in `public/ind
 | Nawab Safed | White Pot | Sun | Bow tie, coriander sprig behind the ear, no nose |
 
 The face formula that every pot follows is written as a comment above `potFace()`. Names,
-backstories and quirks live in `CAST`.
+backstories and quirks live in `CAST` (`family.js`).
 
 ## Hidden and playful things
 

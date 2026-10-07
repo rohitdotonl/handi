@@ -1,0 +1,36 @@
+/* ---------- settings ---------- */
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:end center;background:color-mix(in oklab,var(--t-darkest) 40%,transparent);cursor:pointer}
+.modal[hidden]{display:none}
+.mpanel{width:100%;max-width:520px;max-height:92%;overflow-y:auto;background:var(--surface-0);border-radius:14px 14px 0 0;
+  padding:var(--s5) var(--s5) calc(var(--s4) + env(safe-area-inset-bottom,0px));cursor:auto}
+.mpanel>h2:first-child{margin:0 0 var(--s4);font-size:var(--fs-h1)}
+.mpanel h2.mh{margin:var(--s6) 0 var(--s2);font-size:var(--fs-h3)}
+.mrow{display:block;width:100%;margin:var(--s2) 0 0;padding:var(--s3) var(--s4);border:1px solid var(--border);border-radius:var(--r);background:var(--surface-1);text-align:left}
+.mrow:hover{border-color:var(--border-strong)}
+.mrow b{display:block;font-weight:700;color:var(--ink-strong)}
+.mrow small{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-muted);margin-top:2px}
+.mrow .q{font-weight:700;color:var(--danger)}
+.mrow.armed{border-color:var(--danger);box-shadow:0 0 0 1px var(--danger)}
+.mrow.danger b{color:var(--danger)}
+.mrow.help{background:var(--accent-wash);border-color:var(--accent-line)}
+.mrow.help b::after{content:" →";color:var(--accent)}
+.mpanel .btn{margin-top:var(--s5)}
+@media (min-width:700px){.modal{place-items:center}.mpanel{border-radius:14px;max-height:calc(100% - 48px)}}
+
+/* status strip: its own row above the tab bar, never on top of content */
+.toast{position:fixed;z-index:35;left:0;right:0;bottom:calc(var(--navh) + env(safe-area-inset-bottom,0px));
+  display:flex;align-items:center;gap:var(--s3);min-height:48px;padding:var(--s1) var(--s2) var(--s1) max(16px,calc((100% - 640px)/2 + 16px));
+  background:var(--surface-2);border-top:1px solid var(--border);font-size:var(--fs-meta);color:var(--ink-strong)}
+.toast[hidden]{display:none}
+.toast>span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.toast>span::before{content:"";display:inline-block;width:8px;height:8px;margin-right:var(--s2);border-radius:50%;background:var(--success);vertical-align:1px}
+.toast button{min-height:36px;padding:0 var(--s3);border-radius:var(--r-sm);font-weight:700;color:var(--accent)}
+.toast button.tx{color:var(--ink-muted);font-weight:400}
+.toast button:hover{background:var(--surface-3)}
+body.has-toast{--stat:49px}
+.savenote{color:var(--ink-faint)!important}
+
+.sub>h2:first-child,.prepbox:first-child>h2{margin-top:0}
+.tgrid{display:block}
+.totop{display:none}
+

@@ -1,7 +1,41 @@
 # Handi
 
-One pot a day. A single-file web app: everything lives in `public/index.html`.
-There is no build step and no server code.
+One pot a day. A static web app in `public/`: plain HTML, CSS and JavaScript files.
+There is no build step, nothing to install and no server code.
+
+## Files
+
+```
+public/
+  index.html             page structure only
+  css/                   loaded in this order; later files win
+    fonts.css tokens.css base.css today.css cook.css shop.css week.css guide.css
+    cook-sheet.css timers.css settings.css desktop.css
+    layer-1-steel-and-tadka.css layer-2-rewards.css layer-3-pot-family.css motion-and-print.css
+  js/                    plain scripts, loaded in order; they share one global scope
+    data.js              recipes, shopping, seasons, plants (content, not code)
+    state.js             the saved data (localStorage key graytee.v2)
+    art.js cast.js       drawings: katoris, stickers, the pot faces (potFace)
+    today.js rewards.js  Today, the bowl, thali, notes, rescues, the surprise
+    cook.js feel.js timers.js shop.js week.js
+    family.js            tab icons, the Pots page, moods, water, tomorrow's pot
+    app.js start.js      navigation, events, start-up
+  fonts/ icons/          real font and icon files
+  manifest.webmanifest   home-screen app details
+  _headers               cache rules (fonts kept for a year)
+tests/                   browser tests (not published)
+```
+
+If a font ever changes, give it a new file name: phones keep fonts for a year.
+
+## Run it locally
+
+```
+cd tests
+npm install            # once
+node serve.mjs         # http://localhost:4173
+npx playwright test    # 18 browser tests; GitHub runs them on every push
+```
 
 ## Links
 
