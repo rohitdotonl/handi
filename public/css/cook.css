@@ -2,7 +2,7 @@
 ul.rl{list-style:none;margin:0;padding:0;overflow:hidden}
 ul.rl li+li{border-top:1px solid var(--border)}
 .rlb{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:start;gap:0 var(--s3);width:100%;padding:var(--s4);border-radius:0}
-ul.rl.noic .rlb{grid-template-columns:minmax(0,1fr) auto}
+ul.rl.noic .rlb{grid-template-columns:minmax(0,1fr) auto;padding:var(--s4)}
 .ptile{display:block;padding-top:2px}
 .ptile .pot{width:26px;height:26px}
 .rname{display:block;font-size:var(--fs-title);font-weight:700;line-height:1.35;color:var(--ink-strong)}
@@ -10,11 +10,13 @@ ul.rl.noic .rlb{grid-template-columns:minmax(0,1fr) auto}
 .rline{display:block;font-size:13.5px;line-height:1.45;color:var(--ink-muted);margin-top:var(--s1)}
 .rt{display:flex;align-items:center;gap:var(--s2);font-size:13px;color:var(--ink-muted);white-space:nowrap;padding-top:3px}
 .rt::after{content:"";width:7px;height:7px;border-right:2px solid var(--ink-faint);border-bottom:2px solid var(--ink-faint);transform:rotate(-45deg)}
-@media (hover:hover){.rlb:hover{background:var(--surface-2)}.rlb:hover .rt::after{border-color:var(--ink-strong)}}
+@media (hover:hover){
+  .rlb:hover .rt::after{border-color:var(--ink-strong)}
+}
 #resume .sum{margin:0 0 var(--s5)}
 .sum{padding:var(--s4)}
 .sum .row{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s3)}
-.sum .count{font-size:var(--fs-h3);font-weight:700;color:var(--ink-strong)}
+.sum .count{color:var(--ink-strong)}
 .sum .bar{margin-bottom:var(--s3)}
 .sum .row b{color:var(--ink-strong)}
 details.fold{margin-top:var(--s7)}
@@ -22,4 +24,3 @@ details.fold>summary{list-style:none;display:flex;align-items:center;justify-con
 details.fold>summary::after,details.mo>summary::after,.sh-body details>summary::after,details.words>summary::after,details.howto>summary::after{content:"";flex:0 0 auto;width:8px;height:8px;border-right:2px solid var(--ink-muted);border-bottom:2px solid var(--ink-muted);transform:rotate(45deg);margin:0 4px 4px auto}
 details.fold[open]>summary::after,details.mo[open]>summary::after,.sh-body details[open]>summary::after,details.words[open]>summary::after,details.howto[open]>summary::after{transform:rotate(-135deg);margin-bottom:-4px}
 .cols{display:grid;gap:var(--s3)}
-

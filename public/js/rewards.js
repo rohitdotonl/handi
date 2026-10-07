@@ -39,7 +39,6 @@ const weekKeys=()=>{const m=new Date(now);m.setDate(m.getDate()-((realDow+6)%7))
 const rescuesThisWeek=()=>weekKeys().filter(d=>(mem.rescued||{})[dayKey(d)]).length;
 
 /* the weekly thali: seven spots on a steel plate, Monday to Saturday round the rim, Sunday in the middle */
-const TK_DOT={yellow:'#b86a10',black:'#d8c08f',blue:'#f3e2d3',red:'#5a1010',white:'#c9a46e'};
 let thaliLand=null;
 function thaliArt(days){
   const P=days.map((_,k)=>k<6?[100+54*Math.cos((-90+60*k)*Math.PI/180),100+54*Math.sin((-90+60*k)*Math.PI/180)]:[100,100]);
@@ -113,7 +112,6 @@ function surprise(){
   else{const L=kind==='tip'?TIPS:FACTS;seen[kind]=seen[kind]||[];let idx=L.map((_,k)=>k).filter(k=>!seen[kind].includes(k));if(!idx.length){seen[kind]=[];idx=L.map((_,k)=>k)}i=idx[Math.floor(Math.random()*idx.length)]}
   mem.surprise={d:today,kind,i,open:0};save();return mem.surprise;
 }
-const DABBA='<svg class="dabba" viewBox="0 0 80 72" aria-hidden="true"><ellipse cx="40" cy="66" rx="28" ry="4" fill="rgba(0,0,0,.14)"/><path d="M14 30h52v24c0 6-6 10-12 10H26c-6 0-12-4-12-10z" class="db-body"/><path d="M14 36h52" stroke="var(--steel-edge)" stroke-width="1.2" opacity=".6"/><path d="M20 34v22" stroke="var(--shine)" stroke-width="3" stroke-linecap="round"/><g class="db-lid"><path d="M10 24c0-4 4-7 8-7h44c4 0 8 3 8 7v6H10z" class="db-body"/><path d="M16 21h20" stroke="var(--shine)" stroke-width="2.4" stroke-linecap="round"/><rect x="33" y="10" width="14" height="8" rx="4" class="db-knob"/></g></svg>';
 let justOpened=false;
 function surpriseHTML(){
   const s0=surprise();
@@ -202,10 +200,4 @@ function renderTodayCore(){
   $('.tabs [data-tab="week"]').classList.toggle('alert',!!pp&&pp[0]<pp[1]);
 }
 const WATER=10;
-function fillStart(){
-  const sel=$('#start');let o='';
-  for(let m=420;m<=660;m+=30)o+=`<option value="${m}"${m===mem.start?' selected':''}>${clock(m)}</option>`;
-  sel.innerHTML=o;
-  sel.addEventListener('change',()=>{mem.start=+sel.value;save();renderToday();renderCook()});
-}
 

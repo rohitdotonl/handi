@@ -1,0 +1,715 @@
+/* ==========================================================================
+   design.css: the look of Handi, on top of the component files.
+   Steel and tadka (cards, bands, ticks), then rewards (bowl, thali, notes,
+   rescues, surprise), then the Pot Family (riso inks, the cast, tab icons,
+   the Pots page). Same order as before, so the cascade is unchanged.
+   ========================================================================== */
+/* ==========================================================================
+   Steel & Tadka: the design layer. The day's pot paints Today; cards are steel
+   plates; dividers are block-print; numbers are scoreboard Baloo; ticks drop
+   an ingredient into the box. Everything here sits on the roles above.
+   ========================================================================== */
+/* each pot: an accent for controls, and a band with its own ink */
+[data-pot="yellow"]{--day:var(--da-yellow);--band-a:#f7c94b;--band-b:#de9611;--band-spark:#2a1c02;--band-ink:var(--ink-strong);--mis-pot:var(--ink-y)}
+[data-pot="red"]{--day:var(--da-red);--band-a:#bf3b2c;--band-b:#8f241b;--band-spark:#ffd27a;--band-ink:var(--ink-strong);--mis-pot:var(--ink-r)}
+[data-pot="blue"]{--day:var(--da-blue);--band-a:#3168d4;--band-b:#1f47a8;--band-spark:#ffd27a;--band-ink:var(--ink-strong);--mis-pot:var(--ink-b)}
+[data-pot="black"]{--day:var(--da-black);--band-a:#3b3431;--band-b:#171312;--band-spark:#f2c04f;--band-ink:var(--ink-strong);--mis-pot:var(--ink-y)}
+[data-pot="white"]{--day:var(--da-white);--band-a:#fdf9f0;--band-b:#ebe1cb;--band-spark:#1d7a4a;--band-ink:var(--ink-strong);--mis-pot:var(--ink-g)}
+/* Today speaks in the day's colour */
+#today,body:has(#today:not([hidden])) .tabs{--accent:var(--day);--accent-hover:color-mix(in oklab,var(--day) 84%,var(--t-fg));--accent-wash:color-mix(in oklab,var(--day) 10%,var(--t-step1));--accent-line:color-mix(in oklab,var(--day) 40%,var(--t-border));--cursorline:color-mix(in oklab,var(--day) 9%,var(--t-step1));--success:var(--day)}
+/* type: bigger, rounder, scoreboard numbers */
+.dprog,.prog{font-family:var(--font-display);font-variant-numeric:tabular-nums;letter-spacing:0}
+.bhead span,.gwrap h3.grp small{font-variant-numeric:tabular-nums;letter-spacing:0}
+.hn,ol.allst button::before,ol.pr .t{font-variant-numeric:tabular-nums;letter-spacing:0;padding-top:2px}
+.sum .count,.prephd .count{font-variant-numeric:tabular-nums;line-height:1.1}
+.bhead span{font-size:17px;font-weight:700}
+.gwrap h3.grp small{font-weight:700}
+.meter .big{font-size:32px;font-weight:800;line-height:1}
+.meter .big small{font-family:var(--font-display);font-size:16px;font-weight:600}
+.hn,ol.allst button::before,ol.pr .t{font-weight:800}
+/* the hero band: the pot's colour, a block-print grain, a steaming bowl */
+.dayhead{position:relative}
+.dayhead::before{inset:0;z-index:-1}
+.dprog{display:flex;align-items:baseline;gap:6px;margin-top:var(--s3);font-size:15px;font-weight:600;line-height:1}
+.dprog i{font-style:normal;font-weight:700}
+.dprog.some{color:color-mix(in srgb,var(--band-ink) 90%,transparent)}
+.dprog.all b{color:var(--band-ink)}
+.dprog.all::after{content:"";width:18px;height:10px;margin-left:4px;border-left:3px solid var(--band-spark);border-bottom:3px solid var(--band-spark);transform:translateY(-6px) rotate(-45deg)}
+#bowl{position:relative}
+.steam{position:absolute;width:60px;height:46px;pointer-events:none;bottom:64px;right:-14px}
+.steam b{position:absolute;bottom:0;width:7px;height:34px;border-radius:50%;opacity:0;border-left:3px solid color-mix(in srgb,var(--band-ink) 45%,transparent);animation:steam 3.6s ease-in-out infinite}
+.steam b:nth-child(1){left:12px}
+.steam b:nth-child(2){left:27px;animation-delay:1.2s}
+.steam b:nth-child(3){left:42px;animation-delay:2.4s}
+@keyframes steam{0%{transform:translateY(14px) scaleY(.6) skewX(0);opacity:0}30%{opacity:.75}60%{transform:translateY(-6px) scaleY(1) skewX(-12deg)}100%{transform:translateY(-22px) scaleY(1.1) skewX(10deg);opacity:0}}
+.dayhead.alldone .steam b{animation-duration:2.4s;border-left-width:4px}
+.previewing .steam{display:none}
+.previewing .bowl{filter:none;opacity:1}
+/* steel plates: a rim, a sheen at the top, a soft shadow under */
+.paper,.sum,.items,ol.tl,.track,.meter,ol.pr,.month,details.mo,ul.ingl,ol.allst,.bed,.plancard,.fixnote,ul.htabs,ol.hsteps,ul.rl,details.win,.mrow,.sh-body details:not(.words){border-color:color-mix(in oklab,var(--steel-edge) 32%,var(--border))}
+/* the now card: the day's colour, a little stronger */
+.focus .lab{font:800 12px/1.2 var(--font-display)}
+.focus.soak .lab{color:var(--on-accent)}
+.focus.urgent .lab{color:var(--on-accent)}
+.focus.fin .lab{color:var(--on-accent)}
+/* block-print dividers above section headings */
+.page>h2,.sub>h2:not(:first-child),.later,.gwrap+.gwrap h3.grp,details.fold{position:relative}
+.page>h2::before,.sub>h2:not(:first-child)::before,.later::before,details.fold::before{content:"";display:block}
+.later{flex-wrap:wrap}
+.later::before{flex:1 0 100%}
+@media (min-width:1181px){
+  .later::before{display:none}
+}
+.page>h2,.sub>h2:not(:first-child){margin-top:var(--s6)}
+.page>h1+h2::before,.page>h1+div+h2::before{display:none}
+/* controls: tactile, a press you can feel */
+.chip,.opt,.tm,.lvl button,.dock button{transition:transform .08s}
+.chip:active,.opt:active,.tm:active,.lvl button:active{transform:scale(.96)}
+/* tab bar: the active icon sits in a pill */
+.tabs svg{transition:background-color .15s,transform .15s}
+.tabs button[aria-current="page"]::before{display:none}
+.tabs button:active svg{transform:scale(.9)}
+/* the week's rota: pots as tiles */
+.rota .pot{width:28px;height:28px;transition:transform .15s}
+.rota button:hover .pot{transform:rotate(-12deg) scale(1.08)}
+/* checkboxes: rounder, and they pop */
+.box,.tick i,ul.fl .ln i{transition:background-color .15s,box-shadow .15s}
+.pop{animation:pop .45s cubic-bezier(.3,1.7,.5,1)}
+@keyframes pop{0%{transform:scale(1)}30%{transform:scale(1.3) rotate(-8deg)}60%{transform:scale(.9) rotate(3deg)}100%{transform:none}}
+.drop{position:absolute;left:50%;top:50%;z-index:2;width:var(--ds,8px);height:var(--ds,8px);margin:calc(var(--ds,8px) / -2) 0 0 calc(var(--ds,8px) / -2);background:var(--dc);border-radius:var(--dr,50%);pointer-events:none;box-shadow:0 0 0 1.5px var(--surface-1);animation:drop .6s cubic-bezier(.55,0,.8,.3) var(--dd,0s) both}
+@keyframes drop{0%{transform:translate(var(--dx),-30px) rotate(0) scale(.7);opacity:0}20%{opacity:1}75%{transform:translate(0,0) rotate(var(--rot,180deg)) scale(1);opacity:1}100%{transform:translate(0,3px) rotate(var(--rot,180deg)) scale(.3);opacity:0}}
+/* tadka: sparks and steam when a pot is finished */
+.cups button,.chip{position:relative}
+.tadka{position:fixed;z-index:200;width:0;height:0;pointer-events:none}
+.tadka i{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 6px var(--c);animation:spark .8s cubic-bezier(.15,.6,.3,1) var(--dl,0s) both}
+@keyframes spark{0%{transform:rotate(var(--a)) translateX(0) scale(1);opacity:1}80%{opacity:1}100%{transform:rotate(var(--a)) translateX(var(--d)) translateY(18px) scale(.2);opacity:0}}
+.tadka b{position:absolute;left:var(--x);bottom:0;width:10px;height:44px;border-radius:50%;border-left:4px solid color-mix(in srgb,var(--ink-muted) 50%,transparent);filter:blur(1px);animation:puff 1.4s ease-out var(--dl,0s) both}
+@keyframes puff{0%{transform:translateY(0) scaleY(.5);opacity:0}30%{opacity:.8}100%{transform:translateY(-90px) scaleY(1.2) skewX(14deg);opacity:0}}
+/* stickers: die-cut ingredients with a white edge */
+.stk{display:inline-block;flex:0 0 auto;width:26px;height:26px;vertical-align:-7px;margin-right:var(--s2)}
+.stk .cut *{stroke-linejoin:round;fill:var(--surface-1)!important;stroke:var(--surface-1)!important}
+.stk:nth-of-type(odd){transform:rotate(-6deg)}
+.item:nth-child(3n/**/+1) .stk{transform:rotate(-7deg)}
+.item:nth-child(3n/**/+2) .stk{transform:rotate(5deg)}
+.item:nth-child(3n) .stk{transform:rotate(-2deg)}
+.item input:checked~.what .stk{filter:grayscale(1) opacity(.45)}
+.chip{padding-left:6px;gap:4px}
+.chip .stk{width:24px;height:24px;margin:0;transition:transform .2s cubic-bezier(.3,1.7,.5,1)}
+.chip.fixed::before{order:3;margin-left:2px}
+.chip[aria-pressed="true"]{color:var(--ink-strong)}
+.chip[aria-pressed="true"]::before{order:3;color:var(--success)}
+.chip[aria-pressed="true"] .stk{transform:rotate(-10deg) scale(1.15)}
+/* ==========================================================================
+   Rewards layer: the bowl that fills, the weekly thali, notes from earlier
+   you, rescues and the lidded surprise. Food keeps its own colours; steel and
+   ink follow the theme.
+   ========================================================================== */
+/* dark: the pot bands drop a stop so they glow instead of glare */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="lupine"])[data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
+  :root:not([data-theme="lupine"])[data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
+  :root:not([data-theme="lupine"])[data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
+  :root:not([data-theme="lupine"])[data-pot="black"]{--band-a:#33373b;--band-b:#151719}
+  :root:not([data-theme="lupine"])[data-pot="white"]{--band-a:#dfe2e2;--band-b:#adb3b6}
+}
+:root[data-theme="catppuccin"][data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
+:root[data-theme="catppuccin"][data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
+:root[data-theme="catppuccin"][data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
+:root[data-theme="catppuccin"][data-pot="black"]{--band-a:#33373b;--band-b:#151719}
+:root[data-theme="catppuccin"][data-pot="white"]{--band-a:#dfe2e2;--band-b:#adb3b6}
+/* the bowl: empty steel at first, then each finished task adds a layer */
+.bowl{width:156px;height:156px}
+.bowl .ly{opacity:0;transform-box:fill-box;transform-origin:center;transition:opacity .3s ease,transform .7s cubic-bezier(.3,1.55,.5,1)}
+.bowl .ly.on{opacity:1}
+.bowl.intro .ly:nth-of-type(2){transition-delay:.05s}
+.bowl.intro .ly:nth-of-type(3){transition-delay:.17s}
+.bowl.intro .ly:nth-of-type(4){transition-delay:.29s}
+.bowl.intro .ly:nth-of-type(5){transition-delay:.41s}
+.bowl.intro .ly:nth-of-type(6){transition-delay:.53s}
+.bowl.intro .ly:nth-of-type(7){transition-delay:.65s}
+.bowl .ghost{opacity:0;transition:opacity .4s}
+.bowl[data-n="0"] .ghost{opacity:.7}
+.bowl .ripple{opacity:0;transform-box:fill-box;transform-origin:center}
+.bowl.splash .ripple{animation:ripple .8s ease-out .25s}
+@keyframes ripple{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.5)}}
+.bowl.splash{animation:wobble .6s cubic-bezier(.3,1.6,.5,1) .2s}
+@keyframes wobble{30%{transform:scale(1.05) rotate(-3deg)}60%{transform:scale(.98) rotate(2deg)}}
+.bowl .glint{opacity:0}
+.dayhead.alldone .bowl .glint path{animation:twinkle 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.dayhead.alldone .bowl .glint{opacity:1}
+.dayhead.alldone .bowl .glint path:nth-child(2){animation-delay:.8s}
+.dayhead.alldone .bowl .glint path:nth-child(3){animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}40%{opacity:1;transform:scale(1) rotate(45deg)}70%{opacity:0;transform:scale(.4) rotate(90deg)}}
+.steam{display:none}
+.dayhead.alldone .steam{display:block}
+.bnext{display:block;margin-top:var(--s2);font-size:var(--fs-meta);line-height:1.4}
+@media (max-width:380px){
+  .bowl{width:116px;height:116px}
+}
+/* a row picture: the task, drawn */
+.trow .tline{align-items:center}
+.rico{flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;margin:-4px 0 -4px auto}
+.rico .ki{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){
+  .trow:hover .rico .ki{transform:rotate(-10deg) scale(1.08)}
+}
+ol.tl li.cur .rico .ki{transform:scale(1.06)}
+/* prepped: earlier effort, paying off now */
+.pnote .ck,.yl .ck{--pc:var(--b-leaf)}
+.pbadge{display:inline-flex;align-items:center;gap:3px;vertical-align:2px;margin-left:var(--s2);padding:2px 8px 2px 5px;font:700 12px/1.3 var(--font-text);color:var(--pc);white-space:nowrap;--pc:var(--accent)}
+.ck{width:13px;height:13px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pnote{display:flex;gap:var(--s2);align-items:flex-start;margin:calc(-1 * var(--s1)) 0 var(--s3)!important;padding:var(--s2) var(--s3);color:var(--ink)!important;font-size:var(--fs-meta);line-height:1.45}
+.pnote .ck{margin-top:3px}
+/* a note from earlier you: a paper slip, taped on */
+.ynote{position:relative;margin:var(--s2) 4px var(--s4);padding:var(--s5) var(--s4) var(--s3);background:var(--note-bg);color:var(--note-ink);animation:slipin .55s cubic-bezier(.3,1.4,.5,1)}
+.ynote::before{content:"";position:absolute;top:-9px;left:50%;width:78px;height:20px;margin-left:-39px;transform:rotate(2deg);-webkit-mask:linear-gradient(90deg,transparent 0 2px,#000 2px calc(100% - 2px),transparent 0);mask:linear-gradient(90deg,transparent 0 2px,#000 2px calc(100% - 2px),transparent 0)}
+.ynote p{margin:0}
+.yh{font:800 12px/1.2 var(--font-display);opacity:.7;margin-bottom:var(--s2)!important}
+.yl{display:flex;gap:var(--s2);align-items:flex-start;font:600 17px/1.4 var(--font-display)}
+.yl+.yl{margin-top:var(--s1)!important}
+.yl .ck{width:18px;height:18px;margin-top:3px}
+.ysub{margin-top:var(--s2)!important;font-size:var(--fs-meta);opacity:.8}
+.ysub b{font-weight:700}
+.yx{margin-top:var(--s1);min-height:44px;padding:0 var(--s3);margin-left:calc(-1 * var(--s3));font-weight:700;font-size:var(--fs-meta);color:var(--note-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.ynote.bye{transition:transform .26s ease-in,opacity .26s ease-in;transform:translateY(-10px) rotate(-4deg);opacity:0}
+@keyframes slipin{from{transform:translateY(-14px) rotate(-5deg);opacity:0}}
+/* rescues: framed as a win */
+.fixnote.rescued{align-items:center;flex-wrap:nowrap;display:grid;gap:var(--s2) var(--s3);grid-template-columns:64px minmax(0,1fr) auto}
+.fixnote.rescued>span:nth-child(2){flex:1 1 auto;min-width:0}
+.fixnote.rescued b{display:block;font:800 17px/1.3 var(--font-display);color:var(--ink-strong);font-stretch:85%}
+.rsi{flex:0 0 auto;display:grid;place-items:center;color:var(--surface-1)}
+.rsi svg{width:40px;height:40px;color:#fbf7ef;animation:spinin .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes spinin{from{transform:rotate(-200deg) scale(.4)}}
+@media (max-width:480px){
+  .fixnote.rescued .btn{grid-column:2;justify-self:start}
+}
+/* the weekly thali */
+.thali{margin-top:var(--s6);padding:var(--s4)}
+.tcol.a .thali{margin:var(--s3) 0 0}
+.thhead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3)}
+.thhead h2{margin:0}
+.thn{font:600 15px/1 var(--font-display);color:var(--ink-muted)}
+.thn b{font-weight:800;color:var(--ink-strong)}
+.thbody{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:var(--s4);align-items:center;margin-top:var(--s3)}
+.thside p{margin:0;font-size:var(--fs-meta);line-height:1.5;color:var(--ink-soft)}
+.thside p+p{margin-top:var(--s3)}
+.thres{display:flex;gap:var(--s2);align-items:center;font-weight:700;color:var(--ink-strong)!important}
+.thres .rsi{height:26px}
+@media (max-width:440px){
+  .thbody{grid-template-columns:minmax(0,1fr)}
+  .thali-art{margin:0 auto}
+}
+.thali-art{display:block;width:100%;height:auto;max-width:100%}
+.tk-lab text{font:800 9px var(--font-display);text-anchor:middle;fill:var(--ink-strong)}
+.tsp text{font:800 9px var(--font-display);text-anchor:middle;font-size:12px}
+.tk-star path{fill:#fff}
+.tsp.now circle{stroke-dasharray:none;animation:breathe 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center;stroke-width:2.2}
+.tsp.now text{fill:var(--accent)}
+.tsp.fut circle{stroke-dasharray:none;stroke-opacity:.4}
+@keyframes breathe{50%{transform:scale(1.07)}}
+.tk.land .tki{animation:land .8s cubic-bezier(.3,1.5,.5,1) .15s both}
+@keyframes land{0%{transform:translateY(-60px) scale(1.4);opacity:0}60%{opacity:1}100%{transform:none}}
+.tin{margin-top:var(--s4);padding-top:var(--s3)}
+.tinh{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 var(--s2);font-size:var(--fs-meta);color:var(--ink-muted)}
+.tinh b{color:var(--ink-strong)}
+.tinrow{display:flex;flex-wrap:wrap;gap:6px}
+.tinrow .stk{width:30px;height:30px;margin:0}
+.tinrow span:nth-child(odd) .stk{transform:rotate(-8deg)}
+.tinrow span:nth-child(even) .stk{transform:rotate(6deg)}
+/* the surprise: a lidded steel dabba */
+.reveal{display:flex;align-items:center;gap:var(--s4);width:100%;margin:0 0 var(--s4);padding:var(--s3) var(--s4);text-align:left}
+.reveal.shut{cursor:pointer;animation:nudge 3.2s ease-in-out 1s infinite}
+.reveal b{display:block;font:800 18px/1.25 var(--font-display);color:var(--ink-strong)}
+.reveal small{display:block;font-size:var(--fs-meta);color:var(--ink-muted);margin-top:2px}
+.dabba{width:72px;height:66px;flex:0 0 auto;overflow:visible}
+.db-body{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.2}
+.db-knob{fill:var(--steel-2);stroke:var(--steel-edge);stroke-width:1.2}
+.db-lid{transform-box:fill-box;transform-origin:20% 100%;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.reveal.shut .db-lid{animation:rattle 3.2s ease-in-out 1s infinite}
+.reveal.opening{animation:none}
+.reveal.opening .db-lid{animation:none;transform:translate(14px,-26px) rotate(28deg);opacity:0}
+@keyframes rattle{0%,82%,100%{transform:none}86%{transform:rotate(-5deg) translateY(-2px)}90%{transform:rotate(4deg) translateY(-1px)}94%{transform:rotate(-2deg)}}
+@keyframes nudge{0%,82%,100%{transform:none}88%{transform:translateY(-2px)}}
+.reveal.open{align-items:flex-start}
+.rv-art{flex:0 0 auto;display:grid;place-items:center}
+.rv-art .stk{margin:0;transform:rotate(-8deg)}
+.rv-t{min-width:0}
+.rv-t small{display:block;margin:0 0 2px;font:800 12px/1.3 var(--font-display);color:var(--accent)}
+.rv-t>span{display:block;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.reveal.fresh .rv-art{animation:popout .7s cubic-bezier(.3,1.7,.5,1) both}
+.reveal.fresh .rv-t{animation:risein .5s ease-out .15s both}
+@keyframes popout{0%{transform:scale(.2) rotate(-40deg);opacity:0}100%{transform:none;opacity:1}}
+@keyframes risein{from{transform:translateY(8px);opacity:0}}
+/* ===== POT FAMILY LAYER ===== */
+/* ==========================================================================
+   POT FAMILY LAYER: the whole app, printed on a risograph.
+   Four inks (key, blue, red, yellow) on paper. Panels are printed boxes with
+   ink rules, never shadows. Colour plates sit a hair off the key plate.
+   Halftone and grain live only in pictures, never behind words.
+   ========================================================================== */
+/* each pot: an accent you can read, and the ink that misregisters under its name */
+#today{--mis:var(--mis-pot,var(--ink-b))}
+/* ---------- type: a condensed poster grotesk, a typewriter for labels ---------- */
+h1,h2{font-family:var(--font-display);font-stretch:80%}
+.brand{font-family:var(--font-display)}
+details.fold>summary,.sh-h{font-family:var(--font-display);font-stretch:80%}
+.page>h1{font-size:var(--fs-h1);font-weight:800;line-height:.9;letter-spacing:-.01em;margin:var(--s4) 0 var(--s5);text-shadow:3px 2.5px 0 color-mix(in oklab,var(--mis) 80%,transparent)}
+h2{font-weight:750}
+.focus .lab,.yh,.rv-t small,.thn,.tinh span,.sh-n,.bhead span,.gwrap h3.grp small,.dprog i,.tg,.tag,.item .what i,.pbadge,.set small,.prephd .count,.sum .count{font-family:var(--font-mono)}
+.focus .lab,.yh,.rv-t small{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.tg,.tag,.item .what i{font-size:11px;letter-spacing:.04em;border-radius:var(--wr-sm)}
+.sum .count,.prephd .count{font-size:15px;font-weight:700;letter-spacing:0}
+/* ---------- printed panels: an ink rule, a hand-cut corner, no shadow ---------- */
+.paper,.sum,.items,ol.tl,.track,.meter,ol.pr,.month,details.mo,ul.ingl,ol.allst{background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:none}
+.bed{background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr)}
+.plancard{background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:none}
+.fixnote{background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr)}
+ul.htabs,ol.hsteps,ul.rl,details.win{background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:none}
+.focus{border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:none}
+.mrow{background:var(--surface-1);background-image:none;border-radius:var(--wr);box-shadow:none}
+.sh-body details:not(.words),.thali{background:var(--surface-1);background-image:none;border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:none}
+ol.tl li+li,ul.rl li+li,.item+.item,ol.pr li+li,ul.ingl li+li,ol.allst li+li,ol.hsteps li+li,ul.htabs li+li,.bed li+li,.stp+.stp,ul.plain li,td,th{border-top-color:var(--rule-soft)}
+details.mo .month{border:0;background:none}
+.bed,.bed.ok,.bed.urgent,.fixnote{border-left-width:1.5px;border-left-color:var(--rule)}
+.bed{box-shadow:inset 5px 0 0 var(--info)}
+.bed.ok{box-shadow:inset 5px 0 0 var(--success)}
+.bed.urgent{box-shadow:inset 5px 0 0 var(--danger)}
+.fixnote{box-shadow:inset 5px 0 0 var(--warning)}
+.note,.strip,.notes,.dsw-note{background:var(--surface-2);border-radius:var(--wr-sm)}
+.month.now{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--accent)}
+/* section dividers: one hand-drawn ink line */
+.page>h2::before,.sub>h2:not(:first-child)::before,.later::before,details.fold::before{height:10px;margin:0 0 var(--s4);background:var(--k);opacity:.8;-webkit-mask:var(--wave) 0 50%/240px 10px repeat-x;mask:var(--wave) 0 50%/240px 10px repeat-x}
+/* ---------- controls: flat ink, pressed into the paper ---------- */
+.btn{border-radius:var(--wr-sm);box-shadow:none;background:var(--accent);color:var(--on-accent);font-weight:700;letter-spacing:.005em}
+.btn:hover{background:var(--accent-hover)}
+.btn:active{transform:translate(1px,1px)}
+.btn.ghost,.focus .btn.ghost{background:transparent;color:var(--ink-strong);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.btn.ghost:hover,.focus .btn.ghost:hover{background:var(--surface-2)}
+.btn.armed,.btn.ghost.armed{box-shadow:inset 0 0 0 2px var(--danger)}
+.tm,.lvl button,.dock button,.opt,kbd{border-radius:var(--wr-sm)}
+.tm,.lvl button{box-shadow:inset 0 0 0 1.5px var(--rule-soft)}
+.tm:hover,.lvl button:hover{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.tm.on,.lvl button[aria-pressed="true"]{background:var(--surface-1);box-shadow:inset 0 0 0 2px var(--accent);color:var(--accent)}
+.opt{border:1.5px solid var(--rule-soft);background:var(--surface-1)}
+.opt:hover{border-color:var(--rule)}
+.opt:first-child{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt:first-child b::after{border-radius:var(--wr-sm);font-family:var(--font-mono);font-size:11px;letter-spacing:.04em}
+.find input{border:1.5px solid var(--rule);border-radius:var(--wr-sm);background:var(--surface-1)}
+.pick select{border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule-soft)}
+/* checkboxes: a drawn square, and a tick made with one stroke of the pen */
+.box,.tick i,ul.fl .ln i{width:22px;height:22px;border-radius:3px 6px 4px 7px/6px 3px 7px 4px;box-shadow:inset 0 0 0 2px var(--k);background:var(--surface-1)}
+.box::after,.tick i::after,ul.fl .ln i::after{width:20px;height:20px;margin:-6px -6px 0 0;border:0;transform:none;background:var(--accent);-webkit-mask:var(--tick) center/contain no-repeat;mask:var(--tick) center/contain no-repeat}
+.item input:checked+.box,ul.ingl button[aria-pressed="true"] .box,.bi[aria-pressed="true"] .box,.tick[aria-pressed="true"] i,ul.fl .ln[aria-pressed="true"] i{background:var(--surface-1);box-shadow:inset 0 0 0 2px var(--k)}
+@media (hover:hover){
+  .tick:hover i,.item label:hover .box,ul.ingl button:hover .box,.bi:hover .box,ul.fl .ln:hover i{box-shadow:inset 0 0 0 2px var(--k),inset 0 0 0 4px color-mix(in oklab,var(--accent) 30%,transparent)}
+}
+/* done: a hand-drawn strike in red pencil, never a thin line */
+ol.tl li.done .trow b,.item input:checked~.what,ul.ingl button[aria-pressed="true"] .nm{text-decoration:none;background-image:var(--strike);background-repeat:repeat-x;background-size:72px .9em;background-position:0 .16em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+ul.fl .ln[aria-pressed="true"] span{text-decoration:none;background-image:var(--strike);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.bi[aria-pressed="true"] b{background-image:var(--strike);background-repeat:repeat-x;background-size:72px .9em;background-position:0 .16em}
+ol.pr li.done .w{text-decoration:none;background-image:var(--strike);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.skip span{background-image:var(--strike);background-repeat:repeat-x;background-size:72px .9em;background-position:0 .16em}
+ol.pr li.done .w,ul.fl .ln[aria-pressed="true"] span{background-repeat:repeat;background-size:72px 1lh;background-position:0 -.05lh}
+ul.fl .ln[aria-pressed="true"] span{display:block}
+.skip span{background-color:var(--surface-2)}
+/* progress: an ink bar in a ruled box */
+.bar{height:8px;border-radius:2px;background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule)}
+.bar i{border-radius:0;background:var(--accent)}
+.sh-prog i{border-radius:1px;height:7px;background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule-soft)}
+.sh-prog i.d{background:var(--pc,var(--accent));box-shadow:inset 0 0 0 1.5px var(--rule)}
+.sh-prog i.c{background:transparent;box-shadow:inset 0 0 0 2px var(--rule)}
+.ring .tr{stroke:var(--surface-3)}
+.ring .pr{stroke:var(--accent);stroke-linecap:butt}
+/* sub tabs */
+.seg{border-bottom:1.5px solid var(--rule)}
+.seg button[aria-selected="true"]::after{height:4px;border-radius:0;background:var(--accent)}
+/* ---------- frame: masthead and tab bar ---------- */
+.top{background:var(--surface-0)}
+.scrolled .top{box-shadow:0 1.5px 0 var(--rule)}
+.brand{font-size:24px;font-weight:800;font-stretch:78%;letter-spacing:0}
+.logo{width:34px;height:34px;margin:-4px 0 -2px}
+.cursor{background:var(--accent)}
+.tabs{background:var(--surface-0);backdrop-filter:none;-webkit-backdrop-filter:none;border-top:1.5px solid var(--rule)}
+.tabs button{color:var(--ink-muted)}
+.tabs svg{padding:3px 15px;border-radius:var(--wr-sm)}
+.tabs button[aria-current="page"]{color:var(--ink-strong)}
+.tabs button[aria-current="page"] svg{background:var(--accent);box-shadow:none}
+@media (min-width:960px){
+  .top{background:var(--surface-0);border-right:1.5px solid var(--rule)}
+  .brand{font-size:28px}
+  .logo{width:40px;height:40px}
+  .tabs{background:none}
+  .tabs svg{padding:0}
+  .tabs button{border-radius:var(--wr-sm)}
+  .tabs button[aria-current="page"]{background:var(--accent);color:var(--on-accent);box-shadow:none}
+  .tabs button[aria-current="page"] svg{background:none;stroke:var(--on-accent)}
+  .tabs button[aria-current="page"]::after{border-color:color-mix(in oklab,var(--on-accent) 50%,transparent);color:var(--on-accent)}
+  .tabs button::after,.menubtn::after{border-radius:2px;border-color:var(--rule-soft)}
+  .tabs button:not([aria-current="page"]):hover{background:var(--surface-2)}
+}
+/* ---------- today: the hero is a printed poster with today's pot in it ---------- */
+.dayhead{grid-template-columns:auto minmax(0,1fr);gap:var(--s3) var(--s4);padding:var(--s4) var(--s4) var(--s4) var(--s2);color:var(--ink);background:var(--surface-1);border:2px solid var(--rule);border-radius:var(--wr);box-shadow:none;overflow:hidden}
+.dayhead::before{content:"";position:absolute;left:-6px;top:6px;width:186px;height:186px;border-radius:50%;-webkit-mask:radial-gradient(circle closest-side,#000 0 58%,rgba(0,0,0,.45) 78%,transparent 99%);mask:radial-gradient(circle closest-side,#000 0 58%,rgba(0,0,0,.45) 78%,transparent 99%)}
+.dayhead::after{content:"";position:absolute;z-index:-1;width:186px;height:186px;border-radius:50%;-webkit-mask:radial-gradient(circle closest-side,#000 0 58%,rgba(0,0,0,.45) 78%,transparent 99%);mask:radial-gradient(circle closest-side,#000 0 58%,rgba(0,0,0,.45) 78%,transparent 99%);inset:auto;mix-blend-mode:multiply}
+.dayhead::before{background:radial-gradient(circle,color-mix(in oklab,var(--mis-pot) 80%,transparent) 1.8px,transparent 2.2px) 0 0/7px 7px;opacity:.9}
+.dayhead::after{background:var(--grain);opacity:.22}
+.dayhead h1{font-size:54px;line-height:.86;font-weight:800;font-stretch:76%;color:var(--ink-strong);letter-spacing:-.01em;text-shadow:3px 2.5px 0 var(--mis-pot)}
+.dayhead p{color:var(--ink-soft)}
+.dayhead .dishname{color:var(--ink-strong);font-family:var(--font-display);font-stretch:85%;font-size:20px;font-weight:700;line-height:1.15;margin:var(--s2) 0 var(--s1)}
+.dprog{color:var(--ink-muted)}
+.dprog b{font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--ink-strong)}
+.dprog i{font-size:15px;color:var(--ink-muted)}
+.dprog.all::after{border-color:var(--accent)}
+.bnext{color:var(--ink-soft)}
+.bnext b{color:var(--ink-strong)}
+.bnext q{display:block;margin-top:var(--s1);font-family:var(--font-display);font-stretch:85%;font-size:17px;font-weight:700;line-height:1.25;color:var(--ink-strong);quotes:none}
+.bnext q::before{content:"— "}
+[data-pot="black"] .dayhead,.previewing .dayhead{box-shadow:none}
+.previewing .dayhead{border-style:dashed;opacity:1}
+.hero-art{display:block;width:164px;height:210px;flex:0 0 auto}
+.hero-art .pf{position:absolute;left:0;top:0;width:164px;height:164px}
+.hero-art .bowl{position:absolute;left:7px;top:130px;width:150px;height:80px;filter:none}
+.hero-art .pf-brow{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.hero-art[data-n="1"] .pf-brow{transform:translateY(-.6px)}
+.hero-art[data-n="2"] .pf-brow{transform:translateY(-1.1px)}
+.hero-art[data-n="3"] .pf-brow{transform:translateY(-1.6px)}
+.hero-art[data-n="4"] .pf-brow{transform:translateY(-2.1px)}
+.hero-art[data-n="5"] .pf-brow{transform:translateY(-2.6px)}
+.hero-art[data-n="6"] .pf-brow{transform:translateY(-3.2px)}
+.hero-art .pf-smile{display:none}
+.hero-art[data-n="6"] .pf-smile{display:inline}
+.hero-art[data-n="6"] .pf-mouth{display:none}
+.steam{top:auto;left:auto;margin-left:0}
+.steam b{border-left-color:color-mix(in oklab,var(--k) 55%,transparent);filter:none}
+@media (max-width:380px){
+  .hero-art{width:128px;height:164px}
+  .hero-art .pf{width:128px;height:128px}
+  .hero-art .bowl{width:118px;height:63px;left:5px;top:101px}
+  .dayhead h1{font-size:44px}
+}
+/* the bowl, front on: steel, an ink rim, the day's food inside */
+.bowl .b-steel{fill:var(--pf-steel)}
+.bowl .b-dots{fill:url(#pf-hts)}
+.bowl .b-k{fill:none;stroke:var(--k);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bowl .ly{transform:translateY(-14px) scale(.9)}
+.bowl .ly[data-l="1"]{transform:scaleY(.2)}
+.bowl .ly.on{transform:none}
+/* the now card: a ruled panel, a stamped label */
+.focus{border-width:2px;border-color:var(--rule);background:var(--surface-1)}
+.focus .lab{display:inline-block;padding:3px 8px 2px;border-radius:var(--wr-sm);background:var(--accent);color:var(--on-accent)}
+.focus.soak .lab{background:var(--info)}
+.focus.urgent .lab{background:var(--danger)}
+.focus.fin .lab{background:var(--success)}
+.focus.ask,.focus.urgent,.focus.fin{background:var(--surface-1);border-color:var(--rule)}
+.focus.ask .lab{background:var(--k);color:var(--t-bg)}
+.focus h2{font-size:30px;line-height:1.05;margin:var(--s3) 0}
+ul.fl{border-top-color:var(--rule-soft)}
+ul.fl li{border-bottom-color:var(--rule-soft)}
+.focus.rescue-ask{background:var(--surface-1);border-color:var(--rule)}
+.focus.rescue-ask .lab{background:var(--ink-r);color:#fff}
+.previewing .focus{background:var(--surface-1)}
+/* the list: a ruled sheet; the current row is marked with the day's ink */
+ol.tl li.cur{background:color-mix(in oklch,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
+@media (hover:hover){
+  ol.tl li:not(.cur):not(.shut):hover{background:var(--surface-2)}
+}
+ol.tl li.shut{background:var(--surface-1)}
+ol.tl li.shut::before,ol.tl li.shut::after{border-top:1.5px dashed var(--rule-soft)}
+.rico .ki{width:32px;height:32px}
+ol.tl li.done .rico{opacity:.5;filter:grayscale(.6)}
+/* katoris and stickers: ink outlines, paper edge, no drop shadows */
+.pot .r,.ki .r,.gl .r{fill:var(--surface-1);stroke:var(--k);stroke-width:1.6}
+.pot .w,.ki .w,.gl .w{fill:var(--pf-steel)}
+.pot .sh,.ki .sh,.gl .sh{display:none}
+.ki,.gl{filter:url(#pf-wob-s)}
+.stk{filter:none}
+.stk .face{fill:var(--k)}
+.cups button:hover{background:var(--surface-2)}
+/* the pot family, in small */
+.pf{display:block;flex:0 0 auto;overflow:visible}
+.pf.pot{width:30px;height:30px}
+.rota .pf.pot{width:40px;height:40px;margin:-2px 0}
+.rota{background:transparent;border:1.5px solid var(--rule);border-radius:var(--wr);padding:2px}
+.rota button{border-radius:var(--wr-sm);color:var(--ink-soft)}
+.rota button.now{background:color-mix(in oklch,var(--accent) 10%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent);color:var(--ink-strong)}
+.rota button:hover .pf{transform:rotate(-6deg)}
+.dsw{background:transparent;border:1.5px solid var(--rule);border-radius:var(--wr)}
+.dsw button{border-radius:var(--wr-sm)}
+.dsw button.on{background:var(--surface-1);box-shadow:inset 0 0 0 2px var(--accent)}
+#sh-ic .pf{width:42px;height:42px;margin:-4px 0}
+/* cook: the cast sheet. Five busts in a grid, the Sunday one gets the wide card */
+#pots{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);background:none;border:0;overflow:visible}
+#pots li{border:0!important}
+#pots .rlb{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:0;height:100%;padding:0 0 var(--s3);background:var(--surface-1);border:1.5px solid var(--rule);border-radius:var(--wr);overflow:hidden}
+#pots .ptile{position:relative;display:block;padding:var(--s3) 0 0;margin:0 0 var(--s2);border-bottom:1.5px solid var(--rule);isolation:isolate}
+#pots .ptile::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle,color-mix(in oklab,var(--t) 55%,transparent) 1.5px,transparent 1.9px) 0 0/6px 6px;-webkit-mask:radial-gradient(ellipse 70% 80% at 50% 40%,#000 30%,transparent 75%);mask:radial-gradient(ellipse 70% 80% at 50% 40%,#000 30%,transparent 75%)}
+#pots .ptile .pf.pot{width:118px;height:118px;margin:0 auto -6px}
+#pots .rlb>span:nth-child(2){padding:0 var(--s3)}
+#pots .rname{font-family:var(--font-display);font-stretch:80%;font-size:23px;font-weight:800;line-height:1.05}
+#pots .rname .tg{display:table;margin:var(--s1) 0 0}
+#pots .rdish{font-size:14.5px;line-height:1.35;margin-top:var(--s1);color:var(--ink-strong);font-weight:600}
+#pots .rline{font-size:13px;line-height:1.45}
+#pots .rt{position:absolute;top:var(--s2);right:var(--s2);padding:1px 6px;border-radius:var(--wr-sm);background:var(--surface-1);box-shadow:inset 0 0 0 1.2px var(--rule);font-size:12px;color:var(--ink-soft)}
+#pots .rt::after{display:none}
+#pots li:last-child{grid-column:1/-1}
+#pots li:last-child .rlb{flex-direction:row;align-items:center;padding:0}
+#pots li:last-child .ptile{margin:0;padding:var(--s3) var(--s2) 0;border-bottom:0;border-right:1.5px solid var(--rule);align-self:stretch;display:flex;align-items:flex-end}
+#pots li:last-child .rlb>span:nth-child(2){padding:var(--s3) var(--s4) var(--s3) var(--s4)}
+@media (hover:hover){
+  #pots .rlb:hover{background:var(--surface-1);box-shadow:inset 0 0 0 1.5px var(--rule)}
+  #pots .rlb:hover .pf{transform:rotate(-3deg)}
+}
+#pots .pf{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (min-width:600px){
+  #pots{grid-template-columns:repeat(3,1fr)}
+  #pots li:last-child{grid-column:auto}
+  #pots li:nth-child(4){grid-column:auto}
+  #pots li:last-child .rlb{flex-direction:column;align-items:stretch;padding:0 0 var(--s3)}
+  #pots li:last-child .ptile{margin:0 0 var(--s2);padding:var(--s3) 0 0;border-right:0;border-bottom:1.5px solid var(--rule);display:block}
+  #pots li:last-child .rlb>span:nth-child(2){padding:0 var(--s3)}
+}
+@media (hover:hover){
+  .rlb:hover{background:var(--surface-2)}
+}
+/* the morning note: a slip of paper, taped on */
+.ynote{border-radius:2px;box-shadow:none;border:1.5px solid var(--rule);transform:rotate(-.8deg)}
+.ynote::before{opacity:1;background:var(--note-tape)}
+.yl{font-family:var(--font-display);font-stretch:88%}
+.pnote{background:var(--surface-2);border-radius:var(--wr-sm)}
+.pnote .ck,.pnote b,.yl .ck{color:var(--accent)}
+.pbadge{border-radius:var(--wr-sm);background:transparent;box-shadow:inset 0 0 0 1.2px var(--accent);font-size:11px}
+/* rescue: the pot, wearing a lifebuoy */
+.fixnote.rescued{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--ink-r);padding-top:var(--s4)}
+.fixnote.rescued b{font-family:var(--font-display);font-size:19px}
+.rsi{filter:none;width:64px;height:auto}
+.rsi .pf{width:72px;height:72px;margin:-10px -4px -12px}
+.rsi svg:not(.pf){color:var(--surface-1)}
+@media (max-width:480px){
+  .fixnote.rescued{grid-template-columns:64px minmax(0,1fr)}
+}
+.thres .rsi{width:26px}
+.thres .rsi svg{width:26px;height:26px;color:var(--surface-1)}
+/* the thali: printed plate, finished days stamped with that pot's face */
+.thali{border-width:1.5px}
+.thali.sunday{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--accent)}
+.thhead h2{font-size:26px}
+.thn b{font-family:var(--font-display);font-size:30px}
+.thali-art{filter:none}
+.th-rim{fill:var(--pf-steel);stroke:var(--k);stroke-width:1.6}
+.th-well{fill:var(--surface-1);stroke:var(--k);stroke-width:1;stroke-opacity:.5}
+.th-dots{fill:url(#pf-hts)}
+.tk-rim{fill:var(--surface-1);stroke:var(--k);stroke-width:1.4}
+.tk .tki{filter:none}
+.tk-ring{fill:none;stroke:var(--k);stroke-width:1.4}
+.tk-lab circle{fill:var(--surface-1);stroke:var(--k);stroke-width:1.1}
+.tk-lab text,.tsp text{font-family:var(--font-mono);font-weight:700}
+.tk-star circle{fill:var(--ink-r)}
+.tsp circle{fill:transparent;stroke:var(--k);stroke-opacity:.55;stroke-width:1.3;stroke-dasharray:2.6 3.2}
+.tsp text{fill:var(--ink-muted)}
+.tsp.now circle{stroke:var(--accent);stroke-opacity:1;fill:color-mix(in oklab,var(--accent) 10%,transparent)}
+.tin{border-top:1.5px dashed var(--rule-soft)}
+/* the surprise: today's pot, its lid rattling */
+.reveal{border-radius:var(--wr);background:var(--surface-1);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.reveal.shut:hover{box-shadow:inset 0 0 0 2px var(--accent)}
+.reveal .pf.dabba{width:76px;height:76px;margin:-6px 0 -12px}
+.reveal .pf-lid{transform-box:view-box;transform-origin:90px 35px;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.reveal.shut .pf-lid{animation:lidrattle 3.2s ease-in-out 1s infinite}
+.reveal.opening .pf-lid{animation:none;transform:translate(10px,-14px) rotate(24deg);opacity:0}
+@keyframes lidrattle{0%,80%,100%{transform:none}84%{transform:translateY(-4px) rotate(-5deg)}88%{transform:translateY(-1px) rotate(4deg)}92%{transform:translateY(-3px) rotate(-2deg)}96%{transform:none}}
+.reveal b{font-family:var(--font-display);font-stretch:85%;font-size:20px}
+.rv-art{border-radius:0;background:none;width:72px;height:72px}
+.rv-art .pf{width:76px;height:76px}
+.rv-art .ki{width:56px;height:56px}
+.rv-art .stk{width:56px;height:56px}
+/* empty states: someone from the family, unimpressed */
+.empty{display:flex;flex-direction:column;align-items:center;gap:var(--s2)}
+.pf.pf-empty{width:92px;height:92px}
+/* settings: a printed card; Black Pot keeps an eye on the reset buttons */
+.modal{background:color-mix(in oklab,var(--t-darkest) 55%,transparent)}
+.mpanel{background:var(--surface-0);border:2px solid var(--rule);border-bottom:0;border-radius:var(--wr) var(--wr) 0 0}
+@media (min-width:700px){
+  .mpanel{border-bottom:2px solid var(--rule);border-radius:var(--wr)}
+}
+.mpanel>h2:first-child{font-size:44px;font-weight:800}
+.mrow{border:1.5px solid var(--rule-soft)}
+.mrow:hover{border-color:var(--rule)}
+.mrow.help{background:var(--surface-1);border-color:var(--rule);box-shadow:inset 5px 0 0 var(--accent)}
+.mrow.armed{border-color:var(--danger);box-shadow:inset 0 0 0 1px var(--danger)}
+.mh-watch{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s3)}
+.mh-watch .pf{width:58px;height:58px;margin:-14px 0 -6px}
+/* timers: a torn ticket, typewriter numbers */
+.dock>div{background:var(--surface-0);border:1.5px solid var(--rule);border-radius:var(--wr-sm);box-shadow:none;box-shadow:inset 6px 0 0 var(--accent)}
+.dock .left{font-family:var(--font-mono);font-size:22px;color:var(--ink-strong)}
+.dock button{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.dock>div.rang{background:var(--surface-0);border-color:var(--warning);border-left-color:var(--warning)}
+.dock>div.rang .left{color:var(--danger)}
+/* toast: a slip with a rule above */
+.toast{background:var(--surface-0);border-top:1.5px solid var(--rule)}
+.toast>span::before{border-radius:1px;background:var(--accent);transform:rotate(45deg)}
+/* cook sheet */
+.sh-top{border-bottom:1.5px solid var(--rule)}
+.sh-title b{font-family:var(--font-display);font-stretch:82%;font-size:21px;font-weight:800}
+.sh-h{font-weight:800}
+.sh-foot{border-top:1.5px solid var(--rule)}
+.tmb{border-radius:var(--wr);box-shadow:inset 0 0 0 1.5px var(--rule)}
+.tmb .tt{font-family:var(--font-mono)}
+.tmb.on{background:var(--surface-1);box-shadow:inset 0 0 0 2.5px var(--accent)}
+.set{border:1.5px solid var(--rule);border-radius:var(--wr);background:var(--rule-soft)}
+.warn{background:var(--surface-1);border:1.5px solid var(--rule);border-radius:var(--wr);box-shadow:inset 5px 0 0 var(--danger)}
+ol.allst button.c,ol.pr li.next{background:color-mix(in oklch,var(--accent) 8%,var(--surface-1));box-shadow:inset 5px 0 0 var(--accent)}
+.hn,ol.allst button::before,ol.pr .t{font-family:var(--font-mono);font-size:12px;border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule)}
+ol.hsteps li:last-child .hn,ol.allst button.c::before,ol.pr li.next .t{box-shadow:none}
+/* chips: printed tags; a plant you ate gets the accent ink */
+.chip{border-radius:var(--wr-sm);box-shadow:inset 0 0 0 1.5px var(--rule-soft);background:var(--surface-1)}
+.chip:hover{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.chip[aria-pressed="true"]{background:color-mix(in oklch,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
+.legend i.on{border-radius:2px;background:color-mix(in oklch,var(--accent) 12%,var(--surface-1));box-shadow:inset 0 0 0 2px var(--accent)}
+/* ---------- second pass ---------- */
+.stk .ko *{fill:none!important;stroke:var(--k)!important;stroke-width:.9!important;stroke-opacity:.9}
+.stk .ko{filter:url(#pf-wob-s)}
+.stk .cut *{stroke-width:3.6}
+.reveal.open{box-shadow:inset 0 0 0 1.5px var(--rule)}
+.fixnote.rescued{border-left:1.5px solid var(--rule)}
+@media (min-width:960px){
+  .tabs{border-top:0}
+}
+/* the family portrait, in the guide */
+.family{margin:var(--s5) 0 0;padding:var(--s4) var(--s2) var(--s3);border-top:2px solid var(--rule);border-bottom:2px solid var(--rule)}
+.family ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s1)}
+.family li{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.family .pf{width:100%;max-width:96px;height:auto;aspect-ratio:1}
+.family b{font-family:var(--font-display);font-stretch:80%;font-size:16px;font-weight:800;line-height:1.1;margin-top:var(--s1)}
+.family small{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted)}
+.family+h2::before{display:none}
+.family figcaption{margin-top:var(--s3);font-size:var(--fs-meta);color:var(--ink-soft);text-align:center}
+/* ---------- the family at home: master pot, living faces, tab icons, the Pots page ---------- */
+/* the logo is a button home */
+.brand{pointer-events:auto;cursor:pointer;border-radius:var(--wr-sm,6px);padding:2px 4px 2px 0}
+.brand .logo{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){
+  .brand:hover .logo{transform:rotate(-8deg) scale(1.06)}
+}
+.brand:active .logo{transform:scale(.92)}
+/* living faces: blink, sleep, yawn, cross */
+.pf .pf-eyes{transform-box:fill-box;transform-origin:center}
+.pf.poke{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pf .pf-shut,.pf .pf-cross,.pf .pf-yawn{display:none}
+.hero-art .pf .pf-eyes,.castpic .pf .pf-eyes,.logo .pf-eyes{animation:blink 7s infinite}
+.castc:nth-child(2n) .pf .pf-eyes{animation-delay:-2.3s}
+.castc:nth-child(3n) .pf .pf-eyes{animation-delay:-4.1s}
+@keyframes blink{0%,95%,100%{transform:none}97%{transform:scaleY(.12)}}
+.pf.sleep .pf-eyes{display:none}
+.pf.sleep .pf-shut{display:inline}
+.pf.sleep .pf-brow{transform:translateY(1.6px)!important}
+.pf.yawn .pf-mouth,.pf.yawn .pf-smile{display:none!important}
+.pf.yawn .pf-yawn{display:inline;transform-box:fill-box;transform-origin:center top;animation:yawn 2.4s ease-in-out}
+.pf.yawn .pf-eyes{animation:none;transform:scaleY(.35)}
+@keyframes yawn{0%{transform:scaleY(.2)}25%,70%{transform:scaleY(1)}100%{transform:scaleY(.2)}}
+.pf.cross .pf-brow{display:none}
+.pf.cross .pf-cross{display:inline}
+.pf.nudge{animation:nudge .32s cubic-bezier(.3,1.6,.5,1)}
+@keyframes nudge{30%{transform:rotate(-5deg) translateY(-2px)}65%{transform:rotate(3deg)}}
+.pokeq{position:absolute;z-index:3;top:4%;left:58%;padding:4px 9px 3px;border:1.6px solid var(--k);border-radius:12px 12px 12px 2px;background:var(--surface-0);font:700 13px/1.25 var(--font-display);color:var(--ink-strong);white-space:nowrap;animation:popq .3s cubic-bezier(.3,1.6,.5,1)}
+@keyframes popq{from{transform:scale(.4) translateY(6px);opacity:0}}
+.hero-art,.castpic,.askpic,.bedsay,.wsays{position:relative}
+.pf-zzz{display:none;position:absolute;left:62%;top:-4%;pointer-events:none;font:800 18px/1 var(--font-display);color:var(--k)}
+.hero-art.sleeping .pf-zzz{display:block}
+.pf-zzz b{position:absolute;opacity:0;animation:zzz 3.6s ease-in infinite}
+.pf-zzz b:nth-child(2){animation-delay:1.2s;font-size:14px}
+.pf-zzz b:nth-child(3){animation-delay:2.4s;font-size:11px}
+@keyframes zzz{0%{transform:translate(0,10px);opacity:0}20%{opacity:1}100%{transform:translate(22px,-26px) rotate(14deg);opacity:0}}
+/* tomorrow's pot asks */
+.askpot{display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--s2) var(--s3);align-items:start;margin:var(--s3) 0 0;padding:var(--s3) var(--s4);background:var(--surface-1);border:1.6px solid var(--k);border-radius:var(--wr,10px)}
+.askpic .pf{width:64px;height:64px;display:block}
+.askpot p,.bedsay p{margin:0;min-width:0}
+.askpot b,.bedsay b{display:block;font:700 13px/1.3 var(--font-mono,monospace);letter-spacing:.02em;color:var(--ink-muted)}
+.askpot q,.bedsay q{display:block;quotes:none;font:700 18px/1.3 var(--font-display);color:var(--ink-strong);margin-top:2px}
+.wsays q{display:block;quotes:none;font:700 18px/1.3 var(--font-display);color:var(--ink-strong)}
+.askpot small{display:block;margin-top:var(--s1);font-size:var(--fs-meta);line-height:1.45;color:var(--ink-muted)}
+.askpot .btn{grid-column:2;justify-self:start}
+.bedsay{display:grid;grid-template-columns:52px minmax(0,1fr);gap:var(--s3);align-items:center;margin:var(--s2) 0 var(--s2)}
+.bedsay .pf{width:52px;height:52px;display:block}
+.bedsay q{font-size:16px}
+.wsays{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s2)}
+.wsays .pf{width:40px;height:40px;flex:0 0 auto}
+.wsays q{font-size:15px;margin:0}
+.cups.glass svg.pour .w+circle,.cups.glass svg.pour circle[fill="var(--water)"]{transform-box:fill-box;transform-origin:center;animation:pour .55s cubic-bezier(.3,1.4,.5,1)}
+@keyframes pour{from{transform:scale(.1)}}
+.cups.glass svg.pour{animation:slosh .5s ease-out .1s}
+@keyframes slosh{30%{transform:rotate(-6deg)}65%{transform:rotate(4deg)}}
+/* tab icons: two inks, one hand */
+.tabs svg.ti{fill:none;stroke-width:1.7}
+.tabs svg.ti .ti-c{opacity:.4;transition:opacity .2s}
+.tabs button[aria-current="page"] svg.ti{background:color-mix(in oklab,var(--accent) 14%,var(--surface-0));stroke:var(--k);box-shadow:inset 0 0 0 1.5px var(--k)}
+.tabs button[aria-current="page"] svg.ti .ti-c{opacity:1}
+@media (hover:hover){
+  .tabs button:hover svg.ti .ti-c{opacity:.75}
+}
+ul.htabs svg.ti{width:26px;height:26px;stroke:var(--k);stroke-width:1.6}
+ul.htabs svg.ti .ti-c{opacity:1}
+.ti *{transform-box:fill-box}
+.ti-today .ti-eyes{transform-origin:center;animation:blink 6s infinite}
+.ti.go.ti-today .ti-eyes{animation:blink-now .5s}
+@keyframes blink-now{40%{transform:scaleY(.1)}}
+.ti-steam path{opacity:0}
+.ti.go .ti-steam path{animation:puffi .9s ease-out}
+.ti.go .ti-steam path+path{animation-delay:.15s}
+@keyframes puffi{0%{opacity:0;transform:translateY(3px)}30%{opacity:1}100%{opacity:0;transform:translateY(-3px)}}
+.ti-swing{transform-origin:50% 0}
+.ti.go .ti-swing{animation:swing .7s ease-in-out}
+@keyframes swing{25%{transform:rotate(9deg)}55%{transform:rotate(-6deg)}80%{transform:rotate(3deg)}}
+.ti.go .ti-lid{animation:lidup .6s cubic-bezier(.3,1.5,.5,1)}
+@keyframes lidup{40%{transform:translateY(-3.4px) rotate(-8deg)}}
+.ti-page{transform-origin:0 50%}
+.ti.go .ti-page{animation:flip .55s ease-in-out}
+@keyframes flip{45%{transform:scaleX(-.2)}}
+.ti.go .ti-bob1{animation:bob .5s ease-out}
+.ti.go .ti-bob2{animation:bob .5s ease-out .12s}
+@keyframes bob{40%{transform:translateY(-2.2px)}}
+/* the alert dot is a small chilli */
+.tabs button.alert .ic::after{animation:chilli 2.8s ease-in-out infinite}
+@keyframes chilli{0%,85%,100%{transform:none}90%{transform:rotate(-14deg)}95%{transform:rotate(10deg)}}
+@media (min-width:960px){
+  .tabs button.alert .ic::after{top:12px;left:22px}
+}
+@media (max-width:380px){
+  .tabs button{font-size:11px}
+  .tabs svg{padding:3px 10px!important}
+}
+/* the Pots page */
+.castc{display:grid;grid-template-columns:132px minmax(0,1fr);gap:var(--s3) var(--s5);align-items:start;margin:var(--s5) 0 0;padding:var(--s4) var(--s4) var(--s5);border:1.6px solid var(--k);border-radius:var(--wr,10px);background:var(--surface-1)}
+.castc.boss{background:color-mix(in oklab,var(--pot-master) 12%,var(--surface-1))}
+.castpic .pf{display:block;width:132px;height:132px}
+.castk{margin:0;font:700 12px/1.3 var(--font-mono,monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted)}
+.castt h2{margin:2px 0 var(--s1);font-size:30px;line-height:1.05}
+.castr{margin:0 0 var(--s3);color:var(--ink-soft);font-size:15px}
+.castd{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px var(--s3);margin:0;font-size:var(--fs-meta)}
+.castd dt{color:var(--ink-muted);font-weight:700}
+.castd dd{margin:0;color:var(--ink)}
+.castb{grid-column:1/-1;border-top:1.4px dashed var(--rule-soft,var(--border));padding-top:var(--s2)}
+.castb h3{margin:var(--s3) 0 2px;font-size:var(--fs-meta);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted)}
+.castb p{margin:0;max-width:62ch;line-height:1.55}
+.castb ul{margin:var(--s1) 0 0;padding-left:20px}
+.castb li{margin:2px 0}
+@media (max-width:440px){
+  .castc{grid-template-columns:96px minmax(0,1fr)}
+  .castpic .pf{width:96px;height:96px}
+  .castt h2{font-size:25px}
+}
+.crewh{margin-top:var(--s7)}
+ol.crew{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--s4) var(--s2)}
+ol.crew li{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.crew-a{display:grid;place-items:center;width:72px;height:72px}
+.crew-a .stk{width:64px;height:64px;margin:0}
+ol.crew li:nth-child(3n/**/+1) .stk{transform:rotate(-6deg)}
+ol.crew li:nth-child(3n/**/+2) .stk{transform:rotate(4deg)}
+ol.crew b{font-size:13.5px;line-height:1.25;color:var(--ink-strong);margin-top:var(--s1)}
+ol.crew small{font:12px/1.3 var(--font-mono,monospace);color:var(--ink-muted);margin-top:2px}
+ol.crew li.unseen .stk .col,ol.crew li.unseen .stk .face,ol.crew li.unseen .stk .ko{display:none}
+ol.crew li.unseen .stk .cut *{fill:none!important;stroke:var(--ink-faint)!important;stroke-width:.9!important;stroke-dasharray:1.6 1.6}
+ol.crew li.unseen b{color:var(--ink-muted);font-weight:600}
+@media (prefers-reduced-motion:reduce){
+  .pf .pf-eyes,.ti *,.pf-zzz b,.tabs button.alert .ic::after{animation:none!important}
+  .pf-zzz b{opacity:1;position:static}
+}
+/* ===== END POT FAMILY LAYER ===== */

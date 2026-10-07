@@ -11,7 +11,6 @@ const $$=(s,el=document)=>[...el.querySelectorAll(s)];
 const rs=n=>n.toLocaleString('en-IN');
 const pad=n=>String(n).padStart(2,'0');
 const clock=m=>{m=((m%1440)+1440)%1440;let h=Math.floor(m/60);const mm=m%60,ap=h<12?'AM':'PM';h=h%12||12;return `${h}:${pad(mm)} ${ap}`};
-const relT=d=>d<60?d+' min':Math.floor(d/60)+' h'+(d%60?' '+d%60+' min':'');
 const nowMin=()=>{const t=new Date();return t.getHours()*60+t.getMinutes()};
 const dayKey=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
 const now=new Date(); let dow=now.getDay(); const realDow=dow, mon=now.getMonth();

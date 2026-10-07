@@ -4,7 +4,5 @@
   "compatibility_date": "2026-10-06",
   "observability": { "enabled": true },
   // Only public/ is served; the repo root (including .git) stays private.
-  "assets": { "directory": "./public" },
-  // Every non-main branch gets its own preview link (needed by `wrangler preview`).
-  "previews": {}
+  "assets": { "directory": "./public" }
 }

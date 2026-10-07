@@ -1,4 +1,15 @@
 /* empty water glasses read as "tap to fill", not as disabled */
 .cups.glass button[aria-pressed="false"] .w{fill:color-mix(in oklab,var(--water) 14%,var(--steel-2))}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.steam,.drop,.tadka{display:none}.bowl .ly,.bowl .ly.on{opacity:1;transform:none}.bowl .ly:not(.on){opacity:0}}
-@media print{.tabs,.dock,.sheet,.seg,.find,.toast,.menubtn{display:none!important}body{background:var(--surface-0);padding:0}.page[hidden],.sub[hidden]{display:block!important}.intro{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .steam,.drop,.tadka{display:none}
+  .bowl .ly,.bowl .ly.on{opacity:1;transform:none}
+  .bowl .ly:not(.on){opacity:0}
+}
+@media print{
+  .tabs,.dock,.sheet,.seg,.find,.toast,.menubtn{display:none!important}
+  body{background:var(--surface-0);padding:0}
+  .page[hidden],.sub[hidden]{display:block!important}
+  .intro{display:none}
+}
