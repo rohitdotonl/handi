@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <title>Handi: one pot a day</title>
 <meta name="theme-color" content="#eff1ed" data-auto="#eff1ed" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#151412" data-auto="#151412" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#131517" data-auto="#131517" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Handi">
@@ -45,34 +45,35 @@
   --b-steel-1:#e0e4e4; --b-steel-2:#c9cfcf; --b-steel-edge:#9aa3a3; --b-shine:rgba(255,255,255,.95);
   --x-red:#b8352b; --x-green:#2b8a4b; --x-yellow:#e3a21a; --x-amber:#a85f00; --x-blue:#2f6fe0; --x-black:#2e2724; --x-white:#f6f1e4;
 }
-/* ---------- theme slots: Dark, "the kadhai at night" ----------
-   Warm cast iron instead of cold navy, so turmeric, chilli and coriander glow.
-   (Stored as "catppuccin" so saved choices keep working.) */
+/* ---------- theme slots: Dark, "graphite" ----------
+   A quiet, slightly cool neutral: it matches the steel, and lets the pot
+   colours and the coriander green carry the colour. (Stored as "catppuccin"
+   so saved choices keep working.) */
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="lupine"]){
     color-scheme:dark;
-    --t-bg:#151412; --t-fg:#e9e3d8; --t-fg-bright:#fbf7ef; --t-fg-light:#cdc5b7;
-    --t-step1:#1f1d1a; --t-step2:#2a2723; --t-step3:#39352f; --t-border:#312d29;
-    --t-selection:#3c4a3f; --t-accent:#8cb4ff;
-    --t-red:#f08a72; --t-green:#86d39a; --t-yellow:#f2c04f; --t-blue:#8cb4ff;
-    --t-magenta:#d7a6f0; --t-cyan:#7fd3cf; --t-bright-magenta:#ffb36b;
-    --t-darkest:#060505; --t-lightest:#e9e3d8;
-    --b-leaf:#86d39a; --b-leaf-art:#5fae63; --b-seed:#3e2c1b; --b-water:#6fb3ea; --b-pot-red:#d4503f;
-    --b-steel-1:#4d4a45; --b-steel-2:#3a3733; --b-steel-edge:#79746c; --b-shine:rgba(255,255,255,.22);
-    --x-red:#f0806f; --x-green:#86d39a; --x-yellow:#f2bd48; --x-amber:#f2b35a; --x-blue:#7ea9ff; --x-black:#2a2421; --x-white:#e9e1d0;
+    --t-bg:#131517; --t-fg:#e4e7ea; --t-fg-bright:#f7f8f9; --t-fg-light:#c2c8ce;
+    --t-step1:#1b1e21; --t-step2:#24282c; --t-step3:#30353a; --t-border:#2a2f34;
+    --t-selection:#2f4a3b; --t-accent:#82aaff;
+    --t-red:#f08a7a; --t-green:#6fcf8e; --t-yellow:#f3c14f; --t-blue:#82aaff;
+    --t-magenta:#c9a2f2; --t-cyan:#6fd0d0; --t-bright-magenta:#f5a86b;
+    --t-darkest:#060708; --t-lightest:#e4e7ea;
+    --b-leaf:#6fcf8e; --b-leaf-art:#4fae62; --b-seed:#3a2a1b; --b-water:#6fb3ea; --b-pot-red:#d4503f;
+    --b-steel-1:#4b5157; --b-steel-2:#393e43; --b-steel-edge:#6d757d; --b-shine:rgba(255,255,255,.2);
+    --x-red:#f0806f; --x-green:#6fcf8e; --x-yellow:#f3c14f; --x-amber:#f2b35a; --x-blue:#7ea9ff; --x-black:#2b2e31; --x-white:#e6e1d6;
   }
 }
 :root[data-theme="catppuccin"]{
   color-scheme:dark;
-  --t-bg:#151412; --t-fg:#e9e3d8; --t-fg-bright:#fbf7ef; --t-fg-light:#cdc5b7;
-  --t-step1:#1f1d1a; --t-step2:#2a2723; --t-step3:#39352f; --t-border:#312d29;
-  --t-selection:#3c4a3f; --t-accent:#8cb4ff;
-  --t-red:#f08a72; --t-green:#86d39a; --t-yellow:#f2c04f; --t-blue:#8cb4ff;
-  --t-magenta:#d7a6f0; --t-cyan:#7fd3cf; --t-bright-magenta:#ffb36b;
-  --t-darkest:#060505; --t-lightest:#e9e3d8;
-  --b-leaf:#86d39a; --b-leaf-art:#5fae63; --b-seed:#3e2c1b; --b-water:#6fb3ea; --b-pot-red:#d4503f;
-  --b-steel-1:#4d4a45; --b-steel-2:#3a3733; --b-steel-edge:#79746c; --b-shine:rgba(255,255,255,.22);
-  --x-red:#f0806f; --x-green:#86d39a; --x-yellow:#f2bd48; --x-amber:#f2b35a; --x-blue:#7ea9ff; --x-black:#2a2421; --x-white:#e9e1d0;
+  --t-bg:#131517; --t-fg:#e4e7ea; --t-fg-bright:#f7f8f9; --t-fg-light:#c2c8ce;
+    --t-step1:#1b1e21; --t-step2:#24282c; --t-step3:#30353a; --t-border:#2a2f34;
+    --t-selection:#2f4a3b; --t-accent:#82aaff;
+    --t-red:#f08a7a; --t-green:#6fcf8e; --t-yellow:#f3c14f; --t-blue:#82aaff;
+    --t-magenta:#c9a2f2; --t-cyan:#6fd0d0; --t-bright-magenta:#f5a86b;
+    --t-darkest:#060708; --t-lightest:#e4e7ea;
+    --b-leaf:#6fcf8e; --b-leaf-art:#4fae62; --b-seed:#3a2a1b; --b-water:#6fb3ea; --b-pot-red:#d4503f;
+    --b-steel-1:#4b5157; --b-steel-2:#393e43; --b-steel-edge:#6d757d; --b-shine:rgba(255,255,255,.2);
+    --x-red:#f0806f; --x-green:#6fcf8e; --x-yellow:#f3c14f; --x-amber:#f2b35a; --x-blue:#7ea9ff; --x-black:#2b2e31; --x-white:#e6e1d6;
 }
 
 /* ---------- adapter: slots → roles (shared by every theme) ---------- */
@@ -798,8 +799,8 @@ body.has-toast{--stat:49px}
   --day:var(--b-leaf);
   --plate:0 1px 0 color-mix(in oklab,var(--steel-edge) 26%,transparent),0 12px 24px -20px color-mix(in oklab,var(--t-darkest) 55%,transparent);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--da-yellow:#f2bd48;--da-red:#f59a85;--da-blue:#8cb4ff;--da-black:#f2bd48;--da-white:#86d39a}}
-:root[data-theme="catppuccin"]{--da-yellow:#f2bd48;--da-red:#f59a85;--da-blue:#8cb4ff;--da-black:#f2bd48;--da-white:#86d39a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--da-yellow:#f3c14f;--da-red:#f59a85;--da-blue:#8fb3ff;--da-black:#f3c14f;--da-white:#6fcf8e}}
+:root[data-theme="catppuccin"]{--da-yellow:#f3c14f;--da-red:#f59a85;--da-blue:#8fb3ff;--da-black:#f3c14f;--da-white:#6fcf8e}
 
 /* each pot: an accent for controls, and a band with its own ink */
 [data-pot="yellow"]{--day:var(--da-yellow);--band-a:#f7c94b;--band-b:#de9611;--band-ink:#2a1c02;--band-spark:#2a1c02}
@@ -959,17 +960,17 @@ body.has-toast{--stat:49px}
   :root:not([data-theme="lupine"])[data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
   :root:not([data-theme="lupine"])[data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
   :root:not([data-theme="lupine"])[data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
-  :root:not([data-theme="lupine"])[data-pot="black"]{--band-a:#2f2925;--band-b:#0f0d0c}
-  :root:not([data-theme="lupine"])[data-pot="white"]{--band-a:#d9cfba;--band-b:#ad9f83}
+  :root:not([data-theme="lupine"])[data-pot="black"]{--band-a:#33373b;--band-b:#151719}
+  :root:not([data-theme="lupine"])[data-pot="white"]{--band-a:#dfe2e2;--band-b:#adb3b6}
 }
 :root[data-theme="catppuccin"][data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
 :root[data-theme="catppuccin"][data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
 :root[data-theme="catppuccin"][data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
-:root[data-theme="catppuccin"][data-pot="black"]{--band-a:#2f2925;--band-b:#0f0d0c}
-:root[data-theme="catppuccin"][data-pot="white"]{--band-a:#d9cfba;--band-b:#ad9f83}
+:root[data-theme="catppuccin"][data-pot="black"]{--band-a:#33373b;--band-b:#151719}
+:root[data-theme="catppuccin"][data-pot="white"]{--band-a:#dfe2e2;--band-b:#adb3b6}
 :root{--rs-band:#c8431a;--note-bg:#fff8dc;--note-ink:#3b2f12;--note-tape:color-mix(in oklab,var(--b-leaf) 30%,#fff)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--note-bg:#2c2618;--note-ink:#f1e6c8;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#2a2723)}}
-:root[data-theme="catppuccin"]{--note-bg:#2c2618;--note-ink:#f1e6c8;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#2a2723)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--note-bg:#2e2c22;--note-ink:#f3ebcf;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#24282c)}}
+:root[data-theme="catppuccin"]{--note-bg:#2e2c22;--note-ink:#f3ebcf;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#24282c)}
 
 /* the bowl: empty steel at first, then each finished task adds a layer */
 .dayhead{grid-template-columns:auto minmax(0,1fr)}
