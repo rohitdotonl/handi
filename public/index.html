@@ -1144,7 +1144,7 @@ ol.tl li.cur .rico .ki{transform:scale(1.06)}
   --tick:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4.2 12.6c1.6 1.4 3.2 3.2 4.6 5.6 2.6-5.4 6.4-9.8 11.2-13.4' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5.4C12 3.6 22 6.6 34 5S54 3.4 66 5.6 88 6.4 100 4.6 114 5.2 120 5' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.5 1'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
-  --da-yellow:#8a5a00; --da-red:#c4352a; --da-blue:#2b54b6; --da-black:#25211c; --da-white:#2f6a45;
+  --da-yellow:#9c5600; --da-red:#c4352a; --da-blue:#2b54b6; --da-black:#25211c; --da-white:#2f6a45;
   --rs-band:var(--ink-r);
   --note-bg:#fff3b8; --note-ink:#2c2412; --note-tape:color-mix(in oklab,var(--ink-b) 30%,transparent);
 }
@@ -1381,7 +1381,7 @@ ul.rl.noic .rlb{padding:var(--s4)}
 .fixnote.rescued{grid-template-columns:64px minmax(0,1fr) auto;background:var(--surface-1);border-color:var(--rule);box-shadow:inset 0 5px 0 var(--ink-r);padding-top:var(--s4)}
 .fixnote.rescued b{font-family:var(--font-display);font-stretch:85%;font-size:19px}
 .rsi{filter:none;width:64px;height:auto}
-.rsi .pf{width:64px;height:64px;margin:-6px 0 -10px}
+.rsi .pf{width:72px;height:72px;margin:-10px -4px -12px}
 .rsi svg:not(.pf){color:var(--surface-1)}
 @media (max-width:480px){.fixnote.rescued{grid-template-columns:64px minmax(0,1fr)}}
 .thres .rsi{width:26px}.thres .rsi svg{width:26px;height:26px;color:var(--surface-1)}
@@ -1438,7 +1438,7 @@ ul.rl.noic .rlb{padding:var(--s4)}
 
 /* timers: a torn ticket, typewriter numbers */
 .dock>div{background:var(--surface-0);border:1.5px solid var(--rule);border-radius:var(--wr-sm);box-shadow:none;
-  background-image:radial-gradient(circle at 0 50%,transparent 6px,transparent 6.5px);border-left:6px double var(--rule)}
+  box-shadow:inset 6px 0 0 var(--accent)}
 .dock .left{font-family:var(--font-mono);font-size:22px;color:var(--ink-strong)}
 .dock button{box-shadow:inset 0 0 0 1.5px var(--rule)}
 .dock>div.rang{background:var(--surface-0);border-color:var(--warning);border-left-color:var(--warning)}
@@ -1477,6 +1477,16 @@ kbd{border-color:var(--rule);background:var(--surface-1)}
 .fixnote.rescued{border-left:1.5px solid var(--rule)}
 .tabs button.alert .ic::after{box-shadow:0 0 0 2px var(--surface-0),0 0 0 3.5px var(--k)}
 @media (min-width:960px){.tabs{border-top:0}}
+
+/* the family portrait, in the guide */
+.family{margin:var(--s5) 0 0;padding:var(--s4) var(--s2) var(--s3);border-top:2px solid var(--rule);border-bottom:2px solid var(--rule)}
+.family ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s1)}
+.family li{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.family .pf{width:100%;max-width:96px;height:auto;aspect-ratio:1}
+.family b{font-family:var(--font-display);font-stretch:80%;font-size:16px;font-weight:800;line-height:1.1;margin-top:var(--s1)}
+.family small{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted)}
+.family+h2::before{display:none}
+.family figcaption{margin-top:var(--s3);font-size:var(--fs-meta);color:var(--ink-soft);text-align:center}
 /* ===== END POT FAMILY LAYER ===== */
 /* empty water glasses read as "tap to fill", not as disabled */
 .cups.glass button[aria-pressed="false"] .w{fill:color-mix(in oklab,var(--water) 14%,var(--steel-2))}
@@ -2380,7 +2390,8 @@ const KI={
   extra:`<circle cx="20" cy="20" r="8.5" fill="none" stroke="var(--steel-edge)" stroke-width="1.2" stroke-dasharray="2.2 2.4"/>`
 };
 const KI_OF=[[/protein|curd/i,'eggs'],[/leafy|^greens/i,'greens'],[/cabbage/i,'cabbage'],[/salad/i,'salad'],[/more vegetables/i,'veg'],[/fruit/i,'fruit'],[/pot and the chutney/i,'onion'],[/lentil/i,'lentils'],[/grain/i,'grains'],[/nut/i,'nuts'],[/oil/i,'oil'],[/spice/i,'dabba'],[/drink/i,'coffee'],[/only if/i,'extra']];
-const castArt=()=>{const lg=$('.brand .logo');if(lg)lg.outerHTML=potFace('yellow',{cls:'logo'});$$('[data-empty]').forEach(e=>{if(!$('.pf',e))e.insertAdjacentHTML('afterbegin',potFace('black',{cls:'pf-empty'}))});const mh=$$('.mpanel .mh').find(h=>/Start over/.test(h.textContent));if(mh&&!$('.pf',mh)){mh.classList.add('mh-watch');mh.insertAdjacentHTML('beforeend',potFace('black',{label:'Black Pot, watching'}))}};
+const FAMILY=[['yellow','Mon, Fri'],['black','Tue'],['blue','Wed, Sat'],['red','Thu'],['white','Sun']];
+const castArt=()=>{const hu=$('.howuse>.lede');if(hu&&!$('.family'))hu.insertAdjacentHTML('afterend',`<figure class="family"><ul>${FAMILY.map(([id,d])=>`<li>${potFace(id)}<b>${POTS[id].name}</b><small>${d}</small></li>`).join('')}</ul><figcaption>The family. Same pot, five moods; the personality is in the eyebrows.</figcaption></figure>`);const lg=$('.brand .logo');if(lg)lg.outerHTML=potFace('yellow',{cls:'logo'});$$('[data-empty]').forEach(e=>{if(!$('.pf',e))e.insertAdjacentHTML('afterbegin',potFace('black',{cls:'pf-empty'}))});const mh=$$('.mpanel .mh').find(h=>/Start over/.test(h.textContent));if(mh&&!$('.pf',mh)){mh.classList.add('mh-watch');mh.insertAdjacentHTML('beforeend',potFace('black',{label:'Black Pot, watching'}))}};
 const fillArt=()=>$$('[data-ki]').forEach(e=>e.outerHTML=katori(KI[e.dataset.ki]));
 const kiOf=name=>{const m=KI_OF.find(([re])=>re.test(name));return katori(KI[m?m[1]:'extra'])};
 /* ==========================================================================
