@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>Handi: one pot a day</title>
-<meta name="theme-color" content="#fafafa" data-auto="#fafafa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1e1e2e" data-auto="#1e1e2e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#eff1ed" data-auto="#eff1ed" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151412" data-auto="#151412" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Handi">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231d7a4a'/%3E%3Ccircle cx='32' cy='32' r='23' fill='%23d9dcdf'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23e3a21a'/%3E%3Cpath d='M27 30c3-6 10-7 13-3-3 6-10 7-13 3z' fill='%231d7a4a'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231d7a4a'/%3E%3Ccircle cx='32' cy='32' r='23' fill='%23d9dcdf'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23e3a21a'/%3E%3Cpath d='M27 30c3-6 10-7 13-3-3 6-10 7-13 3z' fill='%231d7a4a'/%3E%3C/svg%3E">
-<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Handi%3A%20one%20pot%20a%20day%22%2C%22short_name%22%3A%22Handi%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fafafa%22%2C%22theme_color%22%3A%22%23fafafa%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%2520xmlns%253D%2527http%253A//www.w3.org/2000/svg%2527%2520viewBox%253D%25270%25200%252064%252064%2527%253E%253Crect%2520width%253D%252764%2527%2520height%253D%252764%2527%2520rx%253D%252715%2527%2520fill%253D%2527%25231d7a4a%2527/%253E%253Ccircle%2520cx%253D%252732%2527%2520cy%253D%252732%2527%2520r%253D%252723%2527%2520fill%253D%2527%2523d9dcdf%2527/%253E%253Ccircle%2520cx%253D%252732%2527%2520cy%253D%252732%2527%2520r%253D%252716%2527%2520fill%253D%2527%2523e3a21a%2527/%253E%253Cpath%2520d%253D%2527M27%252030c3-6%252010-7%252013-3-3%25206-10%25207-13%25203z%2527%2520fill%253D%2527%25231d7a4a%2527/%253E%253C/svg%253E%22%2C%22sizes%22%3A%22any%22%2C%22type%22%3A%22image/svg%2Bxml%22%2C%22purpose%22%3A%22any%22%7D%5D%7D">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Handi%3A%20one%20pot%20a%20day%22%2C%22short_name%22%3A%22Handi%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23eff1ed%22%2C%22theme_color%22%3A%22%23eff1ed%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/svg%2Bxml%2C%253Csvg%2520xmlns%253D%2527http%253A//www.w3.org/2000/svg%2527%2520viewBox%253D%25270%25200%252064%252064%2527%253E%253Crect%2520width%253D%252764%2527%2520height%253D%252764%2527%2520rx%253D%252715%2527%2520fill%253D%2527%25231d7a4a%2527/%253E%253Ccircle%2520cx%253D%252732%2527%2520cy%253D%252732%2527%2520r%253D%252723%2527%2520fill%253D%2527%2523d9dcdf%2527/%253E%253Ccircle%2520cx%253D%252732%2527%2520cy%253D%252732%2527%2520r%253D%252716%2527%2520fill%253D%2527%2523e3a21a%2527/%253E%253Cpath%2520d%253D%2527M27%252030c3-6%252010-7%252013-3-3%25206-10%25207-13%25203z%2527%2520fill%253D%2527%25231d7a4a%2527/%253E%253C/svg%253E%22%2C%22sizes%22%3A%22any%22%2C%22type%22%3A%22image/svg%2Bxml%22%2C%22purpose%22%3A%22any%22%7D%5D%7D">
 <script>/* pick the theme before first paint */try{var t=(JSON.parse(localStorage.getItem('graytee.v2'))||{}).theme;if(t==='lupine'||t==='catppuccin')document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 /* Baloo 2 (Ek Type), IBM Plex Sans and JetBrains Mono, SIL Open Font License 1.1 */
@@ -30,45 +30,49 @@
    Storage key stays graytee.v2 so nothing saved is lost.
    ========================================================================== */
 
-/* ---------- theme slots: Lupine (github.com/bjarneo/omarchy-lupine-theme) ---------- */
+/* ---------- theme slots: Light, "steel by the window" ----------
+   Neutrals lean a hair toward coriander so the steel reads clean, not grey-blue.
+   (Stored as "lupine" so saved choices keep working.) */
 :root{
   color-scheme:light;
-  --t-bg:#fafafa; --t-fg:#212121; --t-fg-bright:#000000; --t-fg-light:#424242;
-  --t-step1:#ffffff; --t-step2:#f0f0f0; --t-step3:#dedede; --t-border:#e3e3e3;
-  --t-selection:#d0d0d0; --t-accent:#3264eb;
-  --t-red:#c900c4; --t-green:#4a2fd0; --t-yellow:#026fde; --t-blue:#3264eb;
-  --t-magenta:#8a4ad7; --t-cyan:#0c67de; --t-bright-magenta:#b363ff;
-  --t-darkest:#212121; --t-lightest:#fafafa;
-  --b-leaf:#1d7a4a; --b-leaf-art:#3f9a45; --b-seed:#5a3d22; --b-water:#5aa9e6; --b-pot-red:var(--x-red);
-  --b-steel-1:#dfe2e5; --b-steel-2:#c9cdd2; --b-steel-edge:#a3a9b0; --b-shine:rgba(255,255,255,.9);
-  --x-red:#b8352b; --x-green:#2b8a4b; --x-yellow:#e3a21a; --x-amber:#b46a00; --x-blue:#2f6fe0; --x-black:#2b2624; --x-white:#f6f3ec;
+  --t-bg:#eff1ed; --t-fg:#1e2420; --t-fg-bright:#0e1310; --t-fg-light:#3b443e;
+  --t-step1:#ffffff; --t-step2:#e6e9e4; --t-step3:#d6dad3; --t-border:#dadfd8;
+  --t-selection:#cfe5d5; --t-accent:#1d6fd0;
+  --t-red:#b8352b; --t-green:#1d7a4a; --t-yellow:#9a6200; --t-blue:#2f6fe0;
+  --t-magenta:#8a4ad7; --t-cyan:#0e7c86; --t-bright-magenta:#c2410c;
+  --t-darkest:#18201b; --t-lightest:#fbfcfa;
+  --b-leaf:#1b7a48; --b-leaf-art:#3f9a45; --b-seed:#5a3d22; --b-water:#5aa9e6; --b-pot-red:var(--x-red);
+  --b-steel-1:#e0e4e4; --b-steel-2:#c9cfcf; --b-steel-edge:#9aa3a3; --b-shine:rgba(255,255,255,.95);
+  --x-red:#b8352b; --x-green:#2b8a4b; --x-yellow:#e3a21a; --x-amber:#a85f00; --x-blue:#2f6fe0; --x-black:#2e2724; --x-white:#f6f1e4;
 }
-/* ---------- theme slots: Catppuccin (Omarchy default variant) ---------- */
+/* ---------- theme slots: Dark, "the kadhai at night" ----------
+   Warm cast iron instead of cold navy, so turmeric, chilli and coriander glow.
+   (Stored as "catppuccin" so saved choices keep working.) */
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="lupine"]){
     color-scheme:dark;
-    --t-bg:#1e1e2e; --t-fg:#cdd6f4; --t-fg-bright:#e4e9fb; --t-fg-light:#bac2de;
-    --t-step1:#24243a; --t-step2:#313244; --t-step3:#45475a; --t-border:#313244;
-    --t-selection:#45475a; --t-accent:#89b4fa;
-    --t-red:#f38ba8; --t-green:#a6e3a1; --t-yellow:#f9e2af; --t-blue:#89b4fa;
-    --t-magenta:#f5c2e7; --t-cyan:#94e2d5; --t-bright-magenta:#f5c2e7;
-    --t-darkest:#101019; --t-lightest:#cdd6f4;
-    --b-leaf:#a6e3a1; --b-leaf-art:#7cc67a; --b-seed:#4a3420; --b-water:#74b4ee; --b-pot-red:#cf4a3e;
-    --b-steel-1:#585b70; --b-steel-2:#45475a; --b-steel-edge:#7f849c; --b-shine:rgba(255,255,255,.35);
-    --x-red:#f38b7f; --x-green:#7fd49b; --x-yellow:#f2c04f; --x-amber:#f0b45a; --x-blue:#7aa7ff; --x-black:#14141c; --x-white:#ece6da;
+    --t-bg:#151412; --t-fg:#e9e3d8; --t-fg-bright:#fbf7ef; --t-fg-light:#cdc5b7;
+    --t-step1:#1f1d1a; --t-step2:#2a2723; --t-step3:#39352f; --t-border:#312d29;
+    --t-selection:#3c4a3f; --t-accent:#8cb4ff;
+    --t-red:#f08a72; --t-green:#86d39a; --t-yellow:#f2c04f; --t-blue:#8cb4ff;
+    --t-magenta:#d7a6f0; --t-cyan:#7fd3cf; --t-bright-magenta:#ffb36b;
+    --t-darkest:#060505; --t-lightest:#e9e3d8;
+    --b-leaf:#86d39a; --b-leaf-art:#5fae63; --b-seed:#3e2c1b; --b-water:#6fb3ea; --b-pot-red:#d4503f;
+    --b-steel-1:#4d4a45; --b-steel-2:#3a3733; --b-steel-edge:#79746c; --b-shine:rgba(255,255,255,.22);
+    --x-red:#f0806f; --x-green:#86d39a; --x-yellow:#f2bd48; --x-amber:#f2b35a; --x-blue:#7ea9ff; --x-black:#2a2421; --x-white:#e9e1d0;
   }
 }
 :root[data-theme="catppuccin"]{
   color-scheme:dark;
-  --t-bg:#1e1e2e; --t-fg:#cdd6f4; --t-fg-bright:#e4e9fb; --t-fg-light:#bac2de;
-  --t-step1:#24243a; --t-step2:#313244; --t-step3:#45475a; --t-border:#313244;
-  --t-selection:#45475a; --t-accent:#89b4fa;
-  --t-red:#f38ba8; --t-green:#a6e3a1; --t-yellow:#f9e2af; --t-blue:#89b4fa;
-  --t-magenta:#f5c2e7; --t-cyan:#94e2d5; --t-bright-magenta:#f5c2e7;
-  --t-darkest:#101019; --t-lightest:#cdd6f4;
-  --b-leaf:#a6e3a1; --b-leaf-art:#7cc67a; --b-seed:#4a3420; --b-water:#74b4ee; --b-pot-red:#cf4a3e;
-  --b-steel-1:#585b70; --b-steel-2:#45475a; --b-steel-edge:#7f849c; --b-shine:rgba(255,255,255,.35);
-  --x-red:#f38b7f; --x-green:#7fd49b; --x-yellow:#f2c04f; --x-amber:#f0b45a; --x-blue:#7aa7ff; --x-black:#14141c; --x-white:#ece6da;
+  --t-bg:#151412; --t-fg:#e9e3d8; --t-fg-bright:#fbf7ef; --t-fg-light:#cdc5b7;
+  --t-step1:#1f1d1a; --t-step2:#2a2723; --t-step3:#39352f; --t-border:#312d29;
+  --t-selection:#3c4a3f; --t-accent:#8cb4ff;
+  --t-red:#f08a72; --t-green:#86d39a; --t-yellow:#f2c04f; --t-blue:#8cb4ff;
+  --t-magenta:#d7a6f0; --t-cyan:#7fd3cf; --t-bright-magenta:#ffb36b;
+  --t-darkest:#060505; --t-lightest:#e9e3d8;
+  --b-leaf:#86d39a; --b-leaf-art:#5fae63; --b-seed:#3e2c1b; --b-water:#6fb3ea; --b-pot-red:#d4503f;
+  --b-steel-1:#4d4a45; --b-steel-2:#3a3733; --b-steel-edge:#79746c; --b-shine:rgba(255,255,255,.22);
+  --x-red:#f0806f; --x-green:#86d39a; --x-yellow:#f2bd48; --x-amber:#f2b35a; --x-blue:#7ea9ff; --x-black:#2a2421; --x-white:#e9e1d0;
 }
 
 /* ---------- adapter: slots → roles (shared by every theme) ---------- */
@@ -276,14 +280,9 @@ main{max-width:640px;margin:0 auto;padding:var(--s2) 16px 0}
 .dayhead p{margin:var(--s2) 0 0;font-size:var(--fs-meta);line-height:1.5;color:var(--ink-muted)}
 .dishname{display:block;font-size:var(--fs-h3);font-weight:600;color:var(--ink-soft);margin-bottom:2px}
 .bowl{display:block;width:150px;height:150px;filter:drop-shadow(0 6px 10px color-mix(in oklab,var(--t-darkest) 16%,transparent))}
-.bowl .food{transform-origin:60px 61px;animation:fill .55s cubic-bezier(.2,.7,.2,1)}
-@keyframes fill{from{transform:scale(.6) rotate(-40deg);opacity:0}}
-.bowl .ring-t{fill:none;stroke:var(--surface-3);stroke-width:4}
-.bowl .ring-p{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:var(--done-off,100);transition:stroke-dashoffset .5s cubic-bezier(.2,.7,.2,1)}
-.dayhead.nodone .ring-p{stroke:none}
 .dprog{display:block;margin-top:var(--s2);font:700 13px/1.3 var(--font-mono);color:var(--ink-muted)}
 .dprog.some{color:var(--accent)}
-.previewing .bowl .ring-p,.previewing .bowl .ring-t,.previewing .dprog{display:none}
+.previewing .dprog,.previewing .bnext{display:none}
 @media (max-width:380px){.bowl{width:112px;height:112px}.dayhead h1{font-size:36px}.dayhead{gap:var(--s3) var(--s4)}}
 .prog{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s4);font:700 13px/1 var(--font-mono);color:var(--ink-muted);white-space:nowrap}
 .prog .bar{flex:1}
@@ -799,13 +798,13 @@ body.has-toast{--stat:49px}
   --day:var(--b-leaf);
   --plate:0 1px 0 color-mix(in oklab,var(--steel-edge) 26%,transparent),0 12px 24px -20px color-mix(in oklab,var(--t-darkest) 55%,transparent);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--da-yellow:#f2c04f;--da-red:#f38b7f;--da-blue:#7aa7ff;--da-black:#f2c04f;--da-white:#a6e3a1}}
-:root[data-theme="catppuccin"]{--da-yellow:#f2c04f;--da-red:#f38b7f;--da-blue:#7aa7ff;--da-black:#f2c04f;--da-white:#a6e3a1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--da-yellow:#f2bd48;--da-red:#f59a85;--da-blue:#8cb4ff;--da-black:#f2bd48;--da-white:#86d39a}}
+:root[data-theme="catppuccin"]{--da-yellow:#f2bd48;--da-red:#f59a85;--da-blue:#8cb4ff;--da-black:#f2bd48;--da-white:#86d39a}
 
 /* each pot: an accent for controls, and a band with its own ink */
 [data-pot="yellow"]{--day:var(--da-yellow);--band-a:#f7c94b;--band-b:#de9611;--band-ink:#2a1c02;--band-spark:#2a1c02}
-[data-pot="red"]{--day:var(--da-red);--band-a:#d64b3c;--band-b:#a32a21;--band-ink:#fff5ee;--band-spark:#ffd27a}
-[data-pot="blue"]{--day:var(--da-blue);--band-a:#4d89ef;--band-b:#2353b8;--band-ink:#ffffff;--band-spark:#ffd27a}
+[data-pot="red"]{--day:var(--da-red);--band-a:#bf3b2c;--band-b:#8f241b;--band-ink:#fff5ee;--band-spark:#ffd27a}
+[data-pot="blue"]{--day:var(--da-blue);--band-a:#3168d4;--band-b:#1f47a8;--band-ink:#ffffff;--band-spark:#ffd27a}
 [data-pot="black"]{--day:var(--da-black);--band-a:#3b3431;--band-b:#171312;--band-ink:#f6f3ec;--band-spark:#f2c04f}
 [data-pot="white"]{--day:var(--da-white);--band-a:#fdf9f0;--band-b:#ebe1cb;--band-ink:#2b2624;--band-spark:#1d7a4a}
 
@@ -839,14 +838,12 @@ body.has-toast{--stat:49px}
 .dayhead::after{content:"";position:absolute;inset:auto -10% -40% 30%;height:80%;z-index:-1;border-radius:50%;
   background:radial-gradient(closest-side,rgba(255,255,255,.22),transparent)}
 .dayhead h1{font-size:56px;line-height:.9;color:var(--band-ink);letter-spacing:-.02em}
-.dayhead p{color:color-mix(in srgb,var(--band-ink) 80%,transparent)}
+.dayhead p{color:color-mix(in srgb,var(--band-ink) 90%,transparent)}
 .dayhead .dishname{color:var(--band-ink);font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.2;margin-bottom:var(--s1)}
-.dayhead .ring-t{stroke:color-mix(in srgb,var(--band-ink) 18%,transparent)}
-.dayhead .ring-p{stroke:var(--band-spark)}
-.dprog{display:flex;align-items:baseline;gap:6px;margin-top:var(--s3);font-size:15px;font-weight:600;line-height:1;color:color-mix(in srgb,var(--band-ink) 78%,transparent)}
+.dprog{display:flex;align-items:baseline;gap:6px;margin-top:var(--s3);font-size:15px;font-weight:600;line-height:1;color:color-mix(in srgb,var(--band-ink) 90%,transparent)}
 .dprog b{font-size:36px;font-weight:800;color:var(--band-ink)}
 .dprog i{font-style:normal;font-size:22px;font-weight:700;color:color-mix(in srgb,var(--band-ink) 65%,transparent)}
-.dprog.some{color:color-mix(in srgb,var(--band-ink) 78%,transparent)}
+.dprog.some{color:color-mix(in srgb,var(--band-ink) 90%,transparent)}
 .dprog.all b{color:var(--band-ink)}
 .dprog.all::after{content:"";width:18px;height:10px;margin-left:4px;border-left:3px solid var(--band-spark);border-bottom:3px solid var(--band-spark);transform:translateY(-6px) rotate(-45deg)}
 .bowl{filter:drop-shadow(0 10px 14px rgba(0,0,0,.28))}
@@ -951,7 +948,174 @@ body.has-toast{--stat:49px}
 .chip[aria-pressed="true"] .stk{transform:rotate(-10deg) scale(1.15)}
 .legend i.on{border-radius:999px;background:color-mix(in oklab,var(--success) 14%,var(--surface-1));box-shadow:inset 0 0 0 1.5px var(--success)}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.steam,.drop,.tadka{display:none}}
+
+/* ==========================================================================
+   Rewards layer: the bowl that fills, the weekly thali, notes from earlier
+   you, rescues and the lidded surprise. Food keeps its own colours; steel and
+   ink follow the theme.
+   ========================================================================== */
+/* dark: the pot bands drop a stop so they glow instead of glare */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="lupine"])[data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
+  :root:not([data-theme="lupine"])[data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
+  :root:not([data-theme="lupine"])[data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
+  :root:not([data-theme="lupine"])[data-pot="black"]{--band-a:#2f2925;--band-b:#0f0d0c}
+  :root:not([data-theme="lupine"])[data-pot="white"]{--band-a:#d9cfba;--band-b:#ad9f83}
+}
+:root[data-theme="catppuccin"][data-pot="yellow"]{--band-a:#e6b23c;--band-b:#b9780f}
+:root[data-theme="catppuccin"][data-pot="red"]{--band-a:#b5362a;--band-b:#741f17}
+:root[data-theme="catppuccin"][data-pot="blue"]{--band-a:#2f63cc;--band-b:#1a3680}
+:root[data-theme="catppuccin"][data-pot="black"]{--band-a:#2f2925;--band-b:#0f0d0c}
+:root[data-theme="catppuccin"][data-pot="white"]{--band-a:#d9cfba;--band-b:#ad9f83}
+:root{--rs-band:#c8431a;--note-bg:#fff8dc;--note-ink:#3b2f12;--note-tape:color-mix(in oklab,var(--b-leaf) 30%,#fff)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="lupine"]){--note-bg:#2c2618;--note-ink:#f1e6c8;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#2a2723)}}
+:root[data-theme="catppuccin"]{--note-bg:#2c2618;--note-ink:#f1e6c8;--note-tape:color-mix(in oklab,var(--b-leaf) 35%,#2a2723)}
+
+/* the bowl: empty steel at first, then each finished task adds a layer */
+.dayhead{grid-template-columns:auto minmax(0,1fr)}
+.bowl{width:156px;height:156px}
+.bowl .ly{opacity:0;transform:translateY(-22px) scale(.7) rotate(-14deg);transform-box:fill-box;transform-origin:center;
+  transition:opacity .3s ease,transform .7s cubic-bezier(.3,1.55,.5,1)}
+.bowl .ly[data-l="1"]{transform:scale(.2)}
+.bowl .ly.on{opacity:1;transform:none}
+.bowl.intro .ly:nth-of-type(2){transition-delay:.05s}.bowl.intro .ly:nth-of-type(3){transition-delay:.17s}.bowl.intro .ly:nth-of-type(4){transition-delay:.29s}
+.bowl.intro .ly:nth-of-type(5){transition-delay:.41s}.bowl.intro .ly:nth-of-type(6){transition-delay:.53s}.bowl.intro .ly:nth-of-type(7){transition-delay:.65s}
+.bowl .ghost{opacity:0;transition:opacity .4s}
+.bowl[data-n="0"] .ghost{opacity:.7}
+.bowl .ripple{opacity:0;transform-box:fill-box;transform-origin:center}
+.bowl.splash .ripple{animation:ripple .8s ease-out .25s}
+@keyframes ripple{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(1.5)}}
+.bowl.splash{animation:wobble .6s cubic-bezier(.3,1.6,.5,1) .2s}
+@keyframes wobble{30%{transform:scale(1.05) rotate(-3deg)}60%{transform:scale(.98) rotate(2deg)}}
+.bowl .glint{opacity:0}
+.dayhead.alldone .bowl .glint path{animation:twinkle 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.dayhead.alldone .bowl .glint{opacity:1}
+.dayhead.alldone .bowl .glint path:nth-child(2){animation-delay:.8s}.dayhead.alldone .bowl .glint path:nth-child(3){animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}40%{opacity:1;transform:scale(1) rotate(45deg)}70%{opacity:0;transform:scale(.4) rotate(90deg)}}
+.steam{display:none}
+.dayhead.alldone .steam{display:block}
+.bnext{display:block;margin-top:var(--s2);font-size:var(--fs-meta);line-height:1.4;color:color-mix(in srgb,var(--band-ink) 92%,transparent)}
+.bnext b{color:var(--band-ink)}
+@media (max-width:380px){.bowl{width:116px;height:116px}}
+
+/* a row picture: the task, drawn */
+.trow .tline{align-items:center}
+.rico{flex:0 0 auto;display:grid;place-items:center;width:34px;height:34px;margin:-4px 0 -4px auto}
+.rico .ki{width:32px;height:32px;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+@media (hover:hover){.trow:hover .rico .ki{transform:rotate(-10deg) scale(1.08)}}
+ol.tl li.done .rico{opacity:.45;filter:saturate(.4)}
+ol.tl li.cur .rico .ki{transform:scale(1.06)}
+
+/* prepped: earlier effort, paying off now */
+.pbadge,.pnote .ck,.yl .ck{--pc:var(--b-leaf)}
+.pbadge{display:inline-flex;align-items:center;gap:3px;vertical-align:2px;margin-left:var(--s2);padding:2px 8px 2px 5px;border-radius:999px;
+  font:700 12px/1.3 var(--font-text);color:var(--pc);background:color-mix(in oklab,var(--pc) 13%,var(--surface-1));box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--pc) 35%,transparent);white-space:nowrap}
+.ck{width:13px;height:13px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.pnote{display:flex;gap:var(--s2);align-items:flex-start;margin:calc(-1 * var(--s1)) 0 var(--s3)!important;padding:var(--s2) var(--s3);border-radius:var(--r-sm);
+  background:color-mix(in oklab,var(--b-leaf) 10%,var(--surface-1));color:var(--ink)!important;font-size:var(--fs-meta);line-height:1.45}
+.pnote .ck{margin-top:3px;color:var(--b-leaf)}
+.pnote b{color:var(--b-leaf)}
+
+/* a note from earlier you: a paper slip, taped on */
+.ynote{position:relative;margin:var(--s2) 4px var(--s4);padding:var(--s5) var(--s4) var(--s3);border-radius:4px 4px 10px 4px;background:var(--note-bg);color:var(--note-ink);
+  transform:rotate(-.8deg);box-shadow:0 1px 0 rgba(0,0,0,.06),0 10px 18px -14px rgba(0,0,0,.5);animation:slipin .55s cubic-bezier(.3,1.4,.5,1)}
+.ynote::before{content:"";position:absolute;top:-9px;left:50%;width:78px;height:20px;margin-left:-39px;background:var(--note-tape);opacity:.85;transform:rotate(2deg);
+  -webkit-mask:linear-gradient(90deg,transparent 0 2px,#000 2px calc(100% - 2px),transparent 0);mask:linear-gradient(90deg,transparent 0 2px,#000 2px calc(100% - 2px),transparent 0)}
+.ynote p{margin:0}
+.yh{font:800 12px/1.2 var(--font-display);letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:var(--s2)!important}
+.yl{display:flex;gap:var(--s2);align-items:flex-start;font:600 17px/1.4 var(--font-display)}
+.yl+.yl{margin-top:var(--s1)!important}
+.yl .ck{width:18px;height:18px;margin-top:3px;color:var(--b-leaf)}
+.ysub{margin-top:var(--s2)!important;font-size:var(--fs-meta);opacity:.8}
+.ysub b{font-weight:700}
+.yx{margin-top:var(--s1);min-height:44px;padding:0 var(--s3);margin-left:calc(-1 * var(--s3));font-weight:700;font-size:var(--fs-meta);color:var(--note-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.ynote.bye{transition:transform .26s ease-in,opacity .26s ease-in;transform:translateY(-10px) rotate(-4deg);opacity:0}
+@keyframes slipin{from{transform:translateY(-14px) rotate(-5deg);opacity:0}}
+
+/* rescues: framed as a win */
+.fixnote.rescued{align-items:center;border-left:0;flex-wrap:nowrap;
+  background:linear-gradient(100deg,color-mix(in oklab,var(--rs-band) 12%,var(--surface-1)),var(--surface-1) 70%);border-color:color-mix(in oklab,var(--rs-band) 35%,var(--border))}
+.fixnote.rescued>span:nth-child(2){flex:1 1 auto;min-width:0}
+.fixnote.rescued b{display:block;font:800 17px/1.3 var(--font-display);color:var(--ink-strong)}
+.rsi{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;color:var(--surface-1);filter:drop-shadow(0 2px 2px rgba(0,0,0,.2))}
+.rsi svg{width:40px;height:40px;color:#fbf7ef;animation:spinin .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes spinin{from{transform:rotate(-200deg) scale(.4)}}
+.fixnote.rescued{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:var(--s2) var(--s3)}
+@media (max-width:480px){.fixnote.rescued{grid-template-columns:40px minmax(0,1fr)}.fixnote.rescued .btn{grid-column:2;justify-self:start}}
+.focus.rescue-ask .lab{background:var(--rs-band);color:#fff}
+.focus.rescue-ask{border-color:color-mix(in oklab,var(--rs-band) 40%,var(--border));background:linear-gradient(180deg,color-mix(in oklab,var(--rs-band) 9%,var(--surface-1)),var(--surface-1) 60%)}
+
+/* the weekly thali */
+.thali{margin-top:var(--s6);padding:var(--s4);border-radius:var(--r-lg);background:var(--surface-1);border:1px solid color-mix(in oklab,var(--steel-edge) 32%,var(--border));
+  background-image:linear-gradient(180deg,color-mix(in oklab,var(--steel-1) 30%,transparent),transparent 80px);box-shadow:inset 0 1px 0 var(--shine),var(--plate)}
+.tcol.a .thali{margin:var(--s3) 0 0}
+.thhead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3)}
+.thhead h2{margin:0;font-size:22px}
+.thn{font:600 15px/1 var(--font-display);color:var(--ink-muted)}
+.thn b{font-size:26px;font-weight:800;color:var(--ink-strong)}
+.thbody{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:var(--s4);align-items:center;margin-top:var(--s3)}
+.thside p{margin:0;font-size:var(--fs-meta);line-height:1.5;color:var(--ink-soft)}
+.thside p+p{margin-top:var(--s3)}
+.thres{display:flex;gap:var(--s2);align-items:center;font-weight:700;color:var(--ink-strong)!important}
+.thres .rsi,.thres .rsi svg{width:26px;height:26px}
+@media (max-width:440px){.thbody{grid-template-columns:minmax(0,1fr)}.thali-art{max-width:240px;margin:0 auto}}
+.thali-art{display:block;width:100%;height:auto;max-width:100%;filter:drop-shadow(0 8px 10px color-mix(in oklab,var(--t-darkest) 22%,transparent))}
+.th-rim{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.2}
+.th-well{fill:color-mix(in oklab,var(--steel-2) 70%,var(--steel-1));stroke:color-mix(in oklab,var(--steel-edge) 50%,transparent);stroke-width:1}
+.tk-rim{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.1}
+.tk-well{fill:var(--steel-2)}
+.tk .tki{filter:drop-shadow(0 2px 2px rgba(0,0,0,.22))}
+.tk-lab circle{fill:var(--surface-1);stroke:var(--steel-edge);stroke-width:.8}
+.tk-lab text,.tsp text{font:800 9px var(--font-display);text-anchor:middle;fill:var(--ink-strong)}
+.tk-star circle{fill:var(--rs-band)}
+.tk-star path{fill:#fff}
+.tsp circle{fill:color-mix(in oklab,var(--steel-2) 55%,transparent);stroke:var(--steel-edge);stroke-width:1.2;stroke-dasharray:2.5 3.5}
+.tsp text{font-size:12px;fill:var(--ink-faint)}
+.tsp.now circle{stroke:var(--accent);stroke-width:2;stroke-dasharray:none;fill:color-mix(in oklab,var(--accent) 12%,transparent);animation:breathe 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.tsp.now text{fill:var(--accent)}
+.tsp.fut circle{stroke-dasharray:none;stroke-opacity:.4}
+@keyframes breathe{50%{transform:scale(1.07)}}
+.tk.land .tki{animation:land .8s cubic-bezier(.3,1.5,.5,1) .15s both}
+@keyframes land{0%{transform:translateY(-60px) scale(1.4);opacity:0}60%{opacity:1}100%{transform:none}}
+.thali.sunday{border-color:color-mix(in oklab,var(--accent) 40%,var(--border));background:linear-gradient(180deg,color-mix(in oklab,var(--accent) 10%,var(--surface-1)),var(--surface-1) 70%)}
+.tin{margin-top:var(--s4);padding-top:var(--s3);border-top:1px dashed var(--border-strong)}
+.tinh{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 var(--s2);font-size:var(--fs-meta);color:var(--ink-muted)}
+.tinh b{color:var(--ink-strong)}
+.tinrow{display:flex;flex-wrap:wrap;gap:6px}
+.tinrow .stk{width:30px;height:30px;margin:0}
+.tinrow span:nth-child(odd) .stk{transform:rotate(-8deg)}.tinrow span:nth-child(even) .stk{transform:rotate(6deg)}
+
+/* the surprise: a lidded steel dabba */
+.reveal{display:flex;align-items:center;gap:var(--s4);width:100%;margin:0 0 var(--s4);padding:var(--s3) var(--s4);border-radius:var(--r);text-align:left;
+  background:var(--surface-1);box-shadow:inset 0 0 0 1.5px color-mix(in oklab,var(--accent) 45%,var(--border))}
+.reveal.shut{cursor:pointer;animation:nudge 3.2s ease-in-out 1s infinite}
+.reveal.shut:hover{box-shadow:inset 0 0 0 2px var(--accent)}
+.reveal b{display:block;font:800 18px/1.25 var(--font-display);color:var(--ink-strong)}
+.reveal small{display:block;font-size:var(--fs-meta);color:var(--ink-muted);margin-top:2px}
+.dabba{width:72px;height:66px;flex:0 0 auto;overflow:visible}
+.db-body{fill:var(--steel-1);stroke:var(--steel-edge);stroke-width:1.2}
+.db-knob{fill:var(--steel-2);stroke:var(--steel-edge);stroke-width:1.2}
+.db-lid{transform-box:fill-box;transform-origin:20% 100%;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.reveal.shut .db-lid{animation:rattle 3.2s ease-in-out 1s infinite}
+.reveal.opening{animation:none}
+.reveal.opening .db-lid{animation:none;transform:translate(14px,-26px) rotate(28deg);opacity:0}
+@keyframes rattle{0%,82%,100%{transform:none}86%{transform:rotate(-5deg) translateY(-2px)}90%{transform:rotate(4deg) translateY(-1px)}94%{transform:rotate(-2deg)}}
+@keyframes nudge{0%,82%,100%{transform:none}88%{transform:translateY(-2px)}}
+.reveal.open{align-items:flex-start;box-shadow:inset 0 0 0 1.5px color-mix(in oklab,var(--accent) 35%,var(--border))}
+.rv-art{flex:0 0 auto;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:color-mix(in oklab,var(--accent) 12%,var(--surface-2))}
+.rv-art .stk{width:46px;height:46px;margin:0;transform:rotate(-8deg)}
+.rv-art .ki{width:52px;height:52px}
+.rv-t{min-width:0}
+.rv-t small{display:block;margin:0 0 2px;font:800 12px/1.3 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.rv-t>span{display:block;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.reveal.fresh .rv-art{animation:popout .7s cubic-bezier(.3,1.7,.5,1) both}
+.reveal.fresh .rv-t{animation:risein .5s ease-out .15s both}
+@keyframes popout{0%{transform:scale(.2) rotate(-40deg);opacity:0}100%{transform:none;opacity:1}}
+@keyframes risein{from{transform:translateY(8px);opacity:0}}
+
+/* empty water glasses read as "tap to fill", not as disabled */
+.cups.glass button[aria-pressed="false"] .w{fill:color-mix(in oklab,var(--water) 14%,var(--steel-2))}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.steam,.drop,.tadka{display:none}.bowl .ly,.bowl .ly.on{opacity:1;transform:none}.bowl .ly:not(.on){opacity:0}}
 @media print{.tabs,.dock,.sheet,.seg,.find,.toast,.menubtn{display:none!important}body{background:var(--surface-0);padding:0}.page[hidden],.sub[hidden]{display:block!important}.intro{display:none}}
 </style>
 </head>
@@ -978,6 +1142,7 @@ body.has-toast{--stat:49px}
  <div id="intro"></div>
  <div class="prog" id="prog"></div>
  <div id="strip"></div>
+ <div id="ynote"></div>
  <div id="fixnote"></div>
  <div id="bed"></div>
  <div id="focus"></div>
@@ -989,6 +1154,7 @@ body.has-toast{--stat:49px}
  <ol class="tl" id="tl"></ol>
  <div class="track" id="track"></div>
  <p class="foot" id="tomorrow"></p>
+ <div id="thali"></div>
  </div>
  </div>
 </section>
@@ -1182,7 +1348,7 @@ body.has-toast{--stat:49px}
 
   <h2>The five tabs</h2>
   <ul class="htabs">
-   <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><b>Today</b><span>What to do next, and the rest of the day in order.</span></div></li>
+   <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><b>Today</b><span>What to do next, and the rest of the day in order. Each thing you finish adds to the bowl; each finished day puts a katori on the week’s thali.</span></div></li>
    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10h15v6a4 4 0 0 1-4 4h-7a4 4 0 0 1-4-4v-6z"/><path d="M3 10h18M19.5 13H22M10 10V7h4v3M12 7V4.5"/></svg><div><b>Cook</b><span>Every recipe, one step at a time, with timers.</span></div></li>
    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.1 11.1a1 1 0 0 1-1 .9H7.1a1 1 0 0 1-1-.9L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><div><b>Shop</b><span>Weekly and monthly lists, and what is in season.</span></div></li>
    <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></svg><div><b>Week</b><span>The colour rota, Sunday prep, your plan and the 30-plant count.</span></div></li>
@@ -1811,7 +1977,11 @@ const winter=[10,11,0,1].includes(mon), fermentOn=[0,1,2].includes(mon), gooseOn
 const REST={k:940,p:47.5};
 const SOAK_AT=21*60+30, SOAK_FROM=18*60;
 const monday=(()=>{const d=new Date(now);d.setDate(d.getDate()-((dow+6)%7));return dayKey(d)})();
-if(!mem.day||mem.day.d!==today)mem.day={d:today,done:{},sub:{},water:0};
+if(!mem.day||mem.day.d!==today){
+  /* keep what last night's you did, so this morning can say thank you */
+  if(mem.day&&mem.day.d===dayKey(new Date(now.getTime()-864e5)))mem.last={d:today,bed:mem.day.bed||{},soak:!!(mem.day.done&&mem.day.done.soak)};
+  mem.day={d:today,done:{},sub:{},water:0};
+}
 mem.day.done=mem.day.done||{};mem.day.sub=mem.day.sub||{};mem.day.water=mem.day.water||0;
 if(mem.cook&&mem.cook.d!==today)mem.cook=null;
 if(typeof mem.start!=='number')mem.start=540;
@@ -1896,16 +2066,22 @@ const TEXTURE={
   red:`${[[40,40,30,'#6a1414'],[56,32,-15],[72,36,40],[84,52,-60],[86,70,20],[74,86,-30],[56,90,10],[34,54,80],[30,72,-20],[68,52,60]].map(([x,y,a])=>bean(x,y,a,'#6e1717','#9b3b34')).join('')}${grains([[48,46,20],[62,44,-40],[80,78,30],[44,88,-10]],2.4,1.3,'#e7d3ad')}`,
   white:`<g fill="none" stroke="#c9b48e" stroke-width="1.7" stroke-linecap="round"><path d="M36 40q3 2 6 0t6 0"/><path d="M60 30q3 2 6 0t6 0"/><path d="M78 44q2 3 0 6t0 6"/><path d="M84 66q-3 2-6 0t-6 0"/><path d="M66 90q-3-2-6 0t-6 0"/><path d="M28 56q3 2 6 0"/><path d="M52 46q3 2 6 0t6 0"/><path d="M40 90q2-3 5-3"/></g><ellipse cx="72" cy="56" rx="7" ry="4" transform="rotate(-20 72 56)" fill="#e6c25a" opacity=".45"/>`
 };
-const bowlArt=id=>`<svg class="bowl" viewBox="-9 -9 138 138" aria-hidden="true" style="--seed:${id==='black'?'#cdb994':'var(--b-seed)'}">
-<circle class="ring-t" cx="60" cy="60" r="65"/><circle class="ring-p" cx="60" cy="60" r="65" pathLength="100" transform="rotate(-90 60 60)"/>
+/* the bowl fills as the day goes: dal, the pot's own beans, greens, lemon, flax and oil, then coriander */
+const leaf=(x,y,a,c)=>`<path transform="translate(${x} ${y}) rotate(${a})" d="M-4.5 0C-2.8-3.4 2.8-3.4 4.5 0 2.8 3.4-2.8 3.4-4.5 0z" fill="${c}"/>`;
+const bowlArt=id=>`<svg class="bowl" viewBox="-4 -4 128 128" aria-hidden="true" data-n="0" style="--seed:${id==='black'?'#cdb994':'var(--b-seed)'}">
 <defs><linearGradient id="hb-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:color-mix(in oklab,var(--steel-1) 70%,#fff)"/><stop offset=".55" style="stop-color:var(--steel-1)"/><stop offset="1" style="stop-color:color-mix(in oklab,var(--steel-1) 75%,var(--steel-edge))"/></linearGradient><linearGradient id="hb-well" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:color-mix(in oklab,var(--steel-2) 80%,var(--steel-edge))"/><stop offset="1" style="stop-color:color-mix(in oklab,var(--steel-2) 70%,#fff)"/></linearGradient></defs><circle cx="60" cy="60" r="58" fill="url(#hb-rim)" stroke="var(--steel-edge)" stroke-width="1.2"/>
 <path d="M12 46A50 50 0 0 1 46 11" fill="none" stroke="var(--shine)" stroke-width="3" stroke-linecap="round"/>
 <circle cx="60" cy="60" r="51" fill="url(#hb-well)"/>
-<g class="food"><circle cx="60" cy="61" r="47" fill="color-mix(in oklab,var(--pot-${id}) 72%,#000)"/><circle cx="61.6" cy="62.8" r="45.6" fill="var(--pot-${id})"/>${TEXTURE[id]||''}
-<circle cx="60" cy="61" r="47" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.2"/>
-<g fill="var(--seed)"><circle cx="40" cy="48" r="1.5"/><circle cx="47" cy="82" r="1.3"/><circle cx="74" cy="40" r="1.4"/><circle cx="86" cy="58" r="1.5"/><circle cx="66" cy="90" r="1.2"/><circle cx="57" cy="34" r="1.1"/></g>
-<g transform="translate(76 70) rotate(-28)"><path d="M-14 0A14 14 0 0 1 14 0Z" fill="#f6e27f" stroke="#caa418" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 0L-8-8M0 0L0-11M0 0L8-8" stroke="#e2c13a" stroke-width="1" fill="none"/></g>
-<g fill="var(--b-leaf-art)">${sprig(46,56,-20)}${sprig(58,70,35)}${sprig(40,72,-70)}</g></g></svg>`;
+<g class="ghost" fill="none" stroke="var(--steel-edge)" stroke-width="1.6" stroke-linecap="round"><circle cx="60" cy="60" r="38" stroke-dasharray="3 7"/><path d="M28 40A36 36 0 0 1 44 27" stroke="var(--shine)" stroke-width="2.4"/></g>
+<g class="ly" data-l="1"><circle cx="60" cy="61" r="47" fill="color-mix(in oklab,var(--pot-${id}) 72%,#000)"/><circle cx="61.6" cy="62.8" r="45.6" fill="var(--pot-${id})"/><circle cx="60" cy="61" r="47" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="1.2"/><ellipse cx="44" cy="40" rx="14" ry="5" transform="rotate(-38 44 40)" fill="rgba(255,255,255,.16)"/></g>
+<g class="ly" data-l="2">${TEXTURE[id]||''}</g>
+<g class="ly" data-l="3">${[[36,64,20,'#2f7d36'],[50,76,-30,'#3f9a45'],[70,78,60,'#2f7d36'],[82,64,-10,'#4c9a3c'],[64,46,40,'#3f9a45'],[46,48,-60,'#2f7d36'],[58,88,10,'#4c9a3c'],[86,82,30,'#3f9a45'],[30,78,-40,'#4c9a3c']].map(([x,y,a,c])=>leaf(x,y,a,c)).join('')}</g>
+<g class="ly" data-l="4"><g transform="translate(76 70) rotate(-28)"><path d="M-14 0A14 14 0 0 1 14 0Z" fill="#f6e27f" stroke="#caa418" stroke-width="2.2" stroke-linejoin="round"/><path d="M0 0L-8-8M0 0L0-11M0 0L8-8" stroke="#e2c13a" stroke-width="1" fill="none"/></g></g>
+<g class="ly" data-l="5"><path d="M30 58q12-9 24-2t24-3" stroke="#e8c45a" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".6"/><path d="M40 90q10-5 20 0" stroke="#e8c45a" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".5"/><g fill="var(--seed)"><circle cx="40" cy="48" r="1.5"/><circle cx="47" cy="82" r="1.3"/><circle cx="74" cy="40" r="1.4"/><circle cx="86" cy="58" r="1.5"/><circle cx="66" cy="90" r="1.2"/><circle cx="57" cy="34" r="1.1"/><circle cx="52" cy="62" r="1.2"/><circle cx="34" cy="70" r="1.3"/><circle cx="62" cy="54" r="1"/></g></g>
+<g class="ly" data-l="6"><g fill="var(--b-leaf-art)">${sprig(46,56,-20)}${sprig(58,70,35)}${sprig(40,72,-70)}</g>${[[72,48],[88,72],[54,40]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="#cfe8a6" stroke="#3f9a45" stroke-width="1.4"/>`).join('')}</g>
+<circle class="ripple" cx="60" cy="61" r="30" fill="none" stroke="var(--shine)" stroke-width="2.5"/>
+<g class="glint" fill="#fff">${[[30,30,1],[94,40,.7],[86,94,.85]].map(([x,y,k])=>`<path transform="translate(${x} ${y}) scale(${k})" d="M0-7L1.6-1.6 7 0 1.6 1.6 0 7-1.6 1.6-7 0-1.6-1.6z"/>`).join('')}</g></svg>`;
+const LAYERS=(T)=>['the dal',T.id==='mince'?'the soya and peas':{yellow:'the five lentils',black:'the black chickpeas',blue:'the fish',red:'the kidney beans',white:'the chicken'}[T.color],'the greens','the lemon','flax and olive oil','the coriander'];
 const clockSvg='<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4.3l2.6 1.6"/></svg>';
 
 /* ---------- today ---------- */
@@ -1941,12 +2117,14 @@ function applyFix(k){
     const f=mem.day.fix;
     if(f&&f.kind==='quick'){timers=timers.filter(t=>t.label!=='Hot soak');mem.tm=timers}
     mem.next=null;tomId=ROTA[(realDow+1)%7];mem.day.fix=null;mem.day.soakOk=0;mem.day.done.hotsoak=0;
+    if(mem.rescued)delete mem.rescued[today];
   }else if(k==='quick'){
     mem.day.fix={kind:'quick',pot:orig,t0:nm,end:nm+120};startTimer(120,'Hot soak');
   }else{
     mem.day.fix={kind:k,pot:k==='swap'?'yellow':null,rec:k==='mince'?'bored:mince':null,orig};
     mem.next={d:tomKey,pot:orig};tomId=orig;
   }
+  if(k!=='undo'){mem.rescued=mem.rescued||{};mem.rescued[today]=k;const r=rescuesThisWeek();toast(`Day rescued. ${r>1?r+' rescues this week, each one a win.':'That counts as a win.'}`)}
   view.nosoak=false;save();drawDock();renderToday();renderCook();wake();
 }
 function buildRows(){
@@ -1999,16 +2177,16 @@ function focusHTML(nowM,nx,open){
       const swap=opt('swap','Cook the Yellow Pot today','No soak needed. The '+pot.name+' moves to tomorrow; soak it tonight.');
       const mince=opt('mince','Soya Mince and Peas','35 minutes, nothing to soak. The '+pot.name+' moves to tomorrow.');
       const ord=quickFits?[quick,swap,mince]:[swap,quick,mince];
-      return {ask:1,html:`<section class="focus ask"><p class="lab">Forgot to soak?</p><h2>No problem. Pick one.</h2><div class="opts">${ord.join('')}</div><button class="fback" data-soak="yes">I did soak it after all</button></section>`};
+      return {ask:1,html:`<section class="focus ask rescue-ask"><p class="lab">Rescue</p><h2>Forgot to soak? Let’s rescue the day.</h2><p>Pick one. Any of them keeps the week on track, and a rescue counts as a win.</p><div class="opts">${ord.join('')}</div><button class="fback" data-soak="yes">I did soak it after all</button></section>`};
     }
-    return {ask:1,html:`<section class="focus ask"><p class="lab">This morning</p><h2>Did you soak last night?</h2><p>The ${pot.name} needs ${what}.</p><div class="acts"><button class="btn" data-soak="yes">Yes, I soaked</button><button class="btn ghost" data-soak="no">No, what now?</button></div></section>`};
+    return {ask:1,html:`<section class="focus ask"><p class="lab">This morning</p><h2>Did you soak last night?</h2><p>The ${pot.name} needs ${what}.</p><div class="acts"><button class="btn" data-soak="yes">Yes, I soaked</button><button class="btn ghost" data-soak="no">No, rescue it</button></div></section>`};
   }
   let n=view.pin&&rows.find(r=>r.id===view.pin&&!r.shut), natural=nx||open[0];
   if(!n){
     if(natural&&natural.id==='soak'&&nowM>=SOAK_FROM&&!view.off)natural=open.find(r=>r.id!=='soak');
     n=natural;
   }
-  if(!n)return {html:`<section class="focus fin"><p class="lab">All done</p><h2>That is the day.</h2><p>${tomText()}</p></section>`};
+  if(!n)return {html:`<section class="focus fin"><p class="lab">All done</p><h2>That is the day.</h2>${view.off?'':surpriseHTML()}<p>${tomText()}</p></section>`};
   const pinned=!!view.pin&&n.id!==(natural&&natural.id);
   const soakCard=n.id==='soak'&&soakPending;
   const kind=soakCard?'soak':'';
@@ -2020,7 +2198,7 @@ function focusHTML(nowM,nx,open){
   const acts=done?`<button class="btn ghost" data-done="${n.id}">Undo</button>`
     :n.rec?`<button class="btn" data-rec="${n.rec}">${resume?'Resume cooking':'Start cooking'}</button><button class="btn ghost" data-done="${n.id}">Mark done</button>`
     :`<button class="btn" data-done="${n.id}">${soakCard?'Soaked it':'Done'}</button>`;
-  return {cur:n.id,html:`<section class="focus ${kind}">${pinned?'<button class="fback" data-pin="">Back to next</button>':''}<p class="lab">${lab}</p><h2>${n.b}</h2>${lines?`<ul class="fl">${lines}</ul>`:''}${n.note?`<p class="fnote">${n.note}</p>`:''}<div class="acts">${acts}</div></section>`,
+  return {cur:n.id,html:`<section class="focus ${kind}">${pinned?'<button class="fback" data-pin="">Back to next</button>':''}<p class="lab">${lab}</p><h2>${n.b}</h2>${prepped(n.id)?`<p class="pnote">${CHECK}<span><b>Prepped.</b> ${prepped(n.id)}</span></p>`:''}${lines?`<ul class="fl">${lines}</ul>`:''}${n.note?`<p class="fnote">${n.note}</p>`:''}<div class="acts">${acts}</div></section>`,
     strip:!pinned&&soakPending&&nowM>=SOAK_FROM&&n.id!=='soak'};
 }
 const WK=[1,2,3,4,5,6,0];
@@ -2077,7 +2255,8 @@ function renderToday(){
   drawStatus();
   $('#plancard').innerHTML=(!off&&[6,0,1].includes(realDow)&&(!mem.plan||planAge()>=6||planCount()<planNeed))?`<div class="plancard"><div><b>Plan the week</b><span>${planCount()&&planAge()<6?'Finish choosing: '+planCount()+' of '+planNeed+' done.':'Choose your greens and fruit in a minute. It fills in your shopping list.'}</span></div><button class="btn small ghost" data-go="week/plan">Open plan</button></div>`:'';
   const f=!off&&mem.day.fix;
-  $('#fixnote').innerHTML=f?`<div class="fixnote"><span>${f.kind==='quick'?'Hot soak running for 2 hours. Then cook the '+POTS[f.pot].name+'.':f.kind==='swap'?'Plan changed to the Yellow Pot. The '+POTS[f.orig].name+' moves to tomorrow: soak it tonight.':'Plan changed to Soya Mince and Peas. The '+POTS[f.orig].name+' moves to tomorrow: soak it tonight.'}</span><button class="btn small ghost" data-fix="undo">Undo</button></div>`:'';
+  $('#fixnote').innerHTML=f?`<div class="fixnote rescued"><span class="rsi">${RESCUE_SVG}</span><span><b>Day rescued</b>${f.kind==='quick'?'Hot soak running for 2 hours. Then cook the '+POTS[f.pot].name+'.':f.kind==='swap'?'Plan changed to the Yellow Pot. The '+POTS[f.orig].name+' moves to tomorrow: soak it tonight.':'Plan changed to Soya Mince and Peas. The '+POTS[f.orig].name+' moves to tomorrow: soak it tonight.'}</span><button class="btn small ghost" data-fix="undo">Undo</button></div>`:'';
+  drawThali();
 }
 function drawDaySwitch(){
   const off=view.off||0, ti=(realDow+6)%7, sel=ti+off;
@@ -2087,6 +2266,165 @@ function drawDaySwitch(){
   $('#daynote').innerHTML=off?`<div class="dsw-note"><span>Viewing <b>${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}</b>. Plan only; nothing here is saved.</span><button class="btn small ghost" data-vday="0">Back to today</button></div>`:'';
   $('#laterh').textContent=off?DAYS[d.getDay()]+'’s plan':'The rest of today';
 }
+/* ---------- rewards: notes from earlier you, rescues, the thali, a surprise ---------- */
+const andJoin=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' and '+a[a.length-1];
+const SUN_DID=['boiled 12 eggs','washed the greens','','ground the flaxseed','roasted the cumin','made the chutney','peeled the garlic and ginger','packed the greens','topped up the jars',''];
+const THU_DID=['boiled 9 eggs','checked the greens','checked the fridge','planned Saturday’s fish'];
+const SOAK_DID={black:'soaked the chickpeas and barley',red:'soaked the kidney beans',white:'soaked the pearl millet'};
+const prevMonday=(()=>{const d=new Date(now);d.setDate(d.getDate()-((realDow+6)%7)-7);return dayKey(d)})();
+/* the prep that is feeding today: Sunday's for Monday to Thursday, Thursday's for Friday and Saturday */
+function prepFrom(){
+  if(view.off)return null;
+  if(realDow>=1&&realDow<=4){const P=mem.prevPrep;return P&&P.wk===prevMonday?{k:'sun',who:'Sunday',d:P.sun||{},names:SUN_DID}:null}
+  if(realDow===5||realDow===6){const P=mem.prep;return P&&P.wk===monday?{k:'thu',who:'Thursday',d:P.thu||{},names:THU_DID}:null}
+  return null;
+}
+const PREP_FOR={breakfast:{sun:[0],thu:[0]},cook:{sun:[1,6,7,8],thu:[1]},lunch:{sun:[3,5],thu:[2]},dinner:{sun:[3,5],thu:[2]}};
+function prepped(id){
+  const f=prepFrom(), m=f&&PREP_FOR[id]&&PREP_FOR[id][f.k];if(!m)return '';
+  const did=[...new Set(m.filter(i=>f.d[i]).map(i=>f.names[i]).filter(Boolean))];
+  return did.length?`On ${f.who} you ${andJoin(did)}.`:'';
+}
+const CHECK='<svg class="ck" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+function noteHTML(nowM){
+  if(view.off||mem.day.ynx||nowM>=mem.start+300)return '';
+  const out=[], l=mem.last;
+  if(l&&l.d===today){const b=l.bed||{},did=[];
+    if(l.soak)did.push(SOAK_DID[potId()]||'did the soak');
+    if(b.pot)did.push('set out the cooker and spice jars');
+    if(b.eggs)did.push('checked the eggs');
+    if(did.length)out.push('Last night you '+andJoin(did))}
+  const f=prepFrom();
+  if(f&&(realDow===1||realDow===5)){const did=Object.keys(f.d).filter(i=>f.d[i]).map(i=>f.names[+i]).filter(Boolean);
+    if(did.length)out.push(`On ${f.who} you `+andJoin(did.length>4?did.slice(0,3).concat([(did.length-3)+' more things']):did))}
+  if(!out.length)return '';
+  return `<aside class="ynote" aria-label="A note from earlier you"><p class="yh">A note from earlier you</p>${out.map(t=>`<p class="yl">${CHECK}<span>${t}.</span></p>`).join('')}<p class="ysub">${f&&(realDow===1||realDow===5)?'Look for the <b>Prepped</b> badges below. Today is lighter because of it.':'This morning is easier because of it.'}</p><button class="yx" data-ynx>Thanks, me</button></aside>`;
+}
+
+/* rescues: a slip you recovered from is a win, and the thali remembers it */
+const RESCUE_SVG='<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="16" cy="16" r="12.5" fill="none" stroke="var(--rs-band)" stroke-width="5" stroke-dasharray="9.8 9.8" transform="rotate(-23 16 16)"/></svg>';
+const weekKeys=()=>{const m=new Date(now);m.setDate(m.getDate()-((realDow+6)%7));return Array.from({length:7},(_,k)=>{const d=new Date(m);d.setDate(m.getDate()+k);return d})};
+const rescuesThisWeek=()=>weekKeys().filter(d=>(mem.rescued||{})[dayKey(d)]).length;
+
+/* the weekly thali: seven spots on a steel plate, Monday to Saturday round the rim, Sunday in the middle */
+const TK_DOT={yellow:'#b86a10',black:'#d8c08f',blue:'#f3e2d3',red:'#5a1010',white:'#c9a46e'};
+let thaliLand=null;
+function thaliArt(days){
+  const P=days.map((_,k)=>k<6?[100+54*Math.cos((-90+60*k)*Math.PI/180),100+54*Math.sin((-90+60*k)*Math.PI/180)]:[100,100]);
+  const spot=(d,[x,y])=>{const L=DAYS[d.w][0];
+    if(d.pot)return `<g class="tk${d.key===thaliLand?' land':''}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><g class="tki"><circle r="22" class="tk-rim"/><path d="M-15.5-6.5A17 17 0 0 1-6.5-15.5" stroke="var(--shine)" stroke-width="2" fill="none" stroke-linecap="round"/><circle r="17" class="tk-well"/><circle r="15.2" fill="var(--pot-${d.pot})"/>${[[-6,-4],[4,-7],[7,3],[-2,6],[-8,4],[2,-1]].map(([a,b])=>`<circle cx="${a}" cy="${b}" r="1.7" fill="${TK_DOT[d.pot]}" opacity=".85"/>`).join('')}<ellipse cx="-5" cy="-7" rx="5" ry="2" transform="rotate(-35 -5 -7)" fill="rgba(255,255,255,.28)"/></g><g class="tk-lab" transform="translate(15 15)"><circle r="7.5"/><text dy="3.2">${L}</text></g>${d.rescued?'<g class="tk-star" transform="translate(16 -16)"><circle r="7.5"/><path d="M0-4.6l1.35 2.75 3.05.45-2.2 2.15.52 3.03L0 2.95-2.72 4.38l.52-3.03-2.2-2.15 3.05-.45z"/></g>':''}</g>`;
+    return `<g class="tsp${d.today?' now':''}${d.future?' fut':''}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><circle r="19"/><text dy="4.5">${L}</text></g>`};
+  return `<svg class="thali-art" viewBox="0 0 200 200" role="img" aria-label="${days.filter(d=>d.pot).length} of 7 days finished this week"><circle cx="100" cy="100" r="97" class="th-rim"/><path d="M18 62A88 88 0 0 1 62 18" stroke="var(--shine)" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="100" cy="100" r="86" class="th-well"/>${days.map((d,k)=>spot(d,P[k])).join('')}</svg>`;
+}
+function drawThali(){
+  const el=$('#thali');if(!el)return;
+  if(view.off){el.innerHTML='';return}
+  const th=mem.thali||{}, rs0=mem.rescued||{};
+  const days=weekKeys().map(d=>{const key=dayKey(d),w=d.getDay();
+    return {key,w,today:key===today,future:d>now&&key!==today,rescued:!!rs0[key],pot:th[key]||((mem.hist[key]||0)>=1?ROTA[w]:null)}});
+  const n=days.filter(d=>d.pot).length, sun=realDow===0, r=rescuesThisWeek();
+  const byPot={};days.forEach(d=>{if(d.pot)byPot[d.pot]=(byPot[d.pot]||0)+1});
+  const ate=Object.entries(byPot).map(([p,c])=>`${c} ${POTS[p].name.split(' ')[0]}`);
+  const msg=sun?(n?`You ate ${andJoin(ate)} this week. Empty spots are days off; nothing is lost.`:'A quiet week. Empty spots are just days off; next week starts with a clean plate.')
+    :n?'Each finished day adds a katori in its pot colour. A missed day just leaves a space.':'Finish today and its katori lands here, in the day’s pot colour.';
+  const got=mem.stk||[], total=PLANTS.reduce((a,g)=>a+g.items.length,0);
+  el.innerHTML=`<section class="thali${sun?' sunday':''}"><div class="thhead"><h2>${sun?'The meal you ate this week':'This week’s thali'}</h2><span class="thn"><b>${n}</b>/7</span></div>
+   <div class="thbody">${thaliArt(days)}<div class="thside"><p>${msg}</p>${r?`<p class="thres"><span class="rsi">${RESCUE_SVG}</span>${r} rescue${r>1?'s':''} this week. Each one kept the plan going.</p>`:''}</div></div>
+   ${got.length?`<div class="tin"><p class="tinh"><b>Your sticker tin</b><span>${got.length} of ${total}</span></p><div class="tinrow">${got.slice(-16).reverse().map(id=>`<span title="${plantName(id)}">${sticker(id)}</span>`).join('')}</div></div>`:''}</section>`;
+  thaliLand=null;
+  // Sunday: the week's meal is the point, so it sits up top
+  const a=$('.tcol.a'), b=$('.tcol.b');
+  if(sun&&el.parentNode!==a)$('#focus').after(el);else if(!sun&&el.parentNode!==b)b.append(el);
+}
+
+/* a surprise for finishing the day: a chef's tip, a plant fact or a new sticker */
+const plantName=id=>{for(const g of PLANTS)for(const i of g.items)if(i[0]===id)return i[1];return id};
+const TIPS=[
+ 'Heat mustard oil until a thin wisp of smoke rises, then lower the flame. That one moment takes away its raw, sharp bite.',
+ 'Let the cumin seeds crackle before anything else goes in. If they do not sizzle, the oil is not hot enough yet.',
+ 'Asafoetida burns in seconds. Add it just after the cumin crackles, then the next ingredient straight away.',
+ 'Squeeze the lemon on at the table, not in the pot. Heat dulls both its brightness and its vitamin C.',
+ 'Taste for salt after the lemon goes on. Acid makes food taste saltier, so you often need less.',
+ 'Chop the greens just before cooking. Cut leaves lose water and go limp within a day in the fridge.',
+ 'Fold the coriander in at the very end. Its smell fades within minutes of heat.',
+ 'Use three times as much water as beans when you soak. They double in size, and a dry top layer stays hard.',
+ 'For lentils, let the cooker cool down on its own. Forcing the steam out can spit starchy water through the vent.',
+ 'Rinse lentils until the water runs nearly clear. It washes off dust and cuts down the foam in the cooker.',
+ 'Old beans soften slowly. If yours stay firm, give them one more whistle rather than adding soda.',
+ 'Grind flaxseed in short bursts. Whole seeds pass straight through you; ground ones give you their goodness.',
+ 'Roast cumin until it smells nutty and turns one shade darker, then take it off. It keeps darkening as it cools.',
+ 'A spoon of curd on the side cools a hot bowl faster than water does.'];
+const FACTS=[
+ ['moringa','Moringa leaves grow on a tree, not a bush. It is called the drumstick tree after its long, thin pods.'],
+ ['gooseberry','One Indian gooseberry (amla) can hold more vitamin C than a whole orange.'],
+ ['turmeric','Turmeric is a root in the ginger family. A pinch of black pepper helps your body absorb it.'],
+ ['blackgram','Black gram is urad dal. Split and skinned it turns white, so the same lentil sells as black and as white.'],
+ ['pmillet','Pearl millet (bajra) grows in heat and drought where little else will, which is why it warms winter kitchens in Rajasthan.'],
+ ['fmillet','Finger millet (ragi) is named for its seed heads, which spread like fingers. It is one of the richest grains in calcium.'],
+ ['kidney','Raw kidney beans hold a toxin that only proper boiling destroys. Soaking and pressure-cooking makes them perfectly safe.'],
+ ['fenugreek','Fenugreek leaves and fenugreek seeds come from the same plant. Dried, the leaves are sold as kasuri methi.'],
+ ['coriander','Coriander leaves, stems and seeds all come from one plant, and the stems carry more flavour than the leaves.'],
+ ['guava','A guava has around four times the vitamin C of an orange, weight for weight.'],
+ ['lemon','The vitamin C in lemon helps your body take up the iron in lentils and greens. That is why it goes on every bowl.'],
+ ['mung','Mung beans sprout in about a day. Sprouting softens them and makes them quicker to cook.'],
+ ['barley','Barley is one of the oldest farmed grains. It was grown in the Indus Valley more than 4,000 years ago.'],
+ ['chickpea','Black chickpeas (kala chana) are the smaller, older cousin of the white chickpea, with a tougher, fibre-rich skin.'],
+ ['amaranth','Amaranth leaves come in green and red. The red ones bleed pink into the pot as they cook.'],
+ ['flax','Flaxseed is one of the richest plant sources of omega-3 fat, but only once it is ground.']];
+function surprise(){
+  if(mem.surprise&&mem.surprise.d===today)return mem.surprise;
+  const got=mem.stk||[], pool=PLANTS.flatMap(g=>g.items.map(i=>i[0])).filter(id=>STK[id]&&!got.includes(id));
+  const seen=mem.seen=mem.seen&&typeof mem.seen==='object'?mem.seen:{tip:[],fact:[]};
+  let r=Math.random(), kind=r<.36?'tip':r<.68?'fact':'sticker', i;
+  if(kind==='sticker'&&!pool.length)kind='tip';
+  if(kind==='sticker')i=pool[Math.floor(Math.random()*pool.length)];
+  else{const L=kind==='tip'?TIPS:FACTS;seen[kind]=seen[kind]||[];let idx=L.map((_,k)=>k).filter(k=>!seen[kind].includes(k));if(!idx.length){seen[kind]=[];idx=L.map((_,k)=>k)}i=idx[Math.floor(Math.random()*idx.length)]}
+  mem.surprise={d:today,kind,i,open:0};save();return mem.surprise;
+}
+const DABBA='<svg class="dabba" viewBox="0 0 80 72" aria-hidden="true"><ellipse cx="40" cy="66" rx="28" ry="4" fill="rgba(0,0,0,.14)"/><path d="M14 30h52v24c0 6-6 10-12 10H26c-6 0-12-4-12-10z" class="db-body"/><path d="M14 36h52" stroke="var(--steel-edge)" stroke-width="1.2" opacity=".6"/><path d="M20 34v22" stroke="var(--shine)" stroke-width="3" stroke-linecap="round"/><g class="db-lid"><path d="M10 24c0-4 4-7 8-7h44c4 0 8 3 8 7v6H10z" class="db-body"/><path d="M16 21h20" stroke="var(--shine)" stroke-width="2.4" stroke-linecap="round"/><rect x="33" y="10" width="14" height="8" rx="4" class="db-knob"/></g></svg>';
+let justOpened=false;
+function surpriseHTML(){
+  const s0=surprise();
+  if(!s0.open)return `<button class="reveal shut" data-surprise>${DABBA}<span><b>Something is under the lid</b><small>Your reward for finishing the day. Tap to open.</small></span></button>`;
+  let eb,body,art;
+  if(s0.kind==='tip'){eb='Chef’s tip';art=katori(KI.dabba);body=TIPS[s0.i]}
+  else if(s0.kind==='fact'){const [id,t]=FACTS[s0.i];eb='About '+plantName(id).toLowerCase();art=sticker(id);body=t}
+  else{const n=(mem.stk||[]).length, total=PLANTS.reduce((a,g)=>a+g.items.length,0);eb='New sticker';art=sticker(s0.i);body=`<b>${plantName(s0.i)}</b> joins your sticker tin. That is ${n} of ${total}.`}
+  const h=`<div class="reveal open${justOpened?' fresh':''}"><span class="rv-art">${art}</span><span class="rv-t"><small>${eb}</small><span>${body}</span></span></div>`;
+  justOpened=false;return h;
+}
+function openSurprise(btn){
+  const s0=surprise();if(s0.open)return;
+  s0.open=1;
+  if(s0.kind==='sticker'){mem.stk=mem.stk||[];if(!mem.stk.includes(s0.i))mem.stk.push(s0.i)}
+  else{mem.seen[s0.kind].push(s0.i)}
+  save();
+  if(still()){renderToday();return}
+  btn.classList.add('opening');
+  setTimeout(()=>{justOpened=true;tadka(btn);renderToday()},520);
+}
+
+/* a small food picture for each row, so the list reads at a glance */
+const ROWICON={coffee:'coffee',breakfast:'eggs',ferment:'veg',hotsoak:'lentils',tea:'coffee',snack:'nuts',soak:'lentils'};
+const rowIcon=(r,T)=>`<span class="rico">${ROWICON[r.id]?katori(KI[ROWICON[r.id]]):r.id==='lunch'||r.id==='dinner'||r.id==='cook'?katori(`<circle class="f" cx="20" cy="20" r="12.4" fill="var(--pot-${T.color})"/>`+(r.id==='cook'?'':'<circle cx="25" cy="23" r="3.6" fill="#f6e27f" stroke="#caa418" stroke-width=".9"/><circle cx="15" cy="17" r="2.2" fill="#3f9a45"/>')):''}</span>`;
+
+/* the bowl: n of six layers showing; a new layer drops in with a ripple */
+function drawBowl(bw,T,n){
+  const svg=$('svg',bw);if(!svg)return;
+  const first=bw._n<0;
+  if(first){void svg.getBoundingClientRect();svg.classList.add('intro');setTimeout(()=>svg.classList.remove('intro'),1400)}
+  svg.dataset.n=n;
+  $$('.ly',svg).forEach(g=>g.classList.toggle('on',+g.dataset.l<=n));
+  if(!first&&n>bw._n&&!still()){svg.classList.remove('splash');void svg.getBoundingClientRect();svg.classList.add('splash');
+    if(n===6)setTimeout(()=>tadka($('.bowl')),350)}
+  bw._n=n;
+}
+function bowlLine(T,n){
+  const L=LAYERS(T);
+  if(!n)return 'Your bowl is empty. Each thing you finish adds to it.';
+  if(n>=6)return 'A full bowl, steaming. Well eaten.';
+  return `Next in the bowl: <b>${L[n]}</b>`;
+}
 function renderTodayCore(){
   const off=view.off||0;
   const T=todayRec(), id=T.color, nowM=off?mem.start-120:nowMin();
@@ -2095,22 +2433,29 @@ function renderTodayCore(){
   if(!off)mem.hist[today]=+ratio.toFixed(2);const hk=Object.keys(mem.hist);if(hk.length>30)delete mem.hist[hk[0]];save();
   
   document.documentElement.dataset.pot=id;
-  const bw=$('#bowl');if(bw.dataset.k!==id){bw.dataset.k=id;bw.innerHTML=bowlArt(id)+'<i class="steam" aria-hidden="true"><b></b><b></b><b></b></i>'}
+  const bw=$('#bowl');if(bw.dataset.k!==id){bw.dataset.k=id;bw.innerHTML=bowlArt(id)+'<i class="steam" aria-hidden="true"><b></b><b></b><b></b></i>';bw._n=-1}
   $('#dayh').textContent=T.name;
   $('#dayp').innerHTML=`<b class="dishname">${T.dish}</b>`+(T.k?` About ${rs(Math.round((T.k[0]+REST.k)/50)*50)} kcal and ${Math.round(T.k[1]+REST.p)} g protein today.`:' '+T.nut.split('. ')[0]+' today.');
   const dots=[6,5,4,3,2,1,0].map(i=>{const d=new Date(now.getTime()-i*864e5),v=i===0?ratio:mem.hist[dayKey(d)]||0;
     return `<span class="${i===0?'now':''}"><i class="${v>=.9?'f':v>=.5?'m':v>0?'l':''}"></i>${DAYS[d.getDay()][0]}</span>`}).join('');
   $('#prog').innerHTML='';
-  const dh=$('.dayhead');dh.style.setProperty('--done-off',String(100-ratio*100));dh.classList.toggle('nodone',!dn);dh.classList.toggle('alldone',dn===counted.length);
-  $('#dayp').insertAdjacentHTML('beforeend',`<span class="dprog${dn?' some':''}${dn===counted.length?' all':''}" aria-label="${dn} of ${counted.length} done"><b>${dn}</b><i>/${counted.length}</i> done</span>`);
-  const open=rows.filter(r=>!r.shut&&!isDone(r.id));
+  const dh=$('.dayhead'), all=dn===counted.length;dh.classList.toggle('nodone',!dn);dh.classList.toggle('alldone',all&&!off);
+  drawBowl(bw,T,off?6:all?6:dn?Math.min(5,Math.ceil(dn*6/counted.length)):0);
+  $('#dayp').insertAdjacentHTML('beforeend',`<span class="dprog${dn?' some':''}${all?' all':''}" aria-label="${dn} of ${counted.length} done"><b>${dn}</b><i>/${counted.length}</i> done</span>`);
+  if(!off)$('#dayp').insertAdjacentHTML('beforeend',`<span class="bnext">${bowlLine(T,bw._n)}</span>`);
+  if(!off){mem.thali=mem.thali||{};
+    if(all){if(mem.thali[today]!==T.color){mem.thali[today]=T.color;thaliLand=today}}else delete mem.thali[today];
+    const tk=Object.keys(mem.thali);if(tk.length>21)delete mem.thali[tk[0]];save()}
+  $('#ynote').innerHTML=noteHTML(nowM);
+  let open=rows.filter(r=>!r.shut&&!isDone(r.id));
+  if(!open.some(r=>!r.nocount))open=[]; // only optional things left: the day is done
   const nx=null;
   const f=focusHTML(nowM,nx,open);
   $('#focus').innerHTML=f.html;
   $('#strip').innerHTML='';
   const soakDue=!!soakLine(tomId)&&!isDone('soak')&&nowM>=SOAK_FROM;
   $('#tl').innerHTML=rows.map(r=>r.shut?`<li class="shut">${r.b} at ${clock(r.m)}</li>`:
-   `<li class="${isDone(r.id)?'done':''}${r.id===f.cur?' cur':''}${r.id==='soak'&&soakDue?' due':''}"><button class="tick" data-done="${r.id}" aria-pressed="${isDone(r.id)?'true':'false'}" aria-label="Done: ${r.b}"><i></i></button><button class="trow" data-pin="${r.id}"><span class="tline"><b>${r.b}${r.id==='tea'?'<span class="tag">Optional</span>':''}</b></span><small>${subLine(r)}</small></button></li>`).join('');
+   `<li class="${isDone(r.id)?'done':''}${r.id===f.cur?' cur':''}${r.id==='soak'&&soakDue?' due':''}"><button class="tick" data-done="${r.id}" aria-pressed="${isDone(r.id)?'true':'false'}" aria-label="Done: ${r.b}"><i></i></button><button class="trow" data-pin="${r.id}"><span class="tline"><b>${r.b}${r.id==='tea'?'<span class="tag">Optional</span>':''}${!isDone(r.id)&&prepped(r.id)?`<span class="pbadge" title="${prepped(r.id)}">${CHECK}Prepped</span>`:''}</b>${rowIcon(r,T)}</span><small>${subLine(r)}</small></button></li>`).join('');
   const w=mem.day.water, fh=mem.fish.n;
   const cups=(n,max,art,key,unit)=>Array.from({length:max},(_,k)=>`<button data-${key}="${k+1}" aria-pressed="${k<n}" aria-label="${unit} ${k+1}${k<n?', done':''}">${art(k<n)}</button>`).join('');
   $('#track').innerHTML=`<div class="stp${w>=WATER?' full':''}"><span class="sth"><b>Water</b><small>${w>=WATER?'Done. '+w+' glasses today.':w+' of '+WATER+' glasses. A glass is 250 ml.'}</small></span><span class="cups glass" role="group" aria-label="Glasses of water today">${cups(Math.min(w,WATER),WATER,glassArt,'wset','Glass')}</span></div>
@@ -2379,7 +2724,7 @@ const THU=[
   [15,'<b>Check the fridge.</b> Look at the curd, lemons, tomatoes and cucumbers and note what is running out. If the chutney has gone dark, make half a batch (Cook, then Mint-coriander chutney).'],
   [25,'<b>Plan Saturday’s fish.</b> Either buy it fresh on the day, or check that there is a tin of sardines in the cupboard.']];
 function renderPrep(){
-  if(!mem.prep||mem.prep.wk!==monday)mem.prep={wk:monday,sun:{},thu:{},t0:{}};
+  if(!mem.prep||mem.prep.wk!==monday){if(mem.prep&&mem.prep.wk)mem.prevPrep=mem.prep;mem.prep={wk:monday,sun:{},thu:{},t0:{}}}
   const defs={sun:['Sunday prep','About 75 minutes, after the weekly shop. Sets up Monday to Thursday.',SUN,600,0],thu:['Thursday top-up','About 25 minutes. Sets up Friday to Sunday.',THU,19*60+30,4]};
   const order=dow===4||dow===5?['thu','sun']:['sun','thu'];
   $('#prep-wrap').innerHTML=order.map(k=>{
@@ -2543,7 +2888,9 @@ document.addEventListener('click',e=>{
   const t=e.target.closest('button');if(!t)return;
   const d=t.dataset;
   if(view.off&&(d.done||d.line||d.soak||d.wd||d.fd||d.wset||d.fset||d.fix||d.bed))return;
-  if(d.fix){applyFix(d.fix);return}
+  if(d.fix){if(d.fix!=='undo')tadka(t);applyFix(d.fix);return}
+  if('ynx' in d){mem.day.ynx=1;save();const el=$('.ynote');if(el&&!still()){el.classList.add('bye');setTimeout(()=>renderToday(),260)}else renderToday();return}
+  if('surprise' in d){openSurprise(t);return}
   if(d.jar){
     const back=mem.cook&&!$('#sheet').hidden?mem.cook.kind+':'+mem.cook.id:null;
     if(!$('#sheet').hidden){if(history.state&&history.state.sheet)history.replaceState(null,'');doClose()}
